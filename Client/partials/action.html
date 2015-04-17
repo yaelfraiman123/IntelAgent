@@ -1,0 +1,10 @@
+  <div class = "action" ng-controller="ActionController">
+    <select ng-change="update()"
+            class="input-block-level" 
+            ng-model="selectedStock" 
+            ng-options="stock as stock.name for stock in stockNamesArray">
+      <option value="" selected style="display:none;">Choose a Stock</option>
+    </select>
+      <div ng-include="'partials/formsTab.html'"></div>
+    <div ng-include="'partials/action_table.html'"></div>
+  </div>
