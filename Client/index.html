@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="intelAgent">
+
+  <head>
+    <script data-require="angular.js@*" data-semver="1.4.0-rc.0" src="https://code.angularjs.org/1.4.0-rc.0/angular.js"></script>
+    <script data-require="angular-route@*" data-semver="1.4.0-rc.0" src="https://code.angularjs.org/1.4.0-rc.0/angular-route.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="table.css" />
+    <script src="app.js"></script>
+    <script src="MainController.js"></script>
+    <script src="LoginController.js"></script>
+    <script src="ActionController.js"></script>
+  </head>
+ 
+  <body>
+    
+    <div id="header">
+      <a href="#/main" ><img ng-src="http://i.imgur.com/3fVe1cS.png"
+        title="Intel Agent" /></a>
+      
+    </div>
+    
+    <div ng-view></div>
+    
+    <div id="footer">
+    <p>______________________________________________________________________________</p>  
+      IntelAgent®™ 2015  Company, all rights reserved.
+      
+    </div>
+    
+  </body>
+
+</html>
