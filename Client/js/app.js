@@ -17,6 +17,10 @@
         templateUrl: "partials/action.html",
         controller: "ActionController"
       })
+	  .when("/register",{
+		templateUrl: "partials/register.html",
+		controller: "RegisterController"
+	  })
       .otherwise({
         redirectTo: "/main"
       });
