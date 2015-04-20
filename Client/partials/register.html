@@ -1,0 +1,9 @@
+<div class="loginView">
+	<form ng-submit="registerUser(userData)">
+	  <input type = "email" placeholder="John.doe@gmail.com" required ng-model="userData.email">
+	  <input type = "Password" placeholder="Choose your password" required ng-model="userData.password">
+	  <input type = "Password" placeholder="Confirm password" required ng-model="userData.confirmPassword">
+	  <input type = "submit" value="Register" class="btn btn-md btn-warning" >
+	  <div ng-show="message" >{{message}}</div>
+	</form>
+</div>

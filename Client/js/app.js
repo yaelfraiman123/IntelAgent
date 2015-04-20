@@ -1,7 +1,7 @@
 // Code goes here
 (function() {
 
-  var app = angular.module("intelAgent", ["ngRoute"]);
+  var app = angular.module("intelAgent", ["ngRoute","services"]);
 
   app.config(function($routeProvider) {
     $routeProvider
@@ -17,6 +17,10 @@
         templateUrl: "partials/action.html",
         controller: "ActionController"
       })
+	  .when("/register",{
+		templateUrl: "partials/register.html",
+		controller: "RegisterController"
+	  })
       .otherwise({
         redirectTo: "/main"
       });

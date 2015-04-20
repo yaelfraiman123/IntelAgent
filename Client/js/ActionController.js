@@ -67,6 +67,6 @@
     
     };
     
-    app.controller('ActionController',ActionController);
+    app.controller('ActionController',["$scope",ActionController]);
 
 }());

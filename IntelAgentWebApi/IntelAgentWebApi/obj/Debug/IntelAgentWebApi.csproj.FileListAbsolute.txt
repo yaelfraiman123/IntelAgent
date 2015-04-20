@@ -1,0 +1,202 @@
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.dll.config
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.pdb
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Antlr3.Runtime.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.SqlServer.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Core.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Cookies.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Facebook.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Google.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.OAuth.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Twitter.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Web.Infrastructure.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Newtonsoft.Json.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Owin.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Net.Http.Formatting.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Helpers.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Owin.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.WebHost.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Mvc.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Optimization.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Razor.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Deployment.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Razor.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\WebGrease.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Newtonsoft.Json.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Net.Http.Formatting.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Helpers.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.WebHost.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Mvc.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Optimization.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Razor.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Deployment.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Razor.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Antlr3.Runtime.pdb
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.SqlServer.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Core.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Facebook.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Cookies.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.OAuth.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Google.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Twitter.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Owin.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.csprojResolveAssemblyReference.cache
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.pdb
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Cors.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Cors.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Cors.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Core.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Edm.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Spatial.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.OData.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Core.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Edm.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Spatial.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.OData.xml
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\de\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\es\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\fr\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\it\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ja\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ko\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ru\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.OData.Core.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\de\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\es\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\fr\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\it\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ja\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ko\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ru\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.OData.Edm.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\de\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\es\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\fr\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\it\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ja\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ko\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\ru\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.Spatial.resources.dll
+\\psf\home\documents\visual studio 2013\Projects\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.dll.config
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.pdb
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Antlr3.Runtime.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.SqlServer.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Core.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Core.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Edm.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Cookies.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Facebook.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Google.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.OAuth.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Twitter.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Spatial.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Web.Infrastructure.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Newtonsoft.Json.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Owin.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Net.Http.Formatting.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Cors.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Helpers.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Cors.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Owin.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.WebHost.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Mvc.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.OData.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Optimization.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Razor.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Deployment.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Razor.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\WebGrease.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Core.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.OData.Edm.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Spatial.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Net.Http.Formatting.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Cors.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.OData.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Newtonsoft.Json.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Helpers.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.WebHost.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Mvc.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Optimization.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Razor.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Deployment.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.WebPages.Razor.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Antlr3.Runtime.pdb
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\EntityFramework.SqlServer.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Core.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Facebook.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Cookies.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.OAuth.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Google.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.Twitter.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\System.Web.Http.Owin.xml
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\de\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\es\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\fr\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\it\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ja\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ko\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ru\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.OData.Core.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\de\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\es\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\fr\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\it\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ja\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ko\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ru\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.OData.Edm.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\de\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\es\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\fr\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\it\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ja\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ko\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\ru\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.Spatial.resources.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.csprojResolveAssemblyReference.cache
+C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.pdb

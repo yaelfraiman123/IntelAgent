@@ -10,9 +10,12 @@
       $location.path("/action");
     };
 
-
+	$scope.goToRegisterPage = function goToRegisterPage(){
+		$log.debug("Going to the Register Page via Login");
+        $location.path("/register");
+	};
   };
 
-  app.controller("LoginController", LoginController);
+  app.controller("LoginController", ["$scope","$location","$log",LoginController]);
 
 }()); 
