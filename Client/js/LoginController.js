@@ -2,7 +2,7 @@
 
   var app = angular.module("intelAgent");
 
-  var LoginController = function($scope,$location,$log,userAccount) {
+  var LoginController = function($scope,$location,$log,userAccount,currentUser) {
 
 		$scope.login = function(){
 			$scope.userData.grant_type = "password";
@@ -11,7 +11,8 @@
 				function(data){//on Success
 					$scope.message = "";
 					$scope.password = "";
-					currentUser.setProfile($scope.userData.username,token,true);//init current user profile
+					
+					currentUser.setProfile($scope.userData.username,data.access_token,true);//init current user profile
 					$log.debug("Going to the Action Page via Login");
 					$location.path("/action");
 				},
@@ -33,6 +34,6 @@
 	};
 
 
-  app.controller("LoginController", ["$scope","$location","$log",'userAccount',LoginController]);
+  app.controller("LoginController", ["$scope","$location","$log",'userAccount','currentUser',LoginController]);
 
 }()); 
