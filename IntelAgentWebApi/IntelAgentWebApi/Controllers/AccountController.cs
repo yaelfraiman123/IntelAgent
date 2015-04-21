@@ -16,10 +16,12 @@ using Microsoft.Owin.Security.OAuth;
 using IntelAgentWebApi.Models;
 using IntelAgentWebApi.Providers;
 using IntelAgentWebApi.Results;
+using System.Web.Http.Cors;
 
 namespace IntelAgentWebApi.Controllers
 {
     [Authorize]
+    [EnableCorsAttribute("*", "*", "*")]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {

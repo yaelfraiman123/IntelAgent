@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="intelAgent">
+<html ng-app="intelAgent" lang="he">
+
 
   <head>
+	<meta charset="UTF-8">
     <link rel = "stylesheet" href="bootstrap/css/bootstrap.css" />
     <script data-require="angular.js@*" data-semver="1.4.0-rc.0" src="https://code.angularjs.org/1.4.0-rc.0/angular.min.js"></script>
     <script data-require="angular-route@*" data-semver="1.4.0-rc.0" src="https://code.angularjs.org/1.4.0-rc.0/angular-route.min.js"></script>
@@ -24,9 +26,8 @@
   <body>
     <header class="col-md-12">
       <a href="#/main">
-        <img ng-src="images/Logo.png" title="Intel Agent" class="logo" />
+        <img ng-src="images/Logo.jpg" title="Intel Agent" class="logo" />
       </a>
-	  <p ng-show="isLoggedIn()">Hello user</p><!--not sure weather  or not it's scoped here-->
     </header>
 	
     <div ng-view></div>

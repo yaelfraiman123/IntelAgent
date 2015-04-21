@@ -27,10 +27,10 @@
 						function(response){//on Failure
 							$scope.isLoggedIn = false;
 							$scope.message = response.statusText + "/r/n";
-							if(response.data && response.data.exceptionMessage )
+							if(response.data.exceptionMessage )
 								$scope.message += response.data.exceptionMessage;
 							
-							if(response.data && response.data.modelState){
+							if(response.data.modelState){
 								for(var key in response.data.modelState){
 									$scope.message += response.data.modelState[key] + "/r/n";
 								}
@@ -43,11 +43,13 @@
 
 			userAccount.login.loginUser($scope.userData,
 				function(data){//on Success
+				console.log("login success");
 					$scope.message = "";
 					$scope.password = "";
 					currentUser.setProfile($scope.userData.email,token,true);//init current user profile
 				},
 				function(response){//on Failure
+				console.log("login failed");
 					$scope.password ="";
 					currentUser.setProfile("","",false);//reset current user
 					$scope.message = response.statusText + "/r/n";

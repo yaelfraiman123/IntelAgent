@@ -32,6 +32,7 @@
 		};
 	};
 
+
   app.controller("LoginController", ["$scope","$location","$log",'userAccount',LoginController]);
 
 }()); 
