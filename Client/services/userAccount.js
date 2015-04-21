@@ -4,7 +4,8 @@
 	
 		return {
 			registration: $resource(appSettings.serverURL + "/api/Account/Register",null,{
-				'registerUser':{ method: 'POST'}
+				'registerUser':{ method: 'POST'},
+				headers: { 'Content-Type': 'application/json'}
 			}),
 			login: $resource(appSettings.serverURL + "/Token",null,{
 				'loginUser':{ 
