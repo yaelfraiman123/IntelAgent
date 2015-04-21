@@ -26,7 +26,11 @@ table {
 }
 
 .bordered tr:hover {
+<<<<<<< HEAD:Client/css/table.css
     background: orange;
+=======
+    background: grey;
+>>>>>>> tamir:Client/table.css
     -o-transition: all 0.1s ease-in-out;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -35,8 +39,7 @@ table {
 }    
     
 .bordered tr td, .bordered tr th {
-    border-left: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    border: 1px solid grey;
     padding: 10px;
     text-align: center;    
 }
