@@ -11,6 +11,6 @@
     };
   };
 
-  app.controller("LoginController", ["$scope","$location","$log",LoginController]);
+  app.controller("LoginController", LoginController);
 
 }()); 

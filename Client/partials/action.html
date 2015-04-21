@@ -1,5 +1,5 @@
   <div class = "action" ng-controller="ActionController">
-    <select ng-change="changeStock()"
+    <select ng-change="update()"
             class="stockOption" 
             ng-model="selectedStock" 
             ng-options="stock as stock.name for stock in stockNamesArray">
@@ -8,177 +8,25 @@
 <div class="container">
 			<h1>\</h1>
 	<div class = "FormTextFirst">
-<<<<<<< HEAD
-		<div class="container">
-			<div class = "row">
-				<div class="readOnlyTextFirst">
-					<div class="col-md-2">
-						<p> כמות היצע</p>
-					</div>
-					<div class="col-md-2">
-						<p> כמות ביקוש </p>
-					</div>
-					<div class="col-md-2">
-						<p> מחיר היצע</p>
-					</div>
-					<div class="col-md-2">
-						<p> מחיר ביקוש</p>
-					</div>
-					<div class="col-md-1">
-						<p style="margin-right:-40px"> שינוי ב-%</p>
-					</div>
-					<div class="col-md-1 col-md-offset-1">
-						<p style="margin-right:-40px"> מחיר אחרון</p>
-					</div>
-				</div>
-			</div>
-			<div class="first">
-				<div class = "row">
-					<div class="readOnlyText">
-						<div class="col-md-2">
-							<input type = "text" readonly value = "0">
-						</div>
-						<div class="col-md-2">
-							<input type = "text" readonly value = "0">
-						</div>
-						<div class="col-md-2">
-							<input type = "text" readonly value = "0">
-						</div>
-						<div class="col-md-2">
-							<input type = "text" readonly value = "0">
-						</div>
-						<div class="col-md-1">
-							<input type = "text" readonly value = "0">
-						</div>
-						<div class="col-md-1 col-md-offset-1">
-							<input type = "text" readonly value = "0">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="FormTextSecond"  ng-submit="submitFunc()">
-				<div class = "row">
-					<div class= "col-md-2">
-						<input type = "submit" value="בצע" class="submitBtn btn btn-lg btn-success">
-					</div>
-					<div class= "col-md-2">
-						<p> יעד</p>
-					</div>
-					<div class= "col-md-2">
-						<p> אסטרטגיה</p>
-					</div>
-					<div class= "col-md-2">
-						<p>לימיט</p>
-					</div>
-					<div class= "col-md-1">
-						<p>כמות</p>
-					</div>
-					<div class= "col-md-1">
-						<p>פעולה</p>
-					</div>
-				</div>
-			</div>
-			<form class="second">
-				<div class = "row">
-					<div class= "col-md-2 col-md-offset-1 ">
-						<select>
-						<option>קרוס</option>
-						<option>דרק פול</option>
-						</select>
-					</div>
-					<div class= "col-md-2">
-						<select>
-						<option>אגרסיבי</option>
-						<option>פסיבי</option>
-						</select>
-					</div>
-					<div class= "col-md-2">
-						<select ng-change="updateLimitSelect()"
-						ng-model="selectedLimit" 
-						ng-options="option as option.label for option in optionArray">
-						<option value="" selected style="display:none;">Choose Limit</option>
-						<input type="text" ng-show="other">
-						</select>
-					</div>
-					<div class= "col-md-2">
-						<input type = "text">
-					</div>
-					<div class= "col-md-2">
-						<select>
-						<option>קנייה</option>
-						<option>מכירה</option>
-						</select>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-
-
-	<div> 
-		<table ng-table="" class="bordered">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-					<th>מחיר ביצוע</th>
-					<th>כמות ביצוע</th>
-					<th>סטטוס</th>
-					<th>יעד</th>
-					<th>אסטרטגיה</th>
-					<th>לימיט</th>
-					<th>כמות</th>
-					<th>פעולה</th>
-					<th>מניה</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="transaction in transactions">
-					<td>
-						<button class="btn btn-default" 
-							ng-click="update($index)" style="color: blue">
-							עדכון
-						</button>
-					</td>
-					<td>
-						<button class="btn btn-default" 
-							ng-click="abort($index)" style="color: red">
-							ביטול
-						</button>
-					</td>
-					<td>{{transaction.delivered_price}}</td>
-					<td>{{transaction.delivered_quantity}}</td>
-					<td>{{transaction.status}}</td>
-					<td>{{transaction.target}}</td>
-					<td>{{transaction.strategy}}</td>
-					<td>{{transaction.limit}}</td>
-					<td>{{transaction.quantity}}</td>
-					<td>{{transaction.action}}</td>
-					<td>{{transaction.name}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-=======
 		<div class = "row">
 			<div class="readOnlyTextFirst">
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<p> כמות היצע</p>
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<p> כמות ביקוש </p>
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<p> מחיר היצע</p>
 				</div>
 				<h2>-</h2>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<p> מחיר ביקוש</p>
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<p>% - שינוי ב</p>
 				</div>
-				<div class="col-md-1 col-xs-1">
+				<div class="col-md-1">
 					<p style="margin-right:-98px"> מחיר אחרון</p>
 				</div>
 			</div>
@@ -186,22 +34,22 @@
     <form class="first">
 		<div class = "row">
 			<div class="readOnlyText">
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<input type = "text" readonly value = "0">
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<input type = "text" readonly value = "0">
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<input type = "text" readonly value = "0">
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<input type = "text" readonly value = "0">
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<input type = "text" readonly value = "0">
 				</div>
-				<div class="col-md-2 col-xs-1">
+				<div class="col-md-2">
 					<input type = "text" readonly value = "0">
 				</div>
 			</div>
@@ -211,22 +59,22 @@
 	<div class="FormTextSecond"  ng-submit="submitFunc()">
 		<div class = "row">
 			<div class="readOnlyTextSecond2">
-				<div class= "col-md-2 col-xs-1 submitBtnPlace">
+				<div class= "col-md-2 submitBtnPlace">
 					<input type = "submit" value="בצע" class="submitBtn btn btn-lg btn-success">
 				</div>
-				<div class= "col-md-2 col-xs-1">
+				<div class= "col-md-2">
 					<p> יעד</p>
 				</div>
-				<div class= "col-md-2 col-xs-1">
+				<div class= "col-md-2">
 					<p> אסטרטגיה</p>
 				</div>
-				<div class= "col-md-2 col-xs-1">
+				<div class= "col-md-2">
 					<p>לימיט</p>
 				</div>
-				<div class= "col-md-1 col-xs-1" style="left:50px">
+				<div class= "col-md-1" style="left:50px">
 					<p style="margin-left: -23px">כמות</p>
 				</div>
-				<div class= "col-md-1 col-xs-1" style="left:148px">
+				<div class= "col-md-1" style="left:148px">
 					<p style ="margin-left: -23px">פעולה</p>
 				</div>
 			</div>
@@ -234,19 +82,19 @@
 		<form class="second">
 			<div class = "row">
 				<div class="readOnlyTextSecond">
-					<div class= "col-md-2 col-xs-1 col-md-offset-2" style="bottom:60px">
+					<div class= "col-md-2 col-md-offset-2" style="bottom:60px">
 						<select>
 						  <option>קרוס</option>
 						  <option>דרק פול</option>
 						</select>
 					</div>
-					<div class= "col-md-2 col-xs-1" style="bottom:60px">
+					<div class= "col-md-2" style="bottom:60px">
 						<select>
 						  <option>אגרסיבי</option>
 						  <option>פסיבי</option>
 						</select>
 					</div>
-					<div class= "col-md-2 col-xs-1" style="bottom:60px">
+					<div class= "col-md-2" style="bottom:60px">
 						<select ng-change="updateLimitSelect()"
 						ng-model="selectedLimit" 
 						ng-options="option as option.label for option in optionArray">
@@ -254,10 +102,10 @@
 						<input type="text" ng-show="other">
 						</select>
 					</div>
-					<div class= "col-md-2 col-xs-1" style="bottom:60px">
+					<div class= "col-md-2" style="bottom:60px">
 						<input type = "text">
 					</div>
-					<div class= "col-md-2 col-xs-1" style="bottom:60px">
+					<div class= "col-md-2" style="bottom:60px">
 						<select>
 						  <option>קנייה</option>
 						  <option>מכירה</option>
@@ -302,6 +150,5 @@
         </tr>
       </tbody>
     </table>
->>>>>>> tamir
 
-</div><!--ActionController end -->
+  </div>
