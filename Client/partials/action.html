@@ -1,9 +1,9 @@
-  <div class = "action" ng-controller="ActionController">
+  <div class = "action" ng-controller="ActionController" >
     <select ng-change="update()"
-            class="stockOption" 
+            class="stockOption col-md-2 col-md-offset-10" style="margin-bottom:15px"			
             ng-model="selectedStock" 
             ng-options="stock as stock.name for stock in stockNamesArray">
-      <option value="" selected style="display:none;">Choose a Stock</option>
+      <option value="" selected style="display:none">Choose a Stock</option>
     </select>
 <div class="container">
 			<h1>\</h1>
@@ -135,9 +135,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr  ng-repeat="transaction in transactions">
-          <td style = "width:1px"><input type = "submit" value="עדכון" class="btn btn-xs btn-relax"></td>
-          <td style = "width:1px"><input type = "submit" value="ביטול" class="btn btn-xs btn-relax"></td>
+        <tr  ng-repeat="transaction in transactions">	
+			<td>
+				<button class="btn btn-default" 
+					ng-click="update($index)" style="color: blue">
+					עדכון
+				</button>
+			</td>
+			<td>
+				<button class="btn btn-default" 
+					ng-click="abort($index)" style="color: red">
+					ביטול
+				</button>
+			</td>
           <td>{{transaction.delivered_price}}</td>
           <td>{{transaction.delivered_quantity}}</td>
           <td>{{transaction.status}}</td>

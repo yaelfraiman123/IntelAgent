@@ -15,6 +15,6 @@
 	};
   };
 
-  app.controller("MainController", MainController);
+  app.controller("MainController", ["$scope","$location","$log",MainController]);
 
 }());
