@@ -13,7 +13,8 @@
 					transformRequest: function (data, headersGetter){//transform to URL encoded
 						var str = [];
 						for(var d in data)
-							str.push(encodeURIComponent(data[d]));
+							str.push( encodeURIComponent(d) + "=" + 
+											encodeURIComponent(data[d]));
 						return str.join("&");
 					}
 				}

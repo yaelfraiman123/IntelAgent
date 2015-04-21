@@ -1,7 +1,7 @@
 <div class="loginView">
-	<form ng-submit="login(username,password)">
-	  <input type = "email" placeholder="UserName(email)" required ng-model="username">
-	  <input type = "Password" placeholder="Password" required ng-model="password">
+	<form ng-submit="login()">
+	  <input type = "email" placeholder="UserName(email)" required ng-model="userData.username">
+	  <input type = "Password" placeholder="Password" required ng-model="userData.password">
 	  <input type = "submit" value="Login" class="btn btn-md btn-warning" >
 	</form>
 	<input type = "button" value="Register" ng-click="goToRegisterPage()">
