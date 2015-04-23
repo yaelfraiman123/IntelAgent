@@ -19,13 +19,19 @@ namespace IntelAgentWebApi.Models
         /// <returns></returns>
         internal List<DarkPoolStockModel> Retrieve()
         {
-            var filePath = HostingEnvironment.MapPath(@"~/App_Data/DarkPoolStockMarket.json");
+            
+            var filePath = HostingEnvironment.MapPath(@"~/App_Data/DarkPoolStockMarket.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
+            string jsonText = JsonConvert.SerializeXmlNode(doc);
 
-            var json = System.IO.File.ReadAllText(filePath);
-
-            var stockslst = JsonConvert.DeserializeObject<List<DarkPoolStockModel>>(json);
+            var first = jsonText.IndexOf("[{\"Symbol");
+            var end = jsonText.IndexOf("}}");
+            var subString = jsonText.Substring(first, end - first);
+            var stockslst = JsonConvert.DeserializeObject<List<DarkPoolStockModel>>(subString);
 
             return stockslst;
+
         }
 
    
