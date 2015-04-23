@@ -240,6 +240,7 @@
     <None Include="App_Data\DarkPoolStockMarket.json">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="App_Data\DarkPoolStockMarket.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
