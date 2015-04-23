@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDarkPoolData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DarkPoolData>
+    <Symbol>פועלים</Symbol>
+    <LastPrice>1904</LastPrice>
+    <PctChg>1.17</PctChg>
+    <Ask>1903</Ask>
+    <Bid>1904</Bid>
+    <AskQty>1410</AskQty>
+    <BidQty>7590</BidQty>
+  </DarkPoolData>
+  <DarkPoolData>
+    <Symbol>לאומי</Symbol>
+    <LastPrice>1453</LastPrice>
+    <PctChg>0.55</PctChg>
+    <Ask>1450</Ask>
+    <Bid>1453</Bid>
+    <AskQty>1366</AskQty>
+    <BidQty>10000</BidQty>
+  </DarkPoolData>
+    <DarkPoolData>
+    <Symbol>בזק</Symbol>
+    <LastPrice>748.7</LastPrice>
+    <PctChg>2.83</PctChg>
+    <Ask>748.5</Ask>
+    <Bid>748.9</Bid>
+    <AskQty>15500</AskQty>
+    <BidQty>16500</BidQty>
+  </DarkPoolData>
+    <DarkPoolData>
+    <Symbol>טבע</Symbol>
+    <LastPrice>25000</LastPrice>
+    <PctChg>0.97</PctChg>
+    <Ask>25000</Ask>
+    <Bid>25010</Bid>
+    <AskQty>963</AskQty>
+    <BidQty>603</BidQty>
+  </DarkPoolData>
+</ArrayOfDarkPoolData>
