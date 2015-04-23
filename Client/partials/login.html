@@ -1,7 +1,7 @@
 <div class="loginView">
-	<form ng-submit="login()">
-	  <input type = "email" placeholder="UserName(email)" required ng-model="userData.username">
-	  <input type = "Password" placeholder="Password" required ng-model="userData.password">
-	  <input type = "submit" value="Login" class="btn btn-md btn-warning" >
+	<form ng-submit="login(username,password)">
+	  <input type = "text" placeholder="User Name" required ng-model="username">
+	  <input type = "Password" placeholder="Password" required ng-model="password">
+	  <input type = "submit" value="Login" class="btn btn-md btn-warning" style="border-radius:15px" >
 	</form>
 </div>

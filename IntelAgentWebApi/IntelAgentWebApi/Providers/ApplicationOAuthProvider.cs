@@ -34,7 +34,8 @@ namespace IntelAgentWebApi.Providers
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin",
-                new[] { "*"});
+		 new[] {"*" });
+
             if (user == null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");

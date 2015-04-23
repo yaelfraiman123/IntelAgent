@@ -1,0 +1,38 @@
+[
+ {
+  "Symbol": "פועלים",
+  "LastPrice": "1904",
+  "PctChg": "1.17",
+  "Ask": "1903",
+  "Bid": "1904",
+  "AskQty": "1410",
+  "BidQty": "7590"
+},
+{
+  "Symbol": "לאומי",
+  "LastPrice": "1453",
+  "PctChg": "0.55",
+  "Ask": "1450",
+  "Bid": "1453",
+  "AskQty": "1366",
+  "BidQty": "10000"
+},
+{
+  "Symbol": "בזק",
+  "LastPrice": "748.7",
+  "PctChg": "2.83",
+  "Ask": "748.5",
+  "Bid": "748.9",
+  "AskQty": "15500",
+  "BidQty": "16500"
+},
+{
+  "Symbol": "טבע",
+  "LastPrice": "25000",
+  "PctChg": "0.97",
+  "Ask": "25000",
+  "Bid": "25010",
+  "AskQty": "963",
+  "BidQty": "603"
+}
+]

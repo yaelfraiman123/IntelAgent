@@ -15,7 +15,7 @@
 		{
 				profile.username = username;
 				profile.token = token;
-				profile.isLoogedIn = isLoogedIn;
+				progile.isLoogedIn = isLoogedIn;
 		};
 		
 		var getProfile = function()
