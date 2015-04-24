@@ -16,7 +16,6 @@
 						for(var d in data)
 							str.push( encodeURIComponent(d) + "=" + 
 											encodeURIComponent(data[d]));
-						console.log(str.join("&"));
 						return str.join("&");
 					}
 				}

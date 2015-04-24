@@ -10,10 +10,10 @@
 		{
 		var names = [{
 				id: '0',
-				name: 'לאומי'
+				name: 'LEUMI'
 			}, {
 				id: '1',
-				name: 'הפועלים'
+				name: 'HAPOALIM'
 			}];
 		return names;
 		}
@@ -24,23 +24,23 @@
         
 		$scope.transactions = [{
 			name: "HAPOALIM",
-			action: "מכירה",
+			action: "SELL",
 			quantity: 213,
 			limit: 129.5,
-			strategy: "פסיבי",
-			target: "דרק פול",
-			status: "ממתין",
+			strategy: "PASSIVE",
+			target: "DARK POLL",
+			status: "PENDING",
 			delivered_quantity: 0,
 			delivered_price: 0
 			},
 			{
-			name: "לאומי",
-			action: "קניה",
+			name: "LEUMI",
+			action: "BUY",
 			quantity: 100,
 			limit: 99.5,
-			strategy: "פסיבי",
-			target: "קרוס",
-			status: "ממתין",
+			strategy: "PASSIVE",
+			target: "CROSS",
+			status: "PENDING",
 			delivered_quantity: 0,
 			delivered_price: 0
 		}];
