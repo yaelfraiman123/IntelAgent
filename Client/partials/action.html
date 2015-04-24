@@ -2,7 +2,7 @@
     <select ng-change="changeStock()"
 			class="col-md-offset-1 col-xs-offset-1 action"
             ng-model="selectedStock" 
-            ng-options="stock as stock.name for stock in stockNamesArray">
+             ng-options="stock as stock.Symbol for stock in stockArray">
       <option value="" selected style="display:none;">Choose a Stock</option>
     </select>
 </div>
@@ -32,22 +32,22 @@
 		<div class="inputFromSrc">
 			<div class = "row">
 				<div class="col-md-2 col-xs-2">
-					<input type="text" readonly value = "">
+					<input name = "commited" type="text"  ng-model="selectedStock.Symbol">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input type="text" readonly value = "">
+					<input name = "demand" type="text"  ng-model="selectedStock.Symbol">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input type = "text" readonly value = "">
+					<input name = "price_range" type = "text" ng-model="symbol">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input type = "text" readonly value = "">
+					<input name = "price_demand" type = "text" readonly ng-model="selectedStock.Symbol">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input type = "text" readonly value = "">
+					<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input type = "text" readonly value = "">
+					<input name = "laste_price" type = "text" readonly ng-model="selectedStock.LastPrice">
 				</div>
 			</div>
 		</div>

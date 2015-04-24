@@ -2,22 +2,18 @@
   
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log){
-      
-		$scope.stockNamesArray = getStockNames();
-    
-		function getStockNames()
-		{
-		var names = [{
-				id: '0',
-				name: 'LEUMI'
-			}, {
-				id: '1',
-				name: 'HAPOALIM'
-			}];
-		return names;
-		}
-    
+    var ActionController = function($scope,$log,stockService){
+		stockService.getStocks()
+			.then(function(data){ 
+			//on success
+			$scope.stockArray = data;
+			},
+			function(errorReason){
+			//on failure
+				$scope.error = errorReason;
+			});
+		
+
 		$scope.submitFunc = function(){
 			$log.debug("בצעעעעעעעעע")
 		};
@@ -63,7 +59,8 @@
 	
 		$scope.changeStock = function changeStock()
 		{
-		$log.debug("stockID: " + $scope.selectedStock.id + " Stock Name: " +$scope.selectedStock.name);
+			$log.debug($scope.selectedStock);
+			$scope.symbol = $scope.selectedStock.Symbol;
 		}
 		
 		$scope.update = function(index)
@@ -77,6 +74,6 @@
 		}
     };
     
-    app.controller('ActionController',["$scope","$log",ActionController]);
+    app.controller('ActionController',["$scope","$log","stockService",ActionController]);
 
 }());
