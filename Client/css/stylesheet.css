@@ -19,6 +19,11 @@ body {
 	  margin-bottom: -30px;
 }
 
+.red{
+	background-color:red;
+}
+
+
 .navbar-nav li{
 	bottom:-20px;
 }

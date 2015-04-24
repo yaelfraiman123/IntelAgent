@@ -2,25 +2,25 @@
     <select ng-change="changeStock()"
 			class="col-md-offset-1 col-xs-offset-1 action"
             ng-model="selectedStock" 
-             ng-options="stock as stock.Symbol for stock in stockArray">
+            ng-options="stock as stock.Symbol for stock in stockArray">
       <option value="" selected style="display:none;">Choose a Stock</option>
-    </select>
+	</select>
 </div>
 
 <div class="container conatinerAction">
 	<div class="inputFromSrcHeadLine">
 		<div class = "row">
 			<div class="col-md-2 col-xs-2">
-				<p>Quantity Committed</p>
+				<p>AskQty</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p>Demand Quantity</p>
+				<p>BidQty</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p>Price Range</p>
+				<p>Ask</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p>Price On Demand</p>
+				<p>Bid</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
 				<p style="margin-right:5px">Change(%):</p>
@@ -32,22 +32,22 @@
 		<div class="inputFromSrc">
 			<div class = "row">
 				<div class="col-md-2 col-xs-2">
-					<input name = "commited" type="text"  ng-model="selectedStock.Symbol">
+					<input name = "AskQty" type="text" readonly ng-model="AskQty" id = "AskQty">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input name = "demand" type="text"  ng-model="selectedStock.Symbol">
+					<input name = "BidQty" type="text" readonly ng-model="BidQty" id = "BidQty">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input name = "price_range" type = "text" ng-model="symbol">
+					<input name = "Ask" type = "text" readonly ng-model="Ask" id = "Ask">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input name = "price_demand" type = "text" readonly ng-model="selectedStock.Symbol">
+					<input name = "Bid" type = "text" readonly ng-model="Bid" id = "Bid">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg">
+					<input name = "change" type = "text" readonly ng-model="PctChg" id = "change" ng-class="{red:color.isGreen}">
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<input name = "laste_price" type = "text" readonly ng-model="selectedStock.LastPrice">
+					<input name = "laste_price" type = "text" readonly ng-model="LastPrice" id = "laste_price">
 				</div>
 			</div>
 		</div>
@@ -113,30 +113,30 @@
     <table class="table tableBoot" ng-table="">
         <thead>
             <tr>
-                <th>Price Check</th>
-                <th>Carrying Amount</th>
-                <th>Status</th>
-                <th>Target</th>
-                <th>Strategy</th>
-                <th>Limit</th>
-				<th>Quantity</th>
-                <th>Action</th>
                 <th>Stock</th>
+                <th>Action</th>
+                <th>Quantity</th>
+                <th>Limit</th>
+                <th>Strategy</th>
+                <th>Target</th>
+				<th>Status</th>
+                <th>Carrying Amount</th>
+                <th>Price Check</th>
 				<th></th>
 				<th></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="transaction in transactions">
-				<td>{{transaction.delivered_price}}</td>
-				<td>{{transaction.delivered_quantity}}</td>
-				<td>{{transaction.status}}</td>
-				<td>{{transaction.target}}</td>
-				<td>{{transaction.strategy}}</td>
-				<td>{{transaction.limit}}</td>
-				<td>{{transaction.quantity}}</td>
-				<td>{{transaction.action}}</td>
 				<td>{{transaction.name}}</td>
+				<td>{{transaction.action}}</td>
+				<td>{{transaction.quantity}}</td>
+				<td>{{transaction.limit}}</td>
+				<td>{{transaction.strategy}}</td>
+				<td>{{transaction.target}}</td>
+				<td>{{transaction.status}}</td>
+				<td>{{transaction.delivered_quantity}}</td>
+				<td>{{transaction.delivered_price}}</td>
 				<td>
 					<button class="btn btn-sm btn-default" 
 						ng-click="update($index)">
