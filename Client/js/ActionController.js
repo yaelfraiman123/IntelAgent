@@ -1,16 +1,18 @@
 (function(){
-  
+   "use strict"
     var app = angular.module('intelAgent');
     
     var ActionController = function($scope,$log,stockService){
+
 		$scope.color = {
-			isRed: ($scope.PctChg < 0),
-			isGreen: ($scope.PctChg > 0),
-			};
-		
+			isRed: "",
+			isGreen: ""
+		};
+			
 		stockService.getStocks()
 			.then(function(data){ 
 			//on success
+			console.log(data);
 			$scope.stockArray = data;
 			},
 			function(errorReason){
@@ -52,8 +54,8 @@
 		];
 	
 		$scope.updateLimitSelect = function updateLimitSelect(){
-			$log.debug($scope.selectedLimit);
-			if ($scope.selectedLimit.value == 2){
+			$log.debug($scope.desiredLimitObj);
+			if ($scope.desiredLimitObj.value == 2){//if "other" selected
 				$scope.other = "true";
 			}
 			else{
@@ -64,54 +66,41 @@
 	
 		$scope.changeStock = function changeStock()
 		{
-			$log.debug($scope.selectedStock);
-			
-			
-			var element = document.getElementById("AskQty");
-			element.value=$scope.selectedStock.AskQty;
-			
-			
-			var element = document.getElementById("Ask");
-			element.value=$scope.selectedStock.Ask;
-			
-			
-			var element = document.getElementById("Bid");
-			element.value=$scope.selectedStock.Bid;
-			
-			
-			var element = document.getElementById("BidQty");
-			element.value=$scope.selectedStock.BidQty;
-			
-			$scope.PctChg = $scope.selectedStock.PctChg;
-			var element = document.getElementById("change");
-			element.value=$scope.selectedStock.PctChg;
-			
-			
-			var element = document.getElementById("laste_price");
-			element.value=$scope.selectedStock.LastPrice;
-			
-			if($scope.selectedStock.PctChg > 0)
-				$scope.color.isGreen = true;
-			else if ($scope.selectedStock.PctChg < 0)
-				$scope.color.isRed = true;
+			$scope.color.isGreen = $scope.selectedStock.PctChg > 0;
+			$scope.color.isRed = $scope.selectedStock.PctChg < 0;
+		};
+		
+		$scope.submitFunc = function(){
+		
+			//VALUE 1 == "MKT" label
+			$log.debug($scope.desiredLimitObj);
+			if($scope.desiredLimitObj.value == 1)
+				$scope.desiredLimit = "MKT";
 			else
-			{
-				$scope.color.isGreen = false;
-				$scope.color.isRed = false;
+				$scope.desiredLimit = $scope.desiredLimitValue;
+			
+			$scope.desiredTransaction = {
+			Symbol: $scope.curStock.Symbol,
+			Action: $scope.desiredAction,
+			Quantity: $scope.desiredQty,
+			Limit: $scope.desiredLimit,
+			Strategy: $scope.desiredStrat,
+			Target: $scope.desiredTrgt,
 			}
 			
-			
-		}
-			
+			$log.debug($scope.desiredTransaction);
+		};
+		
 		$scope.update = function(index)
 		{
 			$log.debug("Updating row index:"+index);
-		}
+		};
 			
 		$scope.abort = function(index)
 		{
 			$log.debug("Aborting row index:"+index);
-		}
+		};
+		
     };
     
     app.controller('ActionController',["$scope","$log","stockService",ActionController]);

@@ -19,10 +19,13 @@ body {
 	  margin-bottom: -30px;
 }
 
-.red{
-	background-color:red;
+.redBG{
+	background-color:red !important;
 }
 
+.greenBG{
+	background-color:green !important;
+}
 
 .navbar-nav li{
 	bottom:-20px;
