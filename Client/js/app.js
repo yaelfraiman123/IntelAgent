@@ -9,8 +9,8 @@
         templateUrl: "partials/main.html",
         controller: "MainController"
       })
-      .when("/login",{
-        templateUrl: "partials/login.html",
+     .when("/login",{
+        templateUrl: "partials/Login.html",
         controller: "LoginController"
       })
       .when("/action",{
@@ -20,6 +20,18 @@
 	  .when("/register",{
 		templateUrl: "partials/register.html",
 		controller: "RegisterController"
+	  })
+	  .when("/contact",{
+		templateUrl: "partials/contact.html",
+		controller: "ContactController"
+	  })
+	  .when("/what-we-do/:tabToShow?",{
+		templateUrl: "partials/what-we-do.html",
+		controller: "WhatController"
+	  })
+	  .when("/about/:tabToShow?",{
+		templateUrl: "partials/about.html",
+		controller: "AboutController"
 	  })
       .otherwise({
         redirectTo: "/main"

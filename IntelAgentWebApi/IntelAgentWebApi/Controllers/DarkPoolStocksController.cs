@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.OData;
 using IntelAgentWebApi.Models;
+using System.Web.Http.Cors;
 
 namespace IntelAgentWebApi.Controllers
 {
+    [EnableCorsAttribute("*", "*", "*")]
     public class DarkPoolStocksController : ApiController
     {
        

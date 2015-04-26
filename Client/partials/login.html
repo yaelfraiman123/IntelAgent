@@ -1,7 +1,15 @@
-<div class="loginView">
-	<form ng-submit="login()">
-	  <input type = "email" placeholder="UserName(email)" required ng-model="userData.username">
-	  <input type = "Password" placeholder="Password" required ng-model="userData.password">
-	  <input type = "submit" value="Login" class="btn btn-md btn-warning" >
+<div class="container lgScreenChgLogin mdScreenChgLogin">
+	<form class="form-signin" ng-submit="login()">
+		<h2 class="form-signin-heading">Please Sign In</h2>
+		<label for="inputEmail" class="sr-only">Email address</label>
+		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="userData.username">
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="userData.password">
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" text="remember me">Remember me<br>
+			</label>
+		</div>
+		<button class="btn btn-lg btn-warning btn-block" type="submit">Sign in</button>
 	</form>
 </div>

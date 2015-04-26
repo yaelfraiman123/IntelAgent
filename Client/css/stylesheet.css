@@ -1,0 +1,266 @@
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+	background-color: #eee;
+}
+
+.action{
+  margin-bottom: 20px;
+  background-color: #D6D6D6;
+  font-weight:bold;
+  font-family:sans-serif;
+}
+
+.tableBoot{
+	  margin-left: 73px;
+	  width:85%;
+}
+
+.containerAction{
+	  margin-bottom: -30px;
+}
+
+.red{
+	background-color:red;
+}
+
+
+.navbar-nav li{
+	bottom:-20px;
+}
+
+.navbar-nav{
+	margin-left: 20px;
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+.containerFluid h2{
+	font:normal normal bold 27px jura,sans-serif;
+	color:#F17300;
+}
+
+.containerFluid h3{
+	  font-weight: bold;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.inputFromSrc input[type="text"]{
+	border: none;
+	width: 133px;
+	border-radius: 10px;
+	background-color: #bebebe;
+	line-height: 20px;
+	text-align: center;
+}
+
+.inputFromSrcHeadLine {
+	border-radius: 4px;
+	background-color: #D6D6D6;
+	font-family: sans-serif;
+	font-weight: 800;
+	width: 1100px;
+	text-align: center;
+	line-height: 26px;
+}
+
+.inputFromUser{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.inputFromUser input[type="submit"]{
+  width: 131px;
+  line-height: 40px;
+  margin-left: -70px;
+}
+
+.inputFromUser p{
+  border-radius: 4px;
+  background-color: #D6D6D6;
+  width: 130px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.inputFromUserForm{
+  margin-top: -20px;
+  margin-bottom: 100px;
+}
+
+.inputFromUserForm select, .inputFromUserForm input[type="text"]{
+  width: 130px;
+  background-color: #D6D6D6;
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.inputFromUserForm input[type="text"]{
+	line-height:17px;
+}
+
+.contactUsInfo h2{
+	color:#F17300;
+	font:normal normal bold 29px jura,sans-serif;
+}
+
+.contactUsInfo h4{
+  font-weight: 800;
+  color: grey;
+}
+
+.row h3{
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.mapOfUs{
+	height: 318px;
+	width: 979px;
+	left: 155px;
+}
+
+.row .input-group{
+	margin-top:20px;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 45px;
+  font-family: sans-serif;
+}
+
+footer {
+    padding: 30px 20px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+@media only screen and (min-width:1224px) {	
+	.mdScreenChgLogin{
+		margin-bottom:300px;
+	}
+
+	.mdScreenChgRegister{
+		margin-bottom:290px;
+	}
+}
+
+@media only screen and (min-width:1624px) {
+	.mapOfUs{
+		height: 340px;
+		width: 1100px;
+		left: 265px;
+	}
+	
+	.lgScreenChgContact{
+		margin-bottom:80px;
+	}
+	
+	.lgScreenChgLogin{
+		margin-bottom:520px;
+	}
+	
+	.lgScreenChgRegister{
+		margin-bottom:500px;
+	}
+}
+
+@media(max-width:680px){
+	.navbar-brand img{
+		height:50px;
+	}
+
+	.inputFromUserForm select, .inputFromUserForm input[type="text"]{
+		  background-color: #D6D6D6;
+		  font-family: sans-serif;
+		  font-weight: bold;
+		  border-radius: 4px;
+		  margin-left:0px;
+	}
+	
+	.inputFromUser input[type="submit"]{
+		  line-height: 40px;
+		  margin-left: -70px;
+	}
+
+	.inputFromUser p{
+		  border-radius: 4px;
+		  background-color: #D6D6D6;
+		  font-family: sans-serif;
+		  font-weight: bold;
+		  margin-left:0px;
+	}
+	
+	.inputFromSrcHeadLine {
+		border-radius: 4px;
+		background-color: #D6D6D6;
+		font-family: sans-serif;
+		font-weight: 800;
+		text-align: center;
+		line-height: 26px;
+		margin-right:0px;
+	}
+
+	.inputFromSrc input[type="text"]{
+		border: none;
+		border-radius: 10px;
+		background-color: #bebebe;
+		line-height: 20px;
+		text-align: center;
+	}
+}
