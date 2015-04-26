@@ -12,7 +12,7 @@
   <DarkPoolData>
     <Symbol>LUMI</Symbol>
     <LastPrice>1453</LastPrice>
-    <PctChg>0.55</PctChg>
+    <PctChg>0</PctChg>
     <Ask>1450</Ask>
     <Bid>1453</Bid>
     <AskQty>1366</AskQty>
@@ -21,7 +21,7 @@
     <DarkPoolData>
     <Symbol>BEZQ</Symbol>
     <LastPrice>748.7</LastPrice>
-    <PctChg>2.83</PctChg>
+    <PctChg>-2.83</PctChg>
     <Ask>748.5</Ask>
     <Bid>748.9</Bid>
     <AskQty>15500</AskQty>
