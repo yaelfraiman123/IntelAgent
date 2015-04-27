@@ -6,3 +6,7 @@ IntelAgentWebApi/IntelAgentWebApi/bin/IntelAgentWebApi.pdb
 *.cache
 *.pdb
 *.suo
+
+Angular/
+Client/.idea/
+intelAgentWebApi/.idea/
