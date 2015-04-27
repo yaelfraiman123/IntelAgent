@@ -114,12 +114,6 @@ body {
   margin-top: 20px;
 }
 
-.inputFromUser input[type="submit"]{
-  width: 131px;
-  line-height: 40px;
-  margin-left: -70px;
-}
-
 .inputFromUser p{
   border-radius: 4px;
   background-color: #D6D6D6;
@@ -129,8 +123,8 @@ body {
 }
 
 .inputFromUserForm{
-  margin-top: -20px;
-  margin-bottom: 100px;
+  margin-top: 12px;
+  margin-bottom: 70px;
 }
 
 .inputFromUserForm select, .inputFromUserForm input[type="text"]{
@@ -143,6 +137,14 @@ body {
 
 .inputFromUserForm input[type="text"]{
 	line-height:17px;
+}
+
+
+.inputFromUserForm input[type="submit"]{
+  width: 131px;
+  line-height: 40px;
+  margin-left: -19px;
+  margin-top: -42px;
 }
 
 .contactUsInfo h2{
@@ -168,6 +170,10 @@ body {
 
 .row .input-group{
 	margin-top:20px;
+}
+
+.table-responsive{
+	margin-bottom:150px;
 }
 
 h1{
@@ -198,6 +204,10 @@ footer {
 	.mdScreenChgRegister{
 		margin-bottom:290px;
 	}
+	
+	.containerFluid{
+		padding-bottom:580px;
+	}
 }
 
 @media only screen and (min-width:1624px) {
@@ -218,6 +228,14 @@ footer {
 	.lgScreenChgRegister{
 		margin-bottom:500px;
 	}
+	
+	.containerFluid{
+		padding-bottom:1000px;
+	}
+	
+	.table-responsive{
+	margin-bottom:350px;
+}
 }
 
 @media(max-width:680px){
@@ -233,7 +251,7 @@ footer {
 		  margin-left:0px;
 	}
 	
-	.inputFromUser input[type="submit"]{
+	.inputFromUserForm input[type="submit"]{
 		  line-height: 40px;
 		  margin-left: -70px;
 	}
