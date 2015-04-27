@@ -73,16 +73,18 @@
 			<div class = "col-md-2"></div>
 		</div>
 	</div>
-	<form class="inputFromUserForm">
-		<div class = "row" ng-submit="submitFunc()">
+	<form class="inputFromUserForm" ng-submit="submitFunc()">
+		<div class = "row" >
 			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left: 15px">
+				<select style="margin-left: 15px" ng-model = "desiredTrgt" required>
+				<option value="" selected style="display:none">Choose Target</option>
 				<option>Cross</option>
 				<option>Dark Poll</option>
 				</select>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left: 8px">
+				<select style="margin-left: 8px" ng-model = "desiredStrat"required>
+				<option value="" selected style="display:none">Choose Strategy</option>
 				<option>Aggressive</option>
 				<option>Passive</option>
 				</select>
@@ -90,16 +92,17 @@
 			<div class= "col-md-2 col-xs-2">
 				<select ng-change="updateLimitSelect()"
 				ng-model="desiredLimitObj"
-				ng-options="option as option.label for option in optionArray">
+				ng-options="option as option.label for option in optionArray" required>
 				<option value="" selected style="display:none">Choose Limit</option>
-				<input type="text" ng-show="other">
 				</select>
+				<input type="text" ng-show="other">
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<input type="text" style="margin-left: -5px">
+				<input type="text" style="margin-left: -5px" ng-model="desiredQty" required>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left:-12px">
+				<select style="margin-left:-12px" ng-model = "desiredAction" required>
+				<option value="" selected style="display:none">Choose Action</option>
 				<option>Buy</option>
 				<option>Sell</option>
 				</select>
