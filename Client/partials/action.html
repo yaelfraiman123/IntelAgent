@@ -130,10 +130,22 @@
         <tr ng-repeat="transaction in transactions">
             <td>{{transaction.name}}</td>
             <td>{{transaction.action}}</td>
-            <td>{{transaction.quantity}}</td>
-            <td>{{transaction.limit}}</td>
-            <td>{{transaction.strategy}}</td>
-            <td>{{transaction.target}}</td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.quantity" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.limit}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.limit" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.strategy" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.target}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.target" /></div>
+            </td>
             <td>{{transaction.status}}</td>
             <td>{{transaction.delivered_quantity}}</td>
             <td>{{transaction.delivered_price}}</td>
