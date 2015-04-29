@@ -8,7 +8,9 @@
 			isRed: "",
 			isGreen: ""
 		};
-			
+
+        $scope.editingData = [];//boolean  array to check weather or not an input has to be shown to modify the table.
+
 		stockService.getStocks()
 			.then(function(data){ 
 			//on success
@@ -47,8 +49,14 @@
 			delivered_quantity: 0,
 			delivered_price: 0
 		}];
-	
-		$scope.optionArray = [
+
+
+        for (var i = 0, length = $scope.transactions.length; i < length; i++) {
+            $scope.editingData[i] = false;
+        }
+
+
+        $scope.optionArray = [
 			{ label: 'MKT', value: 1 },
 			{ label: 'Other', value: 2 }
 		];
@@ -80,12 +88,12 @@
 				$scope.desiredLimit = $scope.desiredLimitValue;
 			
 			$scope.desiredTransaction = {
-			Symbol: $scope.curStock.Symbol,
+			Symbol: $scope.selectedStock.Symbol,
 			Action: $scope.desiredAction,
 			Quantity: $scope.desiredQty,
 			Limit: $scope.desiredLimit,
 			Strategy: $scope.desiredStrat,
-			Target: $scope.desiredTrgt,
+			Target: $scope.desiredTrgt
 			}
 			
 			$log.debug($scope.desiredTransaction);
@@ -94,11 +102,13 @@
 		$scope.update = function(index)
 		{
 			$log.debug("Updating row index:"+index);
+            $scope.editingData[index] = true;
 		};
 			
 		$scope.abort = function(index)
 		{
 			$log.debug("Aborting row index:"+index);
+            $scope.editingData[index] = false;
 		};
 		
     };
