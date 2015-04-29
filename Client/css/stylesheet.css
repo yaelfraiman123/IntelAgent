@@ -15,6 +15,13 @@ body {
 	  width:85%;
 }
 
+.tableBoot input[type="text"]{
+	border-radius: 4px;
+	background-color: white;
+	width: 115px;
+	font-family: sans-serif;
+}
+
 .containerAction{
 	  margin-bottom: -30px;
 }
@@ -233,11 +240,11 @@ footer {
 	}
 	
 	.containerFluid{
-		padding-bottom:1000px;
+		padding-bottom:800x;
 	}
 	
 	.table-responsive{
-	margin-bottom:350px;
+	margin-bottom:383px;
 }
 }
 
