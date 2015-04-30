@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IntelAgentWebApi
+namespace IntelAgentWebApi.DAL
 {
     using System;
     using System.Data.Entity;
@@ -31,5 +31,6 @@ namespace IntelAgentWebApi
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<yaelTable> yaelTables { get; set; }
+        public virtual DbSet<StocksDataManager> StocksDataManagers { get; set; }
     }
 }

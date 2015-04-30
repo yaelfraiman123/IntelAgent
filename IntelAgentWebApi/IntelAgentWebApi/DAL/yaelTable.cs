@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IntelAgentWebApi
+namespace IntelAgentWebApi.DAL
 {
     using System;
     using System.Collections.Generic;

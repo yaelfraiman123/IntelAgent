@@ -7,21 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IntelAgentWebApi
+namespace IntelAgentWebApi.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetRole
+    public partial class AspNetUserClaim
     {
-        public AspNetRole()
-        {
-            this.AspNetUsers = new HashSet<AspNetUser>();
-        }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public string Id { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

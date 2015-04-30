@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using IntelAgentWebApi.Models;
 
 namespace IntelAgentWebApi
 {
@@ -23,6 +24,9 @@ namespace IntelAgentWebApi
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //StocksMatchManager k = new StocksMatchManager();
+            StocksMatchManager.StartFindStocksMatches();
         }
     }
 }

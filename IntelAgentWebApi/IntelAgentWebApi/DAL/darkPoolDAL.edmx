@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -65,6 +65,23 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StocksDataManager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="varchar(max)" />
+          <Property Name="date_time" Type="datetime" />
+          <Property Name="stock_name" Type="varchar(max)" />
+          <Property Name="sell_action" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="limit" Type="int" />
+          <Property Name="market_limit" Type="int" />
+          <Property Name="strategy" Type="varchar(max)" />
+          <Property Name="target" Type="varchar" MaxLength="50" />
+          <Property Name="carrying_amount" Type="int" />
+          <Property Name="price_check " Type="int" />
         </EntityType>
         <EntityType Name="yaelTable">
           <Key>
@@ -136,6 +153,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StocksDataManager" EntityType="Self.StocksDataManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="yaelTable" EntityType="Self.yaelTable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -154,8 +172,7 @@
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -276,7 +293,25 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="StocksDataManagers" EntityType="Model.StocksDataManager" />
         </EntityContainer>
+        <EntityType Name="StocksDataManager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date_time" Type="DateTime" Precision="3" />
+          <Property Name="stock_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sell_action" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="limit" Type="Int32" />
+          <Property Name="market_limit" Type="Int32" />
+          <Property Name="strategy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="target" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="carrying_amount" Type="Int32" />
+          <Property Name="price_check_" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -354,6 +389,24 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="StocksDataManagers">
+            <EntityTypeMapping TypeName="Model.StocksDataManager">
+              <MappingFragment StoreEntitySet="StocksDataManager">
+                <ScalarProperty Name="price_check_" ColumnName="price_check " />
+                <ScalarProperty Name="carrying_amount" ColumnName="carrying_amount" />
+                <ScalarProperty Name="target" ColumnName="target" />
+                <ScalarProperty Name="strategy" ColumnName="strategy" />
+                <ScalarProperty Name="market_limit" ColumnName="market_limit" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="sell_action" ColumnName="sell_action" />
+                <ScalarProperty Name="stock_name" ColumnName="stock_name" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
