@@ -31,8 +31,9 @@ namespace IntelAgentWebApi.Controllers
         // POST: api/StocksManager
         public void Post([FromBody]StocksDataManager value)
         {
-          //  StocksMatchManager stocksDataManager = new StocksMatchManager();
+         
             value.user_id = User.Identity.GetUserId();
+            value.date_time = DateTime.Now;
             StocksMatchManager.Insert2Db(value);
         }
 

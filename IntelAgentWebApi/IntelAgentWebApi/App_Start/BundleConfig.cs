@@ -25,8 +25,8 @@ namespace IntelAgentWebApi
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            //StocksMatchManager k = new StocksMatchManager();
-            StocksMatchManager.StartFindStocksMatches();
+           
+           
         }
     }
 }
