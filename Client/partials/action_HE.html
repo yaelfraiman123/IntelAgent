@@ -1,10 +1,14 @@
 <div>
-    <select ng-change="changeStock()"
-            class="col-md-offset-10 col-xs-offset-10 action"
-            ng-model="selectedStock"
-            ng-options="stock as stock.Symbol for stock in stockArray">
-        <option value="" selected style="display:none;">בחר מניה</option>
-    </select>
+	<div class = "LanguageImages col-md-offset-1">
+		<a href="#/action_HE"><img src="images/Flag_of_Israel.gif"></a>
+		<a href ="#/action_EN"><img src="images/Flag_of_the_United_States.png"></a>
+	</div>
+	<select ng-change="changeStock()"
+			class="col-md-offset-10 col-xs-offset-10 action"
+			ng-model="selectedStock"
+			ng-options="stock as stock.Symbol for stock in stockArray">
+		<option value="" selected style="display:none;">בחר מניה</option>
+	</select>
 </div>
 
 <div class="container conatinerAction">

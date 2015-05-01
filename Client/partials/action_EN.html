@@ -1,0 +1,172 @@
+<div>
+    <select ng-change="changeStock()"
+            class="col-md-offset-1 col-xs-offset-1 action"
+            ng-model="selectedStock"
+            ng-options="stock as stock.Symbol for stock in stockArray">
+        <option value="" selected style="display:none;">Choose a Stock</option>
+    </select>
+</div>
+
+<div class="container conatinerAction">
+	<div class="inputFromSrcHeadLine">
+		<div class = "row">
+			<div class="col-md-2 col-xs-2">
+				<p>AskQty</p>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<p>BidQty</p>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<p>Ask</p>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<p>Bid</p>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<p style="margin-right:5px">Change(%):</p>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<p style="margin-right:5px">Last Price</p>
+			</div>
+		</div>
+		<div class="inputFromSrc">
+			<div class = "row">
+				<div class="col-md-2 col-xs-2">
+					<input name = "AskQty" type="text" readonly ng-model="selectedStock.AskQty" id = "AskQty">
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<input name = "BidQty" type="text" readonly ng-model="selectedStock.BidQty" id = "BidQty">
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<input name = "Ask" type = "text" readonly ng-model="selectedStock.Ask" id = "Ask">
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<input name = "Bid" type = "text" readonly ng-model="selectedStock.Bid" id = "Bid">
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg" id = "change"
+					         ng-class="{redBG: color.isRed, greenBG: color.isGreen}">
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<input name = "laste_price" type = "text" readonly ng-model="selectedStock.LastPrice" id = "laste_price">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class = "inputFromUser">
+		<div class = "row">
+			<div class= "col-md-2 col-xs-2">
+				<p style="margin-left:15px">Target</p>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<p style="margin-left:8px">Strategy</p>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<p>Limit</p>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<p style="margin-left:-5px">Quantity</p>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<p style="margin-left:-12px">Action</p>
+			</div>
+			<div class = "col-md-2"></div>
+		</div>
+	</div>
+	<form class="inputFromUserForm" ng-submit="submitFunc()">
+		<div class = "row" >
+			<div class= "col-md-2 col-xs-2">
+				<select style="margin-left: 15px" ng-model = "desiredTrgt" required>
+				<option value="" selected style="display:none">Choose Target</option>
+				<option>Cross</option>
+				<option>Dark Poll</option>
+				</select>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<select style="margin-left: 8px" ng-model = "desiredStrat"required>
+				<option value="" selected style="display:none">Choose Strategy</option>
+				<option>Aggressive</option>
+				<option>Passive</option>
+				</select>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<select ng-change="updateLimitSelect()"
+				ng-model="desiredLimitObj"
+				ng-options="option as option.label for option in optionArray" required>
+				<option value="" selected style="display:none">Choose Limit</option>
+				</select>
+				<input type="text" ng-show="other">
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<input type="text" style="margin-left: -5px" ng-model="desiredQty" required>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<select style="margin-left:-12px" ng-model = "desiredAction" required>
+				<option value="" selected style="display:none">Choose Action</option>
+				<option>Buy</option>
+				<option>Sell</option>
+				</select>
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<input type="submit" value="Submit" class="btn btn-lg btn-warning">
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="table-responsive">
+    <table class="table tableBoot" ng-table="">
+        <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Action</th>
+            <th>Quantity</th>
+            <th>Limit</th>
+            <th>Strategy</th>
+            <th>Target</th>
+            <th>Status</th>
+            <th>Carrying Amount</th>
+            <th>Price Check</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="transaction in transactions">
+            <td>{{transaction.name}}</td>
+            <td>{{transaction.action}}</td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.quantity" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.limit}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.limit" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.strategy" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.target}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.target" /></div>
+            </td>
+            <td>{{transaction.status}}</td>
+            <td>{{transaction.delivered_quantity}}</td>
+            <td>{{transaction.delivered_price}}</td>
+            <td>
+                <button class="btn btn-sm btn-default"
+                        ng-click="update($index)">
+                    UPDATE
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-default"
+                        ng-click="abort($index)">
+                    CANCEL
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

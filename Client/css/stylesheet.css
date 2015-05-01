@@ -3,6 +3,11 @@ body {
 	background-color: #eee;
 }
 
+.LanguageImages img{
+	width:20px;
+	line-height:20px;
+}
+
 .action{
   margin-bottom: 20px;
   background-color: #D6D6D6;
@@ -154,6 +159,7 @@ body {
 
 .inputFromUserForm input[type="text"]{
 	line-height:17px;
+	margin-left: -6px;
 }
 
 
