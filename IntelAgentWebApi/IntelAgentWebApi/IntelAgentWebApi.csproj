@@ -56,6 +56,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Cors">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -216,16 +217,48 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\StocksManagerController.cs" />
+    <Compile Include="DAL\AspNetRole.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AspNetUser.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AspNetUserClaim.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AspNetUserLogin.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DarkPoolStocksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DAL\C__MigrationHistory.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\darkPoolDAL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>darkPoolDAL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\darkPoolDAL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\darkPoolDAL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>darkPoolDAL.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DarkPoolStockManagerModel.cs" />
     <Compile Include="Models\DarkPoolStockModel.cs" />
     <Compile Include="Models\DarkPoolStockRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -235,6 +268,13 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="DAL\StocksDataManager.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\yaelTable.cs">
+      <DependentUpon>darkPoolDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StocksMatchManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\DarkPoolStockMarket.json">
@@ -280,6 +320,23 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="App_Data\product.json" />
+    <EntityDeploy Include="DAL\darkPoolDAL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>darkPoolDAL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\darkPoolDAL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>darkPoolDAL.edmx</DependentUpon>
+      <LastGenOutput>darkPoolDAL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\darkPoolDAL.edmx.diagram">
+      <DependentUpon>darkPoolDAL.edmx</DependentUpon>
+    </Content>
+    <Content Include="DAL\darkPoolDAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>darkPoolDAL.edmx</DependentUpon>
+      <LastGenOutput>darkPoolDAL.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -311,7 +368,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
