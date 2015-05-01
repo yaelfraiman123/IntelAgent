@@ -134,15 +134,15 @@
         <tbody>
         <tr ng-repeat="transaction in transactions">
             <td>
-                <button class="btn btn-sm btn-default"
+                <button class="btn btn-md btn-default"
                         ng-click="abort($index)">
-                    CANCEL
+                    ביטול
                 </button>
             </td>
             <td>
-                <button class="btn btn-sm btn-default"
+                <button class="btn btn-md btn-default"
                         ng-click="update($index)">
-                    UPDATE
+                    עדכון
                 </button>
             </td>
             <td>{{transaction.delivered_price}}</td>

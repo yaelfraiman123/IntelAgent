@@ -24,8 +24,9 @@ body {
 .tableBoot input[type="text"]{
 	border-radius: 4px;
 	background-color: white;
-	width: 115px;
+	width: 83px;
 	font-family: sans-serif;
+	text-align:center;
 }
 
 .containerAction{
