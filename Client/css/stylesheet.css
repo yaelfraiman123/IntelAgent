@@ -13,6 +13,12 @@ body {
 .tableBoot{
 	  margin-left: 73px;
 	  width:85%;
+	  text-align:center;
+}
+
+.tableBoot th{
+	text-align:center;
+	width:100px;
 }
 
 .tableBoot input[type="text"]{
@@ -113,7 +119,7 @@ body {
 	border-radius: 4px;
 	background-color: #D6D6D6;
 	font-family: sans-serif;
-	font-weight: 800;
+	font-weight: bold;
 	width: 1100px;
 	text-align: center;
 	line-height: 26px;
@@ -153,7 +159,7 @@ body {
 .inputFromUserForm input[type="submit"]{
   width: 131px;
   line-height: 40px;
-  margin-left: -19px;
+  margin-left: 13px;
   margin-top: -42px;
 }
 
@@ -278,7 +284,7 @@ footer {
 		border-radius: 4px;
 		background-color: #D6D6D6;
 		font-family: sans-serif;
-		font-weight: 800;
+		font-weight: bold;
 		text-align: center;
 		line-height: 26px;
 		margin-right:0px;

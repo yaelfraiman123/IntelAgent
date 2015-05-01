@@ -1,9 +1,9 @@
 <div>
     <select ng-change="changeStock()"
-            class="col-md-offset-1 col-xs-offset-1 action"
+            class="col-md-offset-10 col-xs-offset-10 action"
             ng-model="selectedStock"
             ng-options="stock as stock.Symbol for stock in stockArray">
-        <option value="" selected style="display:none;">Choose a Stock</option>
+        <option value="" selected style="display:none;">בחר מניה</option>
     </select>
 </div>
 
@@ -11,22 +11,22 @@
 	<div class="inputFromSrcHeadLine">
 		<div class = "row">
 			<div class="col-md-2 col-xs-2">
-				<p>AskQty</p>
+				<p>כמות היצע</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p>BidQty</p>
+				<p>כמות ביקוש</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p>Ask</p>
+				<p>מחיר היצע</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p>Bid</p>
+				<p>מחיר ביקוש</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p style="margin-right:5px">Change(%):</p>
+				<p style="margin-right:5px">%-שינוי ב</p>
 			</div>
 			<div class="col-md-2 col-xs-2">
-				<p style="margin-right:5px">Last Price</p>
+				<p style="margin-right:5px">מחיר אחרון</p>
 			</div>
 		</div>
 		<div class="inputFromSrc">
@@ -55,60 +55,60 @@
 	</div>
 	<div class = "inputFromUser">
 		<div class = "row">
-			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:15px">Target</p>
+			<div class= "col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2 ">
+				<p style="margin-left:8px">יעד</p>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:8px">Strategy</p>
+				<p style="margin-left:1px">אסטרטגיה</p>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<p>Limit</p>
+				<p style="margin-left:-6px">לימיט</p>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:-5px">Quantity</p>
+				<p style="margin-left:-12px">כמות</p>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:-12px">Action</p>
+				<p style="margin-left:-18px">פעולה</p>
 			</div>
-			<div class = "col-md-2"></div>
 		</div>
 	</div>
 	<form class="inputFromUserForm" ng-submit="submitFunc()">
 		<div class = "row" >
 			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left: 15px" ng-model = "desiredTrgt" required>
-				<option value="" selected style="display:none">Choose Target</option>
-				<option>Cross</option>
-				<option>Dark Poll</option>
+				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
+			</div>
+			<div class= "col-md-2 col-xs-2">
+				<select style="margin-left: 9px" ng-model = "desiredTrgt" required>
+				<option value="" selected style="display:none">בחר יעד</option>
+				<option>קרוס</option>
+				<option>דרק פול</option>
 				</select>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left: 8px" ng-model = "desiredStrat"required>
-				<option value="" selected style="display:none">Choose Strategy</option>
-				<option>Aggressive</option>
-				<option>Passive</option>
+				<select style="margin-left: 2px" ng-model = "desiredStrat"required>
+				<option value="" selected style="display:none">בחר אסטרטגיה</option>
+				<option>אגרסיבי</option>
+				<option>פסיבי</option>
 				</select>
 			</div>
 			<div class= "col-md-2 col-xs-2">
 				<select ng-change="updateLimitSelect()"
 				ng-model="desiredLimitObj"
+				style="margin-left: -6px"
 				ng-options="option as option.label for option in optionArray" required>
-				<option value="" selected style="display:none">Choose Limit</option>
+				<option value="" selected style="display:none">בחר לימיט</option>
 				</select>
 				<input type="text" ng-show="other">
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<input type="text" style="margin-left: -5px" ng-model="desiredQty" required>
+				<input type="text" style="margin-left: -10px" ng-model="desiredQty" required>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left:-12px" ng-model = "desiredAction" required>
-				<option value="" selected style="display:none">Choose Action</option>
-				<option>Buy</option>
-				<option>Sell</option>
+				<select style="margin-left:-17px" ng-model = "desiredAction" required>
+				<option value="" selected style="display:none">בחר פעולה</option>
+				<option>קניה</option>
+				<option>מכירה</option>
 				</select>
-			</div>
-			<div class= "col-md-2 col-xs-2">
-				<input type="submit" value="Submit" class="btn btn-lg btn-warning">
 			</div>
 		</div>
 	</form>
@@ -118,54 +118,54 @@
     <table class="table tableBoot" ng-table="">
         <thead>
         <tr>
-            <th>Stock</th>
-            <th>Action</th>
-            <th>Quantity</th>
-            <th>Limit</th>
-            <th>Strategy</th>
-            <th>Target</th>
-            <th>Status</th>
-            <th>Carrying Amount</th>
-            <th>Price Check</th>
+		    <th></th>
             <th></th>
-            <th></th>
+            <th>מחיר ביצוע</th>
+            <th>כמות ביצוע</th>
+            <th>סטטוס</th>
+            <th>יעד</th>
+            <th>אסטרטגיה</th>
+            <th>לימיט</th>
+            <th>כמות</th>
+            <th>פעולה</th>
+            <th>מניה</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="transaction in transactions">
-            <td>{{transaction.name}}</td>
-            <td>{{transaction.action}}</td>
-            <td>
-                <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.quantity" /></div>
-            </td>
-            <td>
-                <div ng-hide="editingData[$index]">{{transaction.limit}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.limit" /></div>
-            </td>
-            <td>
-                <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.strategy" /></div>
-            </td>
-            <td>
-                <div ng-hide="editingData[$index]">{{transaction.target}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.target" /></div>
-            </td>
-            <td>{{transaction.status}}</td>
-            <td>{{transaction.delivered_quantity}}</td>
-            <td>{{transaction.delivered_price}}</td>
-            <td>
-                <button class="btn btn-sm btn-default"
-                        ng-click="update($index)">
-                    UPDATE
-                </button>
-            </td>
             <td>
                 <button class="btn btn-sm btn-default"
                         ng-click="abort($index)">
                     CANCEL
                 </button>
             </td>
+            <td>
+                <button class="btn btn-sm btn-default"
+                        ng-click="update($index)">
+                    UPDATE
+                </button>
+            </td>
+            <td>{{transaction.delivered_price}}</td>
+            <td>{{transaction.delivered_quantity}}</td>
+            <td>{{transaction.status}}</td>
+            <td>
+                <div ng-hide="editingData[$index]">{{transaction.target}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.target" /></div>
+            </td>
+			<td>
+                <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.strategy" /></div>
+            </td>
+			<td>
+                <div ng-hide="editingData[$index]">{{transaction.limit}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.limit" /></div>
+            </td>
+			<td>
+                <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
+                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.quantity" /></div>
+            </td>
+			<td>{{transaction.action}}</td>
+			<td>{{transaction.name}}</td>
         </tr>
         </tbody>
     </table>
