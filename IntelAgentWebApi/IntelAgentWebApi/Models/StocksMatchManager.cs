@@ -8,15 +8,22 @@ using System.Web;
 using System.Web.Hosting;
 using IntelAgentWebApi.DAL;
 using Microsoft.Owin.Logging;
+using log4net;
+using log4net.Config;
+using System.Reflection;
 
 namespace IntelAgentWebApi.Models
 {
+     
+      
     public static class StocksMatchManager
     {
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private static Dictionary<string, List<StocksDataManager>> m_sell;
         private static Dictionary<string, List<StocksDataManager>> m_buy;
         static StocksMatchManager()
         {
+            XmlConfigurator.Configure();
             m_sell=new Dictionary<string, List<StocksDataManager>>();
             m_buy=new Dictionary<string, List<StocksDataManager>>();
             
@@ -24,7 +31,7 @@ namespace IntelAgentWebApi.Models
 
         public static void StartFindStocksMatches()
         {
-
+            Log.Error("start the thread of finding stock that match");
             Entities context = new Entities();
             var stockslst = context.StocksDataManagers.ToList();
             var sellLst = stockslst.Where(x => x.sell_action == 1);
@@ -34,10 +41,12 @@ namespace IntelAgentWebApi.Models
             foreach (var grp in grpSell)
             {
                 m_sell.Add(grp.Key, grp.ToList());
+                m_sell[grp.Key].OrderBy(x => x.date_time);
             }
             foreach (var grp in grpbuy)
             {
                 m_buy.Add(grp.Key, grp.ToList());
+                m_buy[grp.Key].OrderBy(x => x.date_time);
             }
             Timer timer= new Timer(new TimerCallback(CheckStockThread), null, 0, new TimeSpan(0,0,10,0).Milliseconds);
 
@@ -45,9 +54,20 @@ namespace IntelAgentWebApi.Models
 
         private static void CheckStockThread(Object stateInfo)
         {
-            string path = HostingEnvironment.MapPath(@"~/App_Data/MyTest.txt");
-            string[] lines = { DateTime.Now.ToString("F") };
-            File.AppendAllLines(path, lines);
+            //string path = HostingEnvironment.MapPath(@"~/App_Data/MyTest.txt");
+            //string[] lines = { DateTime.Now.ToString("F") };
+            //File.AppendAllLines(path, lines);
+             foreach (var stock in m_sell)
+             {
+                  if (m_buy.ContainsKey(stock.Key))
+                  {
+                       foreach (var stockItem in stock.Value)
+                       {
+
+                       }
+                  }
+             }
+
 
         }
 
@@ -63,8 +83,9 @@ namespace IntelAgentWebApi.Models
             }
             catch (Exception ex)
             {
-                //handle exaption
-                throw;
+
+                 Log.ErrorFormat("Thier is error in insert new stock for user id :{0} the error {1}", stocksDataManager.user_id, ex.Message);
+
             }
              //add to dictionary
             if (stocksDataManager.sell_action==1)
@@ -89,15 +110,24 @@ namespace IntelAgentWebApi.Models
                     m_buy.Add(stocksDataManager.stock_name, new List<StocksDataManager>() { stocksDataManager });
                 }
             }
+            Log.InfoFormat("insert new stock for user id : {0}", stocksDataManager.user_id);
 
         }
 
         public static List<StocksDataManager> GetStocksByUser(string userId)
         {
+             Log.InfoFormat("retrive all stock for user {0}", userId);
             Entities context = new Entities();
 
             var stockslst = context.StocksDataManagers.ToList();
             return stockslst.Where(x => x.user_id == userId).ToList();
+        }
+
+         public static void updateStock(StocksDataManager stock)
+        {
+             Entities context = new Entities();
+             var stockToUpdate = context.StocksDataManagers.Find(stock.Id);
+
         }
 
     }
