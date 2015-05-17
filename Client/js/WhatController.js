@@ -14,6 +14,8 @@
 		strategy: angular.equals($scope.tabToShow,"strategy"),
 		overview: angular.equals($scope.tabToShow,"overview")
 	};
+	
+	
   };
 
   app.controller("WhatController", ["$scope","$routeParams",WhatController]);

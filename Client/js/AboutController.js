@@ -14,6 +14,7 @@
             founders: angular.equals($scope.tabToShow, "founders"),
             overview: angular.equals($scope.tabToShow, "overview")
         };
+		$scope.$parent.showLangOps = false;//disables the Lang option in the header
     };
 
     app.controller("AboutController", ["$scope", "$routeParams", AboutController]);

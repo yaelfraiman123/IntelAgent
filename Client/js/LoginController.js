@@ -20,10 +20,13 @@
 					$scope.password ="";
 					currentUser.setProfile("","",false);//reset current user
 					$scope.message = response.statusText + "/r/n";
-					if(response.data.exceptionMessage)
-						$scope.message += response.data.exceptionMessage + "/r/n" ;
-					if(response.data.error)
-						$scope.message += response.data.error + "/r/n";
+					if(response.data != null)
+					{
+						if(response.data.exceptionMessage)
+							$scope.message += response.data.exceptionMessage + "/r/n" ;
+						if(response.data.error)
+							$scope.message += response.data.error + "/r/n";
+					}
 				});
 		};
 		
@@ -31,6 +34,7 @@
 			$log.debug("Going to the Register Page via Login");
 			$location.path("/register");
 		};
+		$scope.$parent.showLangOps = false;//disables the Lang option in the header
 	};
 
 

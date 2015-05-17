@@ -3,3 +3,11 @@
 2015-05-02 20:08:08,047 [9] ERROR IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks in xml
 2015-05-02 20:08:57,448 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - Finding Matches
 2015-05-02 20:09:07,359 [9] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks in xml
+2015-05-17 19:24:27,684 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - start the thread of finding stock that match
+2015-05-17 19:26:33,763 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - start the thread of finding stock that match
+2015-05-17 19:28:56,109 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - start the thread of finding stock that match
+2015-05-17 19:32:43,383 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - start the thread of finding stock that match
+2015-05-17 20:38:20,985 [28] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 14da01c8-f2ee-4f64-892b-00aaa6436ca0
+2015-05-17 20:40:57,305 [8] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 14da01c8-f2ee-4f64-892b-00aaa6436ca0
+2015-05-17 21:29:08,458 [15] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 14da01c8-f2ee-4f64-892b-00aaa6436ca0
+2015-05-17 21:34:00,395 [7] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 14da01c8-f2ee-4f64-892b-00aaa6436ca0

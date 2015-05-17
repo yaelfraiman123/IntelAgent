@@ -95,7 +95,7 @@
 				ng-options="option as option.label for option in optionArray" required>
 				<option value="" selected style="display:none">Choose Limit</option>
 				</select>
-				<input type="text" ng-show="other">
+				<input style="margin-left: 1px" type="text" ng-show="other">
 			</div>
 			<div class= "col-md-2 col-xs-2">
 				<input type="text" style="margin-left: -5px" ng-model="desiredQty" required>
@@ -108,7 +108,7 @@
 				</select>
 			</div>
 			<div class= "col-md-2 col-xs-2">
-				<input type="submit" value="Submit" class="btn btn-lg btn-warning">
+				<input style="margin-left: -19px" type="submit" value="Submit" class="btn btn-lg btn-warning">
 			</div>
 		</div>
 	</form>
@@ -156,9 +156,11 @@
             <td>{{transaction.delivered_price}}</td>
             <td>
                 <button class="btn btn-sm btn-default"
-                        ng-click="update($index)">
+                        ng-click="update($index)" ng-hide="editingData[$index]">
                     UPDATE
                 </button>
+				<a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png"></a>
+				<a ng-show="editingData[$index]" ng-click="AbortUpdate($index)"><img src="images/AbortBtn.png"></a>
             </td>
             <td>
                 <button class="btn btn-sm btn-default"

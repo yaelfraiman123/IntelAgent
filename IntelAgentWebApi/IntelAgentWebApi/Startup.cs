@@ -14,7 +14,7 @@ namespace IntelAgentWebApi
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            StocksMatchManager.StartFindStocksMatches();
+           // StocksMatchManager.StartFindStocksMatches();
         }
     }
 }

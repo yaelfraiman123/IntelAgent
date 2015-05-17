@@ -2,15 +2,15 @@
    "use strict"
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log,stockService){
-
+    var ActionController = function($scope,$log,$route,stockService,transactionService,appSettings){
+		
 		$scope.color = {
 			isRed: "",
 			isGreen: ""
 		};
 
         $scope.editingData = [];//boolean  array to check weather or not an input has to be shown to modify the table.
-
+		
 		stockService.getStocks()
 			.then(function(data){ 
 			//on success
@@ -26,9 +26,12 @@
 		$scope.submitFunc = function(){
 			$log.debug("בצעעעעעעעעע")
 		};
-        
+        $log.debug(appSettings.serverURL);
+		$scope.transactions = transactionService.get();
+		
+		/*
 		$scope.transactions = [{
-			name: "הפועלים",
+			name: "POLI",
 			action: "מכירה",
 			quantity: 213,
 			limit: 129.5,
@@ -39,7 +42,7 @@
 			delivered_price: 0
 			},
 			{
-			name: "לאומי",
+			name: "LUMI",
 			action: "קניה",
 			quantity: 100,
 			limit: 99.5,
@@ -49,6 +52,7 @@
 			delivered_quantity: 0,
 			delivered_price: 0
 		}];
+		*/
 
 
         for (var i = 0, length = $scope.transactions.length; i < length; i++) {
@@ -99,20 +103,47 @@
 			$log.debug($scope.desiredTransaction);
 		};
 		
-		$scope.update = function(index)
+		$scope.currUpdatedTransaction = 
 		{
+			name: "LUMI",
+			action: "קניה",
+			quantity: 100,
+			limit: 99.5,
+			strategy: "פסיבי",
+			target: "קרוס",
+			status: "ממתין",
+			delivered_quantity: 0,
+			delivered_price: 0
+		};
+		
+		$scope.update = function(index)
+		{	
+			angular.copy($scope.transactions[index], $scope.currUpdatedTransaction);
 			$log.debug("Updating row index:"+index);
             $scope.editingData[index] = true;
 		};
 			
+		$scope.AcceptUpdate = function(index)
+		{
+			 $scope.editingData[index] = false;
+		};		
+				
+		$scope.AbortUpdate = function(index)
+		{
+			 angular.copy($scope.currUpdatedTransaction, $scope.transactions[index]);
+			 $scope.editingData[index] = false;
+		};		
+			
 		$scope.abort = function(index)
 		{
-			$log.debug("Aborting row index:"+index);
-            $scope.editingData[index] = false;
+			//send post delete request for the transaction[index]
+			$route.reload();
 		};
+		
+		$scope.$parent.showLangOps = true;//enables the Lang option in the header
 		
     };
     
-    app.controller('ActionController',["$scope","$log","stockService",ActionController]);
+    app.controller('ActionController_HE',["$scope","$log","$route","stockService","transactionService","appSettings",ActionController]);
 
 }());

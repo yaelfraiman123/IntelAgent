@@ -6,8 +6,10 @@ body {
 .LanguageImages img{
 	width:20px;
 	line-height:20px;
+	position:absolute;
+	left:650px;
 }
-
+	  
 .action{
   margin-bottom: 20px;
   background-color: #D6D6D6;
@@ -24,6 +26,11 @@ body {
 .tableBoot th{
 	text-align:center;
 	width:100px;
+}
+
+.tableBoot td img{
+	width:27px;
+	cursor: pointer;
 }
 
 .tableBoot input[type="text"]{
