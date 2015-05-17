@@ -1,0 +1,5 @@
+2015-05-02 20:05:49,576 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - Finding Matches
+2015-05-02 20:07:51,559 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - Finding Matches
+2015-05-02 20:08:08,047 [9] ERROR IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks in xml
+2015-05-02 20:08:57,448 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - Finding Matches
+2015-05-02 20:09:07,359 [9] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks in xml

@@ -28,24 +28,24 @@
 		};
         
 		$scope.transactions = [{
-			name: "HAPOALIM",
-			action: "SELL",
+			name: "הפועלים",
+			action: "מכירה",
 			quantity: 213,
 			limit: 129.5,
-			strategy: "PASSIVE",
-			target: "DARK POLL",
-			status: "PENDING",
+			strategy: "פסיבי",
+			target: "דרק פול",
+			status: "ממתין",
 			delivered_quantity: 0,
 			delivered_price: 0
 			},
 			{
-			name: "LEUMI",
-			action: "BUY",
+			name: "לאומי",
+			action: "קניה",
 			quantity: 100,
 			limit: 99.5,
-			strategy: "PASSIVE",
-			target: "CROSS",
-			status: "PENDING",
+			strategy: "פסיבי",
+			target: "קרוס",
+			status: "ממתין",
 			delivered_quantity: 0,
 			delivered_price: 0
 		}];

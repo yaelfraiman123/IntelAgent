@@ -14,7 +14,7 @@
                 controller: "LoginController"
             })
             .when("/action", {
-                templateUrl: "partials/action.html",
+                templateUrl: "partials/action_HE.html",
                 controller: "ActionController"
             })
             .when("/register", {

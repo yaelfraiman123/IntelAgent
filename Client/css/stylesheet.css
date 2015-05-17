@@ -3,6 +3,11 @@ body {
 	background-color: #eee;
 }
 
+.LanguageImages img{
+	width:20px;
+	line-height:20px;
+}
+
 .action{
   margin-bottom: 20px;
   background-color: #D6D6D6;
@@ -13,13 +18,20 @@ body {
 .tableBoot{
 	  margin-left: 73px;
 	  width:85%;
+	  text-align:center;
+}
+
+.tableBoot th{
+	text-align:center;
+	width:100px;
 }
 
 .tableBoot input[type="text"]{
 	border-radius: 4px;
 	background-color: white;
-	width: 115px;
+	width: 83px;
 	font-family: sans-serif;
+	text-align:center;
 }
 
 .containerAction{
@@ -113,7 +125,7 @@ body {
 	border-radius: 4px;
 	background-color: #D6D6D6;
 	font-family: sans-serif;
-	font-weight: 800;
+	font-weight: bold;
 	width: 1100px;
 	text-align: center;
 	line-height: 26px;
@@ -147,13 +159,14 @@ body {
 
 .inputFromUserForm input[type="text"]{
 	line-height:17px;
+	margin-left: -6px;
 }
 
 
 .inputFromUserForm input[type="submit"]{
   width: 131px;
   line-height: 40px;
-  margin-left: -19px;
+  margin-left: 13px;
   margin-top: -42px;
 }
 
@@ -278,7 +291,7 @@ footer {
 		border-radius: 4px;
 		background-color: #D6D6D6;
 		font-family: sans-serif;
-		font-weight: 800;
+		font-weight: bold;
 		text-align: center;
 		line-height: 26px;
 		margin-right:0px;
