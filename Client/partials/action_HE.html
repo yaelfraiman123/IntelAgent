@@ -1,8 +1,4 @@
 <div>
-	<div class = "LanguageImages col-md-offset-1">
-		<a href="#/action_HE"><img src="images/Flag_of_Israel.gif"></a>
-		<a href ="#/action_EN"><img src="images/Flag_of_the_United_States.png"></a>
-	</div>
 	<select ng-change="changeStock()"
 			class="col-md-offset-10 col-xs-offset-10 action"
 			ng-model="selectedStock"
@@ -145,9 +141,11 @@
             </td>
             <td>
                 <button class="btn btn-md btn-default"
-                        ng-click="update($index)">
+                        ng-click="update($index)" ng-hide="editingData[$index]">
                     עדכון
                 </button>
+				<a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png"></a>
+				<a ng-show="editingData[$index]" ng-click="AbortUpdate($index)"><img src="images/AbortBtn.png"></a>
             </td>
             <td>{{transaction.delivered_price}}</td>
             <td>{{transaction.delivered_quantity}}</td>
