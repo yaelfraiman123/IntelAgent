@@ -59,13 +59,6 @@
     <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
-  <EntityType Name="yaelTable">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -104,7 +97,6 @@
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-    <EntitySet Name="yaelTables" EntityType="Self.yaelTable" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -117,9 +109,9 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
-    <EntitySet Name="StocksDataManagers" EntityType="Model.StocksDataManager" />
+    <EntitySet Name="StockDataManagers" EntityType="Model.StockDataManager" />
   </EntityContainer>
-  <EntityType Name="StocksDataManager">
+  <EntityType Name="StockDataManager">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -132,8 +124,8 @@
     <Property Name="limit" Type="Int32" />
     <Property Name="market_limit" Type="Int32" />
     <Property Name="strategy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="target" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="target" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="carrying_amount" Type="Int32" />
-    <Property Name="price_check_" Type="Int32" />
+    <Property Name="price_check" Type="Int32" />
   </EntityType>
 </Schema>

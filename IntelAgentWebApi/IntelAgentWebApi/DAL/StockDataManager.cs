@@ -12,7 +12,7 @@ namespace IntelAgentWebApi.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class StocksDataManager
+    public partial class StockDataManager
     {
         public int Id { get; set; }
         public string user_id { get; set; }
@@ -25,6 +25,6 @@ namespace IntelAgentWebApi.DAL
         public string strategy { get; set; }
         public string target { get; set; }
         public Nullable<int> carrying_amount { get; set; }
-        public Nullable<int> price_check_ { get; set; }
+        public Nullable<int> price_check { get; set; }
     }
 }

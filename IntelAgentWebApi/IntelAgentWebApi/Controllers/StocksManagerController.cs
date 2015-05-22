@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Security;
+using IntelAgentWebApi.common;
 using IntelAgentWebApi.DAL;
 using IntelAgentWebApi.Models;
 using Microsoft.AspNet.Identity;
@@ -17,24 +18,24 @@ namespace IntelAgentWebApi.Controllers
     [Authorize]
     public class StocksManagerController : ApiController
     {
-       
+        private readonly StocksMatchManager _stocksMatchManager = objectFactory.getStockMatchManager();
 
         // GET: api/StocksManager/5
-        public List<StocksDataManager> Get()
+        public List<StockDataManager> Get()
         {
 
-            
-            return StocksMatchManager.GetStocksByUser(User.Identity.GetUserId());
+
+            return _stocksMatchManager.GetStocksByUser(User.Identity.GetUserId());
 
         }
 
         // POST: api/StocksManager
-        public void Post([FromBody]StocksDataManager value)
+        public void Post([FromBody]StockDataManager value)
         {
          
             value.user_id = User.Identity.GetUserId();
             value.date_time = DateTime.Now;
-            StocksMatchManager.Insert2Db(value);
+            _stocksMatchManager.Insert2Db(value);
         }
 
      

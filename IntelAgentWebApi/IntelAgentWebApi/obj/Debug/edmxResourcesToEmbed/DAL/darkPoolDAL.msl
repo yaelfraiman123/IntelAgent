@@ -56,14 +56,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="yaelTables">
-      <EntityTypeMapping TypeName="Model.yaelTable">
-        <MappingFragment StoreEntitySet="yaelTable">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -72,10 +64,10 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="StocksDataManagers">
-      <EntityTypeMapping TypeName="Model.StocksDataManager">
-        <MappingFragment StoreEntitySet="StocksDataManager">
-          <ScalarProperty Name="price_check_" ColumnName="price_check " />
+    <EntitySetMapping Name="StockDataManagers">
+      <EntityTypeMapping TypeName="Model.StockDataManager">
+        <MappingFragment StoreEntitySet="StockDataManager">
+          <ScalarProperty Name="price_check" ColumnName="price_check" />
           <ScalarProperty Name="carrying_amount" ColumnName="carrying_amount" />
           <ScalarProperty Name="target" ColumnName="target" />
           <ScalarProperty Name="strategy" ColumnName="strategy" />

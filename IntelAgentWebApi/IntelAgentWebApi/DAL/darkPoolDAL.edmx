@@ -66,7 +66,7 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityType Name="StocksDataManager">
+        <EntityType Name="StockDataManager">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -79,16 +79,9 @@
           <Property Name="limit" Type="int" />
           <Property Name="market_limit" Type="int" />
           <Property Name="strategy" Type="varchar(max)" />
-          <Property Name="target" Type="varchar" MaxLength="50" />
+          <Property Name="target" Type="varchar(max)" />
           <Property Name="carrying_amount" Type="int" />
-          <Property Name="price_check " Type="int" />
-        </EntityType>
-        <EntityType Name="yaelTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar(max)" />
+          <Property Name="price_check" Type="int" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -153,8 +146,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StocksDataManager" EntityType="Self.StocksDataManager" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="yaelTable" EntityType="Self.yaelTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockDataManager" EntityType="Self.StockDataManager" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -235,13 +227,6 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
-        <EntityType Name="yaelTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -280,7 +265,6 @@
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="yaelTables" EntityType="Self.yaelTable" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -293,9 +277,9 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="StocksDataManagers" EntityType="Model.StocksDataManager" />
+          <EntitySet Name="StockDataManagers" EntityType="Model.StockDataManager" />
         </EntityContainer>
-        <EntityType Name="StocksDataManager">
+        <EntityType Name="StockDataManager">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -308,9 +292,9 @@
           <Property Name="limit" Type="Int32" />
           <Property Name="market_limit" Type="Int32" />
           <Property Name="strategy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="target" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="target" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="carrying_amount" Type="Int32" />
-          <Property Name="price_check_" Type="Int32" />
+          <Property Name="price_check" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -373,14 +357,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="yaelTables">
-            <EntityTypeMapping TypeName="Model.yaelTable">
-              <MappingFragment StoreEntitySet="yaelTable">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -389,10 +365,10 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="StocksDataManagers">
-            <EntityTypeMapping TypeName="Model.StocksDataManager">
-              <MappingFragment StoreEntitySet="StocksDataManager">
-                <ScalarProperty Name="price_check_" ColumnName="price_check " />
+          <EntitySetMapping Name="StockDataManagers">
+            <EntityTypeMapping TypeName="Model.StockDataManager">
+              <MappingFragment StoreEntitySet="StockDataManager">
+                <ScalarProperty Name="price_check" ColumnName="price_check" />
                 <ScalarProperty Name="carrying_amount" ColumnName="carrying_amount" />
                 <ScalarProperty Name="target" ColumnName="target" />
                 <ScalarProperty Name="strategy" ColumnName="strategy" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using IntelAgentWebApi.common;
 using IntelAgentWebApi.Models;
 using Microsoft.Owin;
 using Owin;
@@ -14,7 +15,7 @@ namespace IntelAgentWebApi
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-           // StocksMatchManager.StartFindStocksMatches();
+           objectFactory.getStockMatchManager().StartFindStocksMatches();
         }
     }
 }

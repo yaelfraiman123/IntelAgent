@@ -8,18 +8,18 @@ namespace IntelAgentWebApi.Models
 {
     public class DarkPoolStockManagerModel
     {
-        public void Insert2Db(StocksDataManager stocksDataManager)
+        public void Insert2Db(StockDataManager stocksDataManager)
         {
             Entities context = new Entities();
-            context.StocksDataManagers.Add(stocksDataManager);
+            context.StockDataManagers.Add(stocksDataManager);
             context.SaveChanges();
         }
 
-        public List<StocksDataManager> GetStocksByUser(string userId)
+        public List<StockDataManager> GetStocksByUser(string userId)
         {
             Entities context = new Entities();
 
-            var stockslst = context.StocksDataManagers.ToList();
+            var stockslst = context.StockDataManagers.ToList();
             return stockslst.Where(x => x.user_id == userId).ToList();
         }
 

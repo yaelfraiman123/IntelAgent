@@ -61,7 +61,7 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
-  <EntityType Name="StocksDataManager">
+  <EntityType Name="StockDataManager">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -74,16 +74,9 @@
     <Property Name="limit" Type="int" />
     <Property Name="market_limit" Type="int" />
     <Property Name="strategy" Type="varchar(max)" />
-    <Property Name="target" Type="varchar" MaxLength="50" />
+    <Property Name="target" Type="varchar(max)" />
     <Property Name="carrying_amount" Type="int" />
-    <Property Name="price_check " Type="int" />
-  </EntityType>
-  <EntityType Name="yaelTable">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="name" Type="varchar(max)" />
+    <Property Name="price_check" Type="int" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -148,8 +141,7 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="StocksDataManager" EntityType="Self.StocksDataManager" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="yaelTable" EntityType="Self.yaelTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockDataManager" EntityType="Self.StockDataManager" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
