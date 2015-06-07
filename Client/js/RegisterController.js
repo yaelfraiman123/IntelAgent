@@ -39,14 +39,14 @@
 			};
 		$scope.login = function(){
 			$scope.userData.grant_type = "password";
-			$scope.userData.userName = $scope.userData.email;
+			$scope.userData.username = $scope.userData.email;
 
 			userAccount.login.loginUser($scope.userData,
 				function(data){//on Success
 				console.log("login success");
 					$scope.message = "";
 					$scope.password = "";
-					currentUser.setProfile($scope.userData.email,token,true);//init current user profile
+					currentUser.setProfile($scope.userData.email,data.access_token,true);//init current user profile
 				},
 				function(response){//on Failure
 				console.log("login failed");
