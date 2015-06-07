@@ -10,7 +10,8 @@
 				username: "",
 				token: ""
 		};
-			
+		
+		
 		var setProfile = function(username,token,isLoogedIn)
 		{
 				profile.username = username;

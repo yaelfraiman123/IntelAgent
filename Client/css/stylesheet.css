@@ -3,6 +3,13 @@ body {
 	background-color: #eee;
 }
 
+.LanguageImages img{
+	width:20px;
+	line-height:20px;
+	position:absolute;
+	left:650px;
+}
+	  
 .action{
   margin-bottom: 20px;
   background-color: #D6D6D6;
@@ -13,6 +20,25 @@ body {
 .tableBoot{
 	  margin-left: 73px;
 	  width:85%;
+	  text-align:center;
+}
+
+.tableBoot th{
+	text-align:center;
+	width:100px;
+}
+
+.tableBoot td img{
+	width:27px;
+	cursor: pointer;
+}
+
+.tableBoot input[type="text"]{
+	border-radius: 4px;
+	background-color: white;
+	width: 83px;
+	font-family: sans-serif;
+	text-align:center;
 }
 
 .containerAction{
@@ -106,7 +132,7 @@ body {
 	border-radius: 4px;
 	background-color: #D6D6D6;
 	font-family: sans-serif;
-	font-weight: 800;
+	font-weight: bold;
 	width: 1100px;
 	text-align: center;
 	line-height: 26px;
@@ -115,12 +141,6 @@ body {
 .inputFromUser{
   text-align: center;
   margin-top: 20px;
-}
-
-.inputFromUser input[type="submit"]{
-  width: 131px;
-  line-height: 40px;
-  margin-left: -70px;
 }
 
 .inputFromUser p{
@@ -132,8 +152,8 @@ body {
 }
 
 .inputFromUserForm{
-  margin-top: -20px;
-  margin-bottom: 100px;
+  margin-top: 12px;
+  margin-bottom: 70px;
 }
 
 .inputFromUserForm select, .inputFromUserForm input[type="text"]{
@@ -146,6 +166,15 @@ body {
 
 .inputFromUserForm input[type="text"]{
 	line-height:17px;
+	margin-left: -6px;
+}
+
+
+.inputFromUserForm input[type="submit"]{
+  width: 131px;
+  line-height: 40px;
+  margin-left: 13px;
+  margin-top: -42px;
 }
 
 .contactUsInfo h2{
@@ -171,6 +200,10 @@ body {
 
 .row .input-group{
 	margin-top:20px;
+}
+
+.table-responsive{
+	margin-bottom:150px;
 }
 
 h1{
@@ -201,6 +234,10 @@ footer {
 	.mdScreenChgRegister{
 		margin-bottom:290px;
 	}
+	
+	.containerFluid{
+		padding-bottom:580px;
+	}
 }
 
 @media only screen and (min-width:1624px) {
@@ -221,6 +258,14 @@ footer {
 	.lgScreenChgRegister{
 		margin-bottom:500px;
 	}
+	
+	.containerFluid{
+		padding-bottom:800x;
+	}
+	
+	.table-responsive{
+	margin-bottom:383px;
+}
 }
 
 @media(max-width:680px){
@@ -236,7 +281,7 @@ footer {
 		  margin-left:0px;
 	}
 	
-	.inputFromUser input[type="submit"]{
+	.inputFromUserForm input[type="submit"]{
 		  line-height: 40px;
 		  margin-left: -70px;
 	}
@@ -253,7 +298,7 @@ footer {
 		border-radius: 4px;
 		background-color: #D6D6D6;
 		font-family: sans-serif;
-		font-weight: 800;
+		font-weight: bold;
 		text-align: center;
 		line-height: 26px;
 		margin-right:0px;

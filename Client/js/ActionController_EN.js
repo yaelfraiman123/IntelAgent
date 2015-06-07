@@ -2,13 +2,16 @@
    "use strict"
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log,stockService){
-
+    var ActionController = function($scope,$log,$route,stockService){
+		
+		
 		$scope.color = {
 			isRed: "",
 			isGreen: ""
 		};
-			
+
+        $scope.editingData = [];//boolean  array to check weather or not an input has to be shown to modify the table.
+
 		stockService.getStocks()
 			.then(function(data){ 
 			//on success
@@ -26,18 +29,18 @@
 		};
         
 		$scope.transactions = [{
-			name: "HAPOALIM",
+			name: "POLI",
 			action: "SELL",
 			quantity: 213,
 			limit: 129.5,
 			strategy: "PASSIVE",
-			target: "DARK POLL",
+			target: "DARK POOL",
 			status: "PENDING",
 			delivered_quantity: 0,
 			delivered_price: 0
 			},
 			{
-			name: "LEUMI",
+			name: "LUMI",
 			action: "BUY",
 			quantity: 100,
 			limit: 99.5,
@@ -47,8 +50,14 @@
 			delivered_quantity: 0,
 			delivered_price: 0
 		}];
-	
-		$scope.optionArray = [
+
+
+        for (var i = 0, length = $scope.transactions.length; i < length; i++) {
+            $scope.editingData[i] = false;
+        }
+
+
+        $scope.optionArray = [
 			{ label: 'MKT', value: 1 },
 			{ label: 'Other', value: 2 }
 		];
@@ -80,29 +89,57 @@
 				$scope.desiredLimit = $scope.desiredLimitValue;
 			
 			$scope.desiredTransaction = {
-			Symbol: $scope.curStock.Symbol,
+			Symbol: $scope.selectedStock.Symbol,
 			Action: $scope.desiredAction,
 			Quantity: $scope.desiredQty,
 			Limit: $scope.desiredLimit,
 			Strategy: $scope.desiredStrat,
-			Target: $scope.desiredTrgt,
+			Target: $scope.desiredTrgt
 			}
 			
 			$log.debug($scope.desiredTransaction);
 		};
 		
-		$scope.update = function(index)
+		$scope.currUpdatedTransaction = 
 		{
-			$log.debug("Updating row index:"+index);
+			name: "LUMI",
+			action: "קניה",
+			quantity: 100,
+			limit: 99.5,
+			strategy: "פסיבי",
+			target: "קרוס",
+			status: "ממתין",
+			delivered_quantity: 0,
+			delivered_price: 0
 		};
+		
+		$scope.update = function(index)
+		{	
+			angular.copy($scope.transactions[index], $scope.currUpdatedTransaction);
+			$log.debug("Updating row index:"+index);
+            $scope.editingData[index] = true;
+		};
+			
+		$scope.AcceptUpdate = function(index)
+		{
+			 $scope.editingData[index] = false;
+		};		
+				
+		$scope.AbortUpdate = function(index)
+		{
+			 angular.copy($scope.currUpdatedTransaction, $scope.transactions[index]);
+			 $scope.editingData[index] = false;
+		};	
 			
 		$scope.abort = function(index)
 		{
-			$log.debug("Aborting row index:"+index);
+			//send post delete request for the transaction[index]
+			$route.reload();
 		};
 		
+		$scope.$parent.showLangOps = true;//enables the Lang option in the header
     };
     
-    app.controller('ActionController',["$scope","$log","stockService",ActionController]);
+    app.controller('ActionController_EN',["$scope","$log","$route","stockService",ActionController]);
 
 }());

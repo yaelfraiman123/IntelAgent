@@ -2,7 +2,6 @@
 (function () {
     var app = angular.module("intelAgent", ["ngRoute", "services"]);
 
-
     app.config(function ($routeProvider) {
         $routeProvider
             .when("/main", {
@@ -14,8 +13,12 @@
                 controller: "LoginController"
             })
             .when("/action", {
-                templateUrl: "partials/action.html",
-                controller: "ActionController"
+                templateUrl: "partials/action_HE.html",
+                controller: "ActionController_HE"
+            })
+			.when("/action/en", {
+                templateUrl: "partials/action_EN.html",
+                controller: "ActionController_EN"
             })
             .when("/register", {
                 templateUrl: "partials/register.html",
@@ -23,7 +26,7 @@
             })
             .when("/contact", {
                 templateUrl: "partials/contact.html",
-                controller: "ContactController"
+				controller: "ContactController"
             })
             .when("/what-we-do/:tabToShow?", {
                 templateUrl: "partials/what-we-do.html",
@@ -37,7 +40,6 @@
                 redirectTo: "/main"
             });
     });
-
 
 
 }());

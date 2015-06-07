@@ -59,6 +59,7 @@
 						$scope.message += response.data.error + "/r/n";
 				});
 		}
+		$scope.$parent.showLangOps = false;//disables the Lang option in the header
     };
     app.controller('RegisterController',["$scope","$log",'userAccount',"currentUser",RegisterController]);//required dependencies
 

@@ -200,3 +200,5 @@ C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.Spatial.resources
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.csprojResolveAssemblyReference.cache
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.pdb
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\log4net.dll
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\log4net.xml

@@ -1,0 +1,8 @@
+Commented this stuff so I could user the API:
+1. startup.cs line 17
+2.stocksMatchMAnager lines 32-53
+
+Exception thrown at StockMatchManager line 122 after.
+
+To get the exception agin:
+Login/Register to an Account on the Client. 
