@@ -72,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-	<form class="inputFromUserForm" ng-submit="submitFunc()">
+	<form class="inputFromUserForm" ng-submit="submitNewTansaction()">
 		<div class = "row" >
 			<div class= "col-md-2 col-xs-2">
 				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
@@ -98,7 +98,7 @@
 				ng-options="option as option.label for option in optionArray" required>
 				<option value="" selected style="display:none">בחר לימיט</option>
 				</select>
-				<input type="text" ng-show="other">
+				<input type="text" ng-show="other" ng-model="desiredOtherLimit">
 			</div>
 			<div class= "col-md-2 col-xs-2">
 				<input type="text" style="margin-left: -10px" ng-model="desiredQty" required>

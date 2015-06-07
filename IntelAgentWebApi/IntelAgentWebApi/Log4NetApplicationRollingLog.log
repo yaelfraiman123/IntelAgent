@@ -30,3 +30,15 @@
 2015-05-22 09:43:51,335 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - start the thread of finding stock that match
 2015-05-22 09:44:27,546 [6] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
 2015-05-22 09:44:27,574 [8] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-06-07 20:49:34,125 [1] ERROR IntelAgentWebApi.Models.StocksMatchManager - start the thread of finding stock that match
+2015-06-07 20:51:01,316 [7] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 20:52:04,807 [16] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 20:53:25,368 [6] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 20:54:42,403 [28] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 20:54:42,446 [20] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 0234ea70-aa90-41aa-905c-58198d741600
+2015-06-07 20:56:11,929 [24] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 20:56:13,981 [24] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 20:56:13,992 [26] INFO IntelAgentWebApi.Models.StocksMatchManager - retrive all stock for user 0234ea70-aa90-41aa-905c-58198d741600
+2015-06-07 21:12:49,548 [40] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 21:15:55,531 [24] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-07 21:17:08,013 [20] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml

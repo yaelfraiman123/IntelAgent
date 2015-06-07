@@ -32,24 +32,26 @@ namespace IntelAgentWebApi.Models
 
         public  void StartFindStocksMatches()
         {
-            Log.Error("start the thread of finding stock that match");
-            Entities context = new Entities();
-            var stockslst = context.StockDataManagers.ToList();
-            var sellLst = stockslst.Where(x => x.sell_action == 1);
-            var buyLst = stockslst.Where(x => x.sell_action == 0);
-            var grpSell = sellLst.GroupBy(x => x.stock_name);
-            var grpbuy = buyLst.GroupBy(x => x.stock_name);
-            foreach (var grp in grpSell)
-            {
-                m_sell.Add(grp.Key, grp.ToList());
-                m_sell[grp.Key].OrderBy(x => x.date_time);
-            }
-            foreach (var grp in grpbuy)
-            {
-                m_buy.Add(grp.Key, grp.ToList());
-                m_buy[grp.Key].OrderBy(x => x.date_time);
-            }
-            Timer timer = new Timer(new TimerCallback(CheckStockThread), null, 0, new TimeSpan(0, 0, 10, 0).Milliseconds);
+            // crushing(Shahar)
+
+            //Log.Error("start the thread of finding stock that match");
+            //Entities context = new Entities();
+            //var stockslst = context.StockDataManagers.ToList();
+            //var sellLst = stockslst.Where(x => x.sell_action == 1);
+            //var buyLst = stockslst.Where(x => x.sell_action == 0);
+            //var grpSell = sellLst.GroupBy(x => x.stock_name);
+            //var grpbuy = buyLst.GroupBy(x => x.stock_name);
+            //foreach (var grp in grpSell)
+            //{
+            //    m_sell.Add(grp.Key, grp.ToList());
+            //    m_sell[grp.Key].OrderBy(x => x.date_time);
+            //}
+            //foreach (var grp in grpbuy)
+            //{
+            //    m_buy.Add(grp.Key, grp.ToList());
+            //    m_buy[grp.Key].OrderBy(x => x.date_time);
+            //}
+            //Timer timer = new Timer(new TimerCallback(CheckStockThread), null, 0, new TimeSpan(0, 0, 10, 0).Milliseconds);
 
         }
 
