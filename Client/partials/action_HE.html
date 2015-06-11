@@ -1,4 +1,4 @@
-<div>
+<div class="selectStock">
 	<select ng-change="changeStock()"
 			class="col-md-offset-10 col-xs-offset-10 action"
 			ng-model="selectedStock"
@@ -9,106 +9,101 @@
 
 <div class="container conatinerAction">
 	<div class="inputFromSrcHeadLine">
-		<div class = "row">
-			<div class="col-md-2 col-xs-2">
+		<div>
+			<div class="col-sm-2 col-xs-6">
 				<p>כמות היצע</p>
+				<input name = "AskQty" type="text" readonly ng-model="selectedStock.AskQty" id = "AskQty">
 			</div>
-			<div class="col-md-2 col-xs-2">
+		</div>
+		<div>
+			<div class="col-sm-2 col-xs-6">
 				<p>כמות ביקוש</p>
+				<input name = "BidQty" type="text" readonly ng-model="selectedStock.BidQty" id = "BidQty">
 			</div>
-			<div class="col-md-2 col-xs-2">
+		</div>
+		<div>
+			<div class="col-sm-2 col-xs-6">
 				<p>מחיר היצע</p>
+				<input name = "Ask" type = "text" readonly ng-model="selectedStock.Ask" id = "Ask">
 			</div>
-			<div class="col-md-2 col-xs-2">
+		</div>
+		<div>
+			<div class="col-sm-2 col-xs-6">
 				<p>מחיר ביקוש</p>
+				<input name = "Bid" type = "text" readonly ng-model="selectedStock.Bid" id = "Bid">
 			</div>
-			<div class="col-md-2 col-xs-2">
+		</div>
+		<div>
+			<div class="col-sm-2 col-xs-6">
 				<p style="margin-right:5px">%-שינוי ב</p>
-			</div>
-			<div class="col-md-2 col-xs-2">
-				<p style="margin-right:5px">מחיר אחרון</p>
-			</div>
-		</div>
-		<div class="inputFromSrc">
-			<div class = "row">
-				<div class="col-md-2 col-xs-2">
-					<input name = "AskQty" type="text" readonly ng-model="selectedStock.AskQty" id = "AskQty">
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<input name = "BidQty" type="text" readonly ng-model="selectedStock.BidQty" id = "BidQty">
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<input name = "Ask" type = "text" readonly ng-model="selectedStock.Ask" id = "Ask">
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<input name = "Bid" type = "text" readonly ng-model="selectedStock.Bid" id = "Bid">
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg" id = "change"
+				<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg" id = "change"
 					         ng-class="{redBG: color.isRed, greenBG: color.isGreen}">
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<input name = "laste_price" type = "text" readonly ng-model="selectedStock.LastPrice" id = "laste_price">
-				</div>
+			</div>
+		</div>
+		<div>
+			<div class="col-sm-2 col-xs-6">
+				<p style="margin-right:5px">מחיר אחרון</p>
+				<input name = "laste_price" type = "text" readonly ng-model="selectedStock.LastPrice" id = "laste_price">
 			</div>
 		</div>
 	</div>
-	<div class = "inputFromUser">
-		<div class = "row">
-			<div class= "col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2 ">
-				<p style="margin-left:8px">יעד</p>
-			</div>
-			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:1px">אסטרטגיה</p>
-			</div>
-			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:-6px">לימיט</p>
-			</div>
-			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:-12px">כמות</p>
-			</div>
-			<div class= "col-md-2 col-xs-2">
-				<p style="margin-left:-18px">פעולה</p>
-			</div>
-		</div>
-	</div>
+
 	<form class="inputFromUserForm" ng-submit="submitNewTansaction()">
-		<div class = "row" >
-			<div class= "col-md-2 col-xs-2">
+		<div>
+			<div class= "col-sm-2 col-xs-6 hidden-xs">
 				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
 			</div>
-			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left: 9px" ng-model = "desiredTrgt" required>
-				<option value="" selected style="display:none">בחר יעד</option>
-				<option>קרוס</option>
-				<option>דרק פול</option>
+		</div>
+		<div>
+			<div class= "col-sm-2 col-xs-6 Target">
+				<p>יעד</p>
+				<select ng-model = "desiredTrgt" required>
+					<option value="" selected style="display:none">בחר יעד</option>
+					<option>קרוס</option>
+					<option>דרק פול</option>
 				</select>
 			</div>
-			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left: 2px" ng-model = "desiredStrat"required>
-				<option value="" selected style="display:none">בחר אסטרטגיה</option>
-				<option>אגרסיבי</option>
-				<option>פסיבי</option>
+		</div>
+		<div>
+			<div class= "col-sm-2 col-xs-6 Strategy">
+				<p>אסטרטגיה</p>
+				<select ng-model = "desiredStrat"required>
+					<option value="" selected style="display:none">בחר אסטרטגיה</option>
+					<option>אגרסיבי</option>
+					<option>פסיבי</option>
 				</select>
 			</div>
-			<div class= "col-md-2 col-xs-2">
+		</div>
+		<div>
+			<div class= "col-sm-2 col-xs-6 Limit">
+				<p>לימיט</p>
 				<select ng-change="updateLimitSelect()"
 				ng-model="desiredLimitObj"
-				style="margin-left: -6px"
 				ng-options="option as option.label for option in optionArray" required>
-				<option value="" selected style="display:none">בחר לימיט</option>
+					<option value="" selected style="display:none">בחר לימיט</option>
 				</select>
-				<input type="text" ng-show="other" ng-model="desiredOtherLimit">
+				<input type="text" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
 			</div>
-			<div class= "col-md-2 col-xs-2">
-				<input type="text" style="margin-left: -10px" ng-model="desiredQty" required>
+		</div>
+		<div>
+			<div class= "col-sm-2 col-xs-6 Quantity">
+				<p>כמות</p>
+				<input type="text" ng-model="desiredQty" required>
 			</div>
-			<div class= "col-md-2 col-xs-2">
-				<select style="margin-left:-17px" ng-model = "desiredAction" required>
-				<option value="" selected style="display:none">בחר פעולה</option>
-				<option>קניה</option>
-				<option>מכירה</option>
+		</div>
+		<div>
+			<div class= "col-sm-2 col-xs-6 Action">
+				<p>פעולה</p>
+				<select ng-model = "desiredAction" required>
+					<option value="" selected style="display:none">בחר פעולה</option>
+					<option>קניה</option>
+					<option>מכירה</option>
 				</select>
+			</div>
+		</div>
+		<div>
+			<div class= "col-sm-2 col-xs-6 hidden-sm hidden-md hidden-lg">
+				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
 			</div>
 		</div>
 	</form>

@@ -42,3 +42,6 @@
 2015-06-07 21:12:49,548 [40] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
 2015-06-07 21:15:55,531 [24] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
 2015-06-07 21:17:08,013 [20] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-11 13:33:01,389 [5] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-11 13:34:09,384 [17] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
+2015-06-11 13:34:50,929 [17] INFO IntelAgentWebApi.Models.DarkPoolStockRepository - get all the stocks from xml
