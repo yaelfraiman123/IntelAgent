@@ -2,7 +2,7 @@
   
     var app = angular.module('intelAgent');
     
-    var RegisterController = function($scope,$log,userAccount,currentUser){
+    var RegisterController = function($scope,$log,$location,userAccount,currentUser){
 		
 		$scope.isLoggedIn = function(){
 			return currentUser.getProfile().isLoggedIn;
@@ -20,9 +20,8 @@
 				//send the registeration data to db using our webAPI
 				userAccount.registration.registerUser($scope.userData,
 					function(data){//on Success
-						$scope.confirmPassword = "";
 						$scope.message = "Registartion...";
-						$scope.login();
+						$scope.goToLogin();
 						},
 						function(response){//on Failure
 							$scope.isLoggedIn = false;
@@ -37,30 +36,14 @@
 							}
 						});
 			};
-		$scope.login = function(){
-			$scope.userData.grant_type = "password";
-			$scope.userData.username = $scope.userData.email;
+			
+		$scope.goToLogin = function() {
+			$log.debug("Going to the login Page");
+			$location.path("/login");
+		};
 
-			userAccount.login.loginUser($scope.userData,
-				function(data){//on Success
-				console.log("login success");
-					$scope.message = "";
-					$scope.password = "";
-					currentUser.setProfile($scope.userData.email,data.access_token,true);//init current user profile
-				},
-				function(response){//on Failure
-				console.log("login failed");
-					$scope.password ="";
-					currentUser.setProfile("","",false);//reset current user
-					$scope.message = response.statusText + "/r/n";
-					if(response.data.exceptionMessage)
-						$scope.message += response.data.exceptionMessage + "/r/n" ;
-					if(response.data.error)
-						$scope.message += response.data.error + "/r/n";
-				});
-		}
 		$scope.$parent.showLangOps = false;//disables the Lang option in the header
     };
-    app.controller('RegisterController',["$scope","$log",'userAccount',"currentUser",RegisterController]);//required dependencies
+    app.controller('RegisterController',["$scope","$log","$location",'userAccount',"currentUser",RegisterController]);//required dependencies
 
 }());

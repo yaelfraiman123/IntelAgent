@@ -36,8 +36,8 @@
 			{ label: 'Other', value: 2 }
 		];
 
-        //Logic of the "Other" visability
-		$scope.updateLimitSelect = function updateLimitSelect(){
+        //Logic of the "Other" visibility
+		$scope.updateLimitSelect = function(){
 			$log.debug($scope.desiredLimitObj);
 			if ($scope.desiredLimitObj.value == 2){//if "other" selected
 				$scope.other = "true";

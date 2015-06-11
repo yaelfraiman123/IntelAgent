@@ -7,5 +7,4 @@
   };
 
   app.controller("LangController", ["$scope","$location",LangController]);
-
-}()); 
+}());

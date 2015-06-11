@@ -29,11 +29,7 @@
 					}
 				});
 		};
-		
-		$scope.goToRegisterPage = function goToRegisterPage(){
-			$log.debug("Going to the Register Page via Login");
-			$location.path("/register");
-		};
+
 		$scope.$parent.showLangOps = false;//disables the Lang option in the header
 	};
 
