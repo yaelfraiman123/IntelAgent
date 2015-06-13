@@ -275,15 +275,15 @@ footer {
 
 @media only screen and (min-width:1224px) {	
 	.mdScreenChgLogin{
-		margin-bottom:300px;
+		margin-bottom:370px;
 	}
 
 	.mdScreenChgRegister{
-		margin-bottom:290px;
+		margin-bottom:350px;
 	}
 	
 	.containerFluid{
-		padding-bottom:580px;
+		padding-bottom:700px;
 	}
 }
 
@@ -320,52 +320,56 @@ footer {
 		height:50px;
 	}
 	
-	.inputFromUserForm .Target p{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Target select{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Strategy p{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Strategy select{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Limit p{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Limit select{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Quantity p{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Quantity input[type="text"]{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Action select{
-	margin-left: 0px;
-}
-
-.inputFromUserForm .Action p{
-	margin-left: 0px;
-}
-	
-	.selectStock{
-		margin-right: 37px;
+	.mapOfUs{
+		height: 250px;
+		width: 350px;
+		left:0px;
 	}
 	
+	.inputFromUserForm .Target p{
+		margin-left: 0px;
+	}
 
-		
+	.inputFromUserForm .Target select{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Strategy p{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Strategy select{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Limit p{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Limit select{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Quantity p{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Quantity input[type="text"]{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Action select{
+		margin-left: 0px;
+	}
+
+	.inputFromUserForm .Action p{
+		margin-left: 0px;
+	}
+	
+	.selectStock{
+		margin-right: 57px;
+	}
+	
 	.inputFromUserForm .OtherTextLimit{
 		position: absolute;
 		top: 50px;
