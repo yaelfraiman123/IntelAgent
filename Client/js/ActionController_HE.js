@@ -24,8 +24,29 @@
 			});
 
         //Get all the User's transactions
-		$scope.transactions = transactionService.get();
-
+		//$scope.transactions = transactionService.get();
+		$scope.transactions = [{
+			name: "POLI",
+			action: "SELL",
+			quantity: 213,
+			limit: 129.5,
+			strategy: "PASSIVE",
+			target: "DARK POOL",
+			status: "PENDING",
+			delivered_quantity: 0,
+			delivered_price: 0
+			},
+			{
+			name: "LUMI",
+			action: "BUY",
+			quantity: 100,
+			limit: 99.5,
+			strategy: "PASSIVE",
+			target: "CROSS",
+			status: "PENDING",
+			delivered_quantity: 0,
+			delivered_price: 0
+		}];
         for (var i = 0, length = $scope.transactions.length; i < length; i++) {
             $scope.editingData[i] = false;
         }
