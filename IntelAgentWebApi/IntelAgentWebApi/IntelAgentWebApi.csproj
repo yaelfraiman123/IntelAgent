@@ -220,7 +220,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="common\objectFactory.cs" />
+    <Compile Include="common\XmlStocksSerializer.cs" />
     <Compile Include="Controllers\StocksManagerController.cs" />
     <Compile Include="DAL\AspNetRole.cs">
       <DependentUpon>darkPoolDAL.tt</DependentUpon>
@@ -237,8 +237,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DarkPoolStocksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\C__MigrationHistory.cs">
       <DependentUpon>darkPoolDAL.tt</DependentUpon>
     </Compile>
@@ -269,13 +267,11 @@
     <Compile Include="Models\DarkPoolStockModel.cs" />
     <Compile Include="Models\DarkPoolStockRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Models\StocksMatchManager.cs" />
+    <Compile Include="common\StocksHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\DarkPoolStockMarket.xml" />
@@ -318,7 +314,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="App_Data\product.json" />
     <EntityDeploy Include="DAL\darkPoolDAL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>darkPoolDAL.Designer.cs</LastGenOutput>
