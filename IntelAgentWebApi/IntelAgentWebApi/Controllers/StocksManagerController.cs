@@ -18,7 +18,7 @@ namespace IntelAgentWebApi.Controllers
     [Authorize]
     public class StocksManagerController : ApiController
     {
-        private readonly StocksMatchManager _stocksMatchManager = objectFactory.getStockMatchManager();
+        private readonly StocksHandler _stocksMatchManager = StocksHandler.GetInstance();
 
         // GET: api/StocksManager/5
         public List<StockDataManager> Get()
