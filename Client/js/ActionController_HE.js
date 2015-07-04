@@ -2,7 +2,12 @@
    "use strict"
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log,$route,stockService,transactionService,appSettings){
+    var ActionController = function($scope,$log,$route,$location,stockService,transactionService,appSettings,currentUser){
+				
+		if(currentUser.getProfile().isLoggedIn == false)
+		{
+			$location.path("/login");
+		}
 		
 		$scope.color = {
 			isRed: "",
@@ -15,7 +20,6 @@
 		stockService.getStocks()
 			.then(function(data){ 
 			//on success
-			console.log(data);
 			$scope.stockArray = data;
 			},
 			function(errorReason){
@@ -23,33 +27,21 @@
 				$scope.error = errorReason;
 			});
 
-        //Get all the User's transactions
-		//$scope.transactions = transactionService.get();
-		$scope.transactions = [{
-			name: "POLI",
-			action: "SELL",
-			quantity: 213,
-			limit: 129.5,
-			strategy: "PASSIVE",
-			target: "DARK POOL",
-			status: "PENDING",
-			delivered_quantity: 0,
-			delivered_price: 0
+			
+		
+		//Get all the User's transactions
+        transactionService.get(null,
+		function(data){//on Success
+				$scope.transactions = data;
+				for (var i = 0, length = $scope.transactions.length; i < length; i++) {
+					$scope.editingData[i] = false;
+				}
 			},
-			{
-			name: "LUMI",
-			action: "BUY",
-			quantity: 100,
-			limit: 99.5,
-			strategy: "PASSIVE",
-			target: "CROSS",
-			status: "PENDING",
-			delivered_quantity: 0,
-			delivered_price: 0
-		}];
-        for (var i = 0, length = $scope.transactions.length; i < length; i++) {
-            $scope.editingData[i] = false;
-        }
+			function(response){//on Failure
+					$log.debug("Could not fetch transactions " + response)
+				}
+			);
+		
 
 
         $scope.optionArray = [
@@ -86,20 +78,49 @@
 			else
 				$scope.desiredLimit = $scope.desiredOtherLimit;
 			
+			var isSelling  = 0;
+			
+			if($scope.desiredAction == "מכירה")
+				isSelling = 1;
+			
+			var dateTime = Date;
+			
 			$scope.desiredTransaction = {
-			Symbol: $scope.selectedStock.Symbol,
-			Action: $scope.desiredAction,
-			Quantity: $scope.desiredQty,
-			Limit: $scope.desiredLimit,
-			Strategy: $scope.desiredStrat,
-			Target: $scope.desiredTrgt
+			Id: $scope.transactions.length+1,
+			user_id: currentUser.getProfile().username,
+			date_time: dateTime.now(),
+			stock_name: $scope.selectedStock.Symbol,
+			sell_action: isSelling,
+			quantity: $scope.desiredQty,
+			market_limit: $scope.desiredLimit,
+			strategy: $scope.desiredStrat,
+			target: $scope.desiredTrgt,
+			carrying_amount: 0,
+			price_check: 0
 			}
-
-            //TODO post the new transaction
 			
 			$log.debug($scope.desiredTransaction);
+						
+			transactionService.post($scope.desiredTransaction,
+					function(data){//on Success
+						$log.debug("post success");
+						},
+						function(response){//on Failure
+							$scope.message = response.statusText + "/r/n";
+							if(response.data.exceptionMessage )
+								$scope.message += response.data.exceptionMessage;
+							
+							if(response.data.modelState){
+								for(var key in response.data.modelState){
+									$scope.message += response.data.modelState[key] + "/r/n";
+								}
+							}
+						});
+            //TODO post the new transaction
+			
+
 		};
-		
+
 		$scope.currUpdatedTransaction = 
 		{
             // this is a demo of a transaction,
@@ -135,8 +156,15 @@
 			
 		$scope.abort = function(index)
 		{
-			//TODO send post delete request for the transaction[index]
-			$route.reload();
+			var isConfirmed = window.confirm("אתה מאשר שאתה רוצה למחוק?");
+			if(isConfirmed)
+			{
+				var transToDelete = $scope.transactions[index];
+				$log.debug(transToDelete);
+				//TODO send post delete request for the transaction[index]
+				$route.reload();
+			}
+						
 		};
 
 
@@ -144,6 +172,7 @@
 		
     };
     
-    app.controller('ActionController_HE',["$scope","$log","$route","stockService","transactionService","appSettings",ActionController]);
+    app.controller('ActionController_HE',["$scope","$log","$route","$location","stockService","transactionService","appSettings","currentUser",ActionController]);
 
 }());
+

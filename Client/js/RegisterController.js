@@ -7,6 +7,7 @@
 		$scope.isLoggedIn = function(){
 			return currentUser.getProfile().isLoggedIn;
 		};
+		
     	$scope.message = "";
 		$scope.userData = {
 				username: '',
@@ -17,21 +18,20 @@
 		
 			
 		$scope.registerUser = function (){
-				//send the registeration data to db using our webAPI
+				//send the registration data to the db using our webAPI
 				userAccount.registration.registerUser($scope.userData,
 					function(data){//on Success
-						$scope.message = "Registartion...";
 						$scope.goToLogin();
 						},
 						function(response){//on Failure
 							$scope.isLoggedIn = false;
-							$scope.message = response.statusText + "/r/n";
-							if(response.data.exceptionMessage )
-								$scope.message += response.data.exceptionMessage;
+							$scope.message = "";
+							$scope.userData.confirmPassword = "";
+							$scope.userData.password = "";
 							
-							if(response.data.modelState){
-								for(var key in response.data.modelState){
-									$scope.message += response.data.modelState[key] + "/r/n";
+							if(response.data.ModelState){
+								for(var key in response.data.ModelState){
+									$scope.message += response.data.ModelState[key][0] + "\r \n";
 								}
 							}
 						});
