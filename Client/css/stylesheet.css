@@ -17,6 +17,12 @@ body {
   font-family:sans-serif;
 }
 
+.error p{
+	color: red;
+	font-family:Arial;
+	font-weight:bold;
+}
+
 .tableBoot{
 	  margin-left: 73px;
 	  width:85%;

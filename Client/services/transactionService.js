@@ -1,17 +1,18 @@
 (function() {
   var moduleRef = angular.module("services");
   var transactionService = function(appSettings,$resource,currentUser) {
-		var profile = currentUser.getProfile().token;
-		console.log(profile);
-		return $resource(appSettings.serverURL + "/api/StocksManager", null,
+
+		return $resource(appSettings.serverURL + "/api/StocksManager?access_token=:access_token", {access_token: currentUser.getProfile().token},
 		{
-			'get': {
-				
-				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
-			}
-			/*'save': {
+			'get': {	
+				method: 'GET',
+				isArray: true,
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
 			},
+			'post':{
+			    method: 'POST',
+				headers: {'Authorization': 'Bearer ' + currentUser.getProfile().token}
+			}/*,
 			'update': {
 				method: 'PUT'
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }

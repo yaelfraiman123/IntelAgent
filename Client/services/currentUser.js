@@ -6,17 +6,17 @@
 					
 	function currentUser(){
 		var profile = {
-				isLoogedIn: false,
+				isLoggedIn: false,
 				username: "",
 				token: ""
 		};
 		
 		
-		var setProfile = function(username,token,isLoogedIn)
+		var setProfile = function(username,token,isLoggedIn)
 		{
 				profile.username = username;
 				profile.token = token;
-				profile.isLoogedIn = isLoogedIn;
+				profile.isLoggedIn = isLoggedIn;
 		};
 		
 		var getProfile = function()

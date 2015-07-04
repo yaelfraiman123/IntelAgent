@@ -38,3 +38,64 @@
 2015-06-17 08:46:04,222 [12] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 69d11263-a634-41a6-ac5d-0bcb37141ce8
 2015-06-17 09:09:22,565 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-06-17 09:09:36,221 [8] INFO IntelAgentWebApi.common.XmlStocksSerializer - get all the stocks from xml
+2015-07-04 09:33:23,105 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-04 09:34:06,274 [5] INFO IntelAgentWebApi.common.XmlStocksSerializer - get all the stocks from xml
+2015-07-04 11:29:12,028 [146] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:29:39,225 [151] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:43:37,588 [120] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:43:39,962 [115] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:46:40,662 [101] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:47:40,867 [104] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:49:12,997 [110] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:56:12,887 [86] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 11:57:35,199 [73] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:01:17,161 [48] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:01:17,167 [49] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:05:05,349 [52] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:05:05,356 [49] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:07:09,027 [32] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:08:24,656 [44] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:09:24,588 [30] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:09:57,731 [35] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:12:43,801 [17] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:13:53,789 [11] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:28:23,568 [218] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:33:13,414 [230] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:34:21,245 [246] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:36:06,007 [240] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:42:46,909 [258] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:43:08,999 [266] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:43:27,644 [258] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:45:51,547 [266] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:46:45,093 [275] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:47:04,612 [274] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:47:08,556 [284] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 12:49:02,701 [262] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:01:12,760 [238] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:30:51,610 [47] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:33:40,269 [57] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:37:15,260 [54] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:37:29,954 [60] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:38:02,556 [60] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user e2caf703-a20a-4b35-bfa0-ccf40141f542
+2015-07-04 13:38:54,123 [39] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user e2caf703-a20a-4b35-bfa0-ccf40141f542
+2015-07-04 13:42:10,308 [80] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:42:44,838 [84] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:42:58,230 [74] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:42:59,482 [88] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:42:59,901 [84] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:43:00,065 [88] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:43:00,194 [96] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:47:17,011 [101] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:47:21,459 [101] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:47:40,161 [99] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:48:23,552 [97] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:48:27,201 [122] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:49:43,112 [104] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:49:47,600 [107] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:49:51,749 [104] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:49:53,896 [107] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:51:07,450 [108] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:51:13,926 [122] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:53:12,266 [126] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:53:24,206 [124] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131
+2015-07-04 13:59:48,831 [138] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user d25b317a-6079-40cd-aed7-2b88857b4131

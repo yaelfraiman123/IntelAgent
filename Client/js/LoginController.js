@@ -17,16 +17,10 @@
 					$location.path("/action");
 				},
 				function(response){//on Failure
-					$scope.password ="";
+					$scope.userData.password ="";
 					currentUser.setProfile("","",false);//reset current user
-					$scope.message = response.statusText + "/r/n";
-					if(response.data != null)
-					{
-						if(response.data.exceptionMessage)
-							$scope.message += response.data.exceptionMessage + "/r/n" ;
-						if(response.data.error)
-							$scope.message += response.data.error + "/r/n";
-					}
+					$scope.error = response.data.error_description + " ";
+
 				});
 		};
 
