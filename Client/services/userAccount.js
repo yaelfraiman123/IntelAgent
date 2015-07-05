@@ -19,8 +19,9 @@
 						return str.join("&");
 					}
 				}
-			}
-		)};
+			})
+		};
 	}
   moduleRef.factory("userAccount", ["appSettings","$resource",userAccount]);//use this dependencies
+  
 }()); 

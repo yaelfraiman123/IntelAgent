@@ -1,5 +1,5 @@
 <div class="container lgScreenChgLogin mdScreenChgLogin">
-	<form class="form-signin" ng-submit="login()">
+	<form ng-hide="profile.isLoggedIn" class="form-signin" ng-submit="login()">
 		<h2 class="form-signin-heading">Please Sign In</h2>
 		<label for="inputEmail" class="sr-only">Email address</label>
 		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="userData.username">
@@ -15,5 +15,11 @@
 		<div class ="error">
 			<p>{{error}}</p>
 		</div>
+	</form>
+	
+	<form ng-show="profile.isLoggedIn" ng-submit="logout()">
+		<p> You are currently logged in as {{profile.username}}.</p>
+		<p> Press the button below to logout.</p>
+		<button class="btn btn-lg btn-warning" type="submit">Logout</button>
 	</form>
 </div>

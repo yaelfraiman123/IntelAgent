@@ -1,14 +1,14 @@
 SERVER ISSUES:
 
-*תעיפי את הנקודות מכל השגיאות שלך
-*תעשי פקודה  UPDATE שיהיה אפשר לשנות העברה Post api/StocksManager)
-*תעשי פקודה  Delete שיהיה אפשר למחוק העברה Delete api/StocksManager)
-*תוסיפי סטטוס למניה (ממתין/ בוצע)
-*לא יודע אם זה קשור אלייך או אליי, אבל זה מקבל את המידע  בערברית כסימני שאלה(????) .
+*Remove the dots (.) from your errors please.
+*Command to updateStock transaction
+*Command to delete Stock transaction
+*Add a status for a stock 
+*Support hebrew please!
 
 Client Issues:
-* האנגלית תחת
-* עושה unauth  אחרי ריפרש
-* שומר את הקוקי של המשתמש הראשון ואז כולם עליו בעצם.
+*try use rtl , ltr 
+* fix unauth problem after refresh
+* fix transaction not matching logged user 
 * DELETE 
 * UPDATE
