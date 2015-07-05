@@ -3,11 +3,7 @@
     var app = angular.module('intelAgent');
     
     var RegisterController = function($scope,$log,$location,userAccount,currentUser){
-		
-		$scope.isLoggedIn = function(){
-			return currentUser.getProfile().isLoggedIn;
-		};
-		
+				
     	$scope.message = "";
 		$scope.userData = {
 				username: '',
@@ -24,7 +20,6 @@
 						$scope.goToLogin();
 						},
 						function(response){//on Failure
-							$scope.isLoggedIn = false;
 							$scope.message = "";
 							$scope.userData.confirmPassword = "";
 							$scope.userData.password = "";

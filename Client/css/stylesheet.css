@@ -326,6 +326,10 @@ footer {
 		height:50px;
 	}
 	
+	.LanguageImages img {
+	  left: 250px;
+	  }
+	
 	.mapOfUs{
 		height: 250px;
 		width: 350px;

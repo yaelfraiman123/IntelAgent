@@ -2,19 +2,23 @@
    "use strict"
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log,$route,$location,stockService,transactionService,appSettings,currentUser){
-				
-		if(currentUser.getProfile().isLoggedIn == false)
+    var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, stockService,transactionService,currentUser){
+		
+		$scope.userProfile = currentUser.getProfile();
+		
+		if($scope.userProfile.isLoggedIn == false)
 		{
 			$location.path("/login");
 		}
 		
+		getLang();
+ 
 		$scope.color = {
 			isRed: "",
 			isGreen: ""
 		};
 
-        $scope.editingData = [];//boolean  array to check weather or not an input has to be shown to modify the table.
+        $scope.editingData = [];//boolean  array to check if inputs has to be shown to modify the table.
 
         //Get all stocks to show to user.
 		stockService.getStocks()
@@ -32,8 +36,8 @@
 		//Get all the User's transactions
         transactionService.get(null,
 		function(data){//on Success
-				$scope.transactions = data;
-				for (var i = 0, length = $scope.transactions.length; i < length; i++) {
+				currentUser.setTransactions(data);
+				for (var i = 0, length = $scope.userProfile.transactions.length; i < length; i++) {
 					$scope.editingData[i] = false;
 				}
 			},
@@ -68,29 +72,25 @@
 			$scope.color.isRed = $scope.selectedStock.PctChg < 0;
 		};
 
-        //Creates a JSON Obj and sends to API.
-		$scope.submitNewTansaction = function(){
-		
+        //Creates a JSON and sends to API.
+		$scope.submitNewTansaction = function()
+		{					
+			$scope.selectFirst = false;
 			//VALUE 1 == "MKT" label
 			$log.debug($scope.desiredLimitObj);
 			if($scope.desiredLimitObj.value == 1)
 				$scope.desiredLimit = "MKT";
 			else
 				$scope.desiredLimit = $scope.desiredOtherLimit;
-			
-			var isSelling  = 0;
-			
-			if($scope.desiredAction == "מכירה")
-				isSelling = 1;
-			
+	
 			var dateTime = Date;
 			
 			$scope.desiredTransaction = {
-			Id: $scope.transactions.length+1,
-			user_id: currentUser.getProfile().username,
+			Id: $scope.userProfile.transactions.length+1,
+			user_id: $scope.userProfile.username,
 			date_time: dateTime.now(),
 			stock_name: $scope.selectedStock.Symbol,
-			sell_action: isSelling,
+			sell_action: $scope.desiredAction,
 			quantity: $scope.desiredQty,
 			market_limit: $scope.desiredLimit,
 			strategy: $scope.desiredStrat,
@@ -104,6 +104,7 @@
 			transactionService.post($scope.desiredTransaction,
 					function(data){//on Success
 						$log.debug("post success");
+						$route.reload();
 						},
 						function(response){//on Failure
 							$scope.message = response.statusText + "/r/n";
@@ -115,10 +116,7 @@
 									$scope.message += response.data.modelState[key] + "/r/n";
 								}
 							}
-						});
-            //TODO post the new transaction
-			
-
+						});				
 		};
 
 		$scope.currUpdatedTransaction = 
@@ -137,7 +135,6 @@
 		
 		$scope.update = function(index)
 		{
-            //TODO Post the update to server.
 			angular.copy($scope.transactions[index], $scope.currUpdatedTransaction);
 			$log.debug("Updating row index:"+index);
             $scope.editingData[index] = true;
@@ -145,34 +142,74 @@
 			
 		$scope.AcceptUpdate = function(index)
 		{
+			//POST UPDATE
 			 $scope.editingData[index] = false;
 		};		
 				
 		$scope.AbortUpdate = function(index)
 		{
-			 angular.copy($scope.currUpdatedTransaction, $scope.transactions[index]);
+			 angular.copy($scope.currUpdatedTransaction, $scope.userProfile.transactions[index]);
 			 $scope.editingData[index] = false;
 		};		
 			
 		$scope.abort = function(index)
 		{
-			var isConfirmed = window.confirm("אתה מאשר שאתה רוצה למחוק?");
+			var isConfirmed = window.confirm($scope.text.CHECK_DELETE);
 			if(isConfirmed)
 			{
-				var transToDelete = $scope.transactions[index];
+				var transToDelete = $scope.userProfile.transactions[index];
 				$log.debug(transToDelete);
 				//TODO send post delete request for the transaction[index]
 				$route.reload();
 			}
 						
 		};
-
+		
+		 function getLang()
+		{
+			var language = "he";//default lang
+			if($routeParams.lang)
+			{
+				//check if we support the lang wanted
+				switch($routeParams.lang)
+				{
+					case "en":
+						language = "en";
+						break;
+					case "he":
+						language = "he";
+						break;
+				}
+			}
+			
+			var languageFilePath = '\\translations\\translation_'+ language + '.json';
+			$resource(languageFilePath).get(function (data) {
+					$scope.text = data;
+			});	
+			
+		}
+		
+		document.onkeydown = function(){
+  switch (event.keyCode){
+        case 116 : //F5 button
+            event.returnValue = false;
+			$route.reload();
+            return false;
+        case 82 : //R button
+            if (event.ctrlKey){ 
+                event.returnValue = false;
+				$route.reload();
+                return false;
+            }
+    }
+}
 
 		$scope.$parent.showLangOps = true;//enables the Lang option in the header
 		
     };
     
-    app.controller('ActionController_HE',["$scope","$log","$route","$location","stockService","transactionService","appSettings","currentUser",ActionController]);
+    app.controller('ActionController',
+	["$scope","$log","$route","$location","$routeParams" ,"$resource","stockService","transactionService","currentUser", ActionController]);
 
 }());
 
