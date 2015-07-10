@@ -15,7 +15,12 @@ using IntelAgentWebApi.DAL;
 
 namespace IntelAgentWebApi.common
 {
-     
+     public enum eStatus
+     {
+         InProgress,
+         Deleted,
+         Done
+     }
       
     public  class StocksHandler
     {
@@ -23,6 +28,7 @@ namespace IntelAgentWebApi.common
         private  readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private  Dictionary<string, List<StockDataManager>> m_sell;
         private  Dictionary<string, List<StockDataManager>> m_buy;
+        
         private StocksHandler()
         {
             XmlConfigurator.Configure();
@@ -56,23 +62,14 @@ namespace IntelAgentWebApi.common
                 m_buy.Add(grp.Key, grp.ToList());
                 m_buy[grp.Key].OrderBy(x => x.date_time);
             }
-            Timer timer = new Timer(new TimerCallback(CheckStockThread), null, 0, new TimeSpan(0, 0, 10, 0).Milliseconds);
+            Timer timer = new Timer(CheckStocksThread, null, 0, new TimeSpan(0, 0, 10, 0).Milliseconds);
 
         }
 
-        private  void CheckStockThread(Object stateInfo)
+        private  void CheckStocksThread(Object stateInfo)
         {
             
-             //foreach (var stock in m_sell)
-             //{
-             //     if (m_buy.ContainsKey(stock.Key))
-             //     {
-             //          foreach (var stockItem in stock.Value)
-             //          {
-
-             //          }
-             //     }
-             //}
+             
 
 
         }
@@ -83,6 +80,7 @@ namespace IntelAgentWebApi.common
             try
             {
                 Entities context = new Entities();
+                stocksDataManager.status = eStatus.InProgress.ToString();
                 context.StockDataManagers.Add(stocksDataManager);
                 context.SaveChangesAsync();
             }
@@ -128,12 +126,45 @@ namespace IntelAgentWebApi.common
             return stockslst.Where(x => x.user_id == userId).ToList();
         }
 
-        public  void updateStock(StockDataManager stock)
+        public void UpdateDb(StockDataManager stock)
         {
-             Entities context = new Entities();
-             var stockToUpdate = context.StockDataManagers.Find(stock.Id);
-
+            Entities context = new Entities();
+            var stockToUpdate = context.StockDataManagers.First(x => x.id ==stock.id);
+            if (stockToUpdate!=null)
+            {
+                stockToUpdate.stock_name = stock.stock_name;
+                stockToUpdate.carrying_amount = stock.carrying_amount;
+                stockToUpdate.limit = stock.limit;
+                stockToUpdate.market_limit = stock.market_limit;
+                stockToUpdate.price_check = stock.price_check;
+                stockToUpdate.sell_action = stock.sell_action;
+                stockToUpdate.status = stock.status;
+                stockToUpdate.strategy = stock.strategy;
+                stockToUpdate.target = stock.target;
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("the stock not found in the db");
+            }
+           
         }
 
+        public void DeleteFromDb(string id)
+        {
+            try
+            {
+                Entities context = new Entities();
+                var stockToDelete = context.StockDataManagers.First(x => x.id == id);
+                stockToDelete.status = eStatus.Deleted.ToString();
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            
+        }
     }
 }
