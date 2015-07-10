@@ -1,9 +1,11 @@
+<form ng-submit="submitNewTansaction()" >
 <div class="selectStock">
 	<select ng-change="changeStock()"
 			class="col-md-offset-10 col-xs-offset-10 action"
 			ng-model="selectedStock"
+			required
 			ng-options="stock as stock.Symbol for stock in stockArray">
-		<option value="" selected style="display:none;">בחר מניה</option>
+		<option value="" selected style="display:none;">{{text.CHOOSE_STOCK}}</option>
 	</select>
 </div>
 
@@ -11,93 +13,93 @@
 	<div class="inputFromSrcHeadLine">
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>כמות היצע</p>
+				<p>{{text.BID_QTY}}</p>
 				<input name = "AskQty" type="text" readonly ng-model="selectedStock.AskQty" id = "AskQty">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>כמות ביקוש</p>
+				<p>{{text.ASK}}</p>
 				<input name = "BidQty" type="text" readonly ng-model="selectedStock.BidQty" id = "BidQty">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>מחיר היצע</p>
+				<p>{{text.BID}}</p>
 				<input name = "Ask" type = "text" readonly ng-model="selectedStock.Ask" id = "Ask">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>מחיר ביקוש</p>
+				<p>{{text.ASK_QTY}}</p>
 				<input name = "Bid" type = "text" readonly ng-model="selectedStock.Bid" id = "Bid">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p style="margin-right:5px">%-שינוי ב</p>
+				<p style="margin-right:5px">{{text.PCT_CHG}}</p>
 				<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg" id = "change"
 					         ng-class="{redBG: color.isRed, greenBG: color.isGreen}">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p style="margin-right:5px">מחיר אחרון</p>
-				<input name = "laste_price" type = "text" readonly ng-model="selectedStock.LastPrice" id = "laste_price">
+				<p style="margin-right:5px">{{text.LAST_PRICE}}</p>
+				<input name = "last_price" type = "text" readonly ng-model="selectedStock.LastPrice" id = "last_price">
 			</div>
 		</div>
 	</div>
 
-	<form class="inputFromUserForm" ng-submit="submitNewTansaction()">
+	<div class="inputFromUserForm" >
 		<div>
 			<div class= "col-sm-2 col-xs-6 hidden-xs">
-				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
+				<input type="submit" value="{{text.SUBMIT}}" class="btn btn-lg btn-warning">
 			</div>
 		</div>
 		<div>
 			<div class= "col-sm-2 col-xs-6 Target">
-				<p>יעד</p>
+				<p>{{text.TARGET}}</p>
 				<select ng-model = "desiredTrgt" required>
-					<option value="" selected style="display:none">בחר יעד</option>
-					<option>קרוס</option>
-					<option>דרק פול</option>
+					<option value="" selected style="display:none">{{text.CHOOSE_TARGET}}</option>
+					<option>{{text.CROSS}}</option>
+					<option>{{text.DARK_POOL}} </option>
 				</select>
 			</div>
 		</div>
 		<div>
 			<div class= "col-sm-2 col-xs-6 Strategy">
-				<p>אסטרטגיה</p>
+				<p>{{text.STRATEGY}}</p>
 				<select ng-model = "desiredStrat"required>
-					<option value="" selected style="display:none">בחר אסטרטגיה</option>
-					<option>אגרסיבי</option>
-					<option>פסיבי</option>
+					<option value="" selected style="display:none">{{text.CHOOSE_STRATEGY}} </option>
+					<option>{{text.AGGRESIVE}}</option>
+					<option>{{text.PASSIVE}}</option>
 				</select>
 			</div>
 		</div>
 		<div>
 			<div class= "col-sm-2 col-xs-6 Limit">
-				<p>לימיט</p>
+				<p>{{text.LIMIT}}</p>
 				<select ng-change="updateLimitSelect()"
 				ng-model="desiredLimitObj"
 				ng-options="option as option.label for option in optionArray" required>
-					<option value="" selected style="display:none">בחר לימיט</option>
+					<option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
 				</select>
 				<input type="text" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
 			</div>
 		</div>
 		<div>
 			<div class= "col-sm-2 col-xs-6 Quantity">
-				<p>כמות</p>
+				<p>{{text.QUANTITY}}</p>
 				<input type="text" ng-model="desiredQty" required>
 			</div>
 		</div>
 		<div>
 			<div class= "col-sm-2 col-xs-6 Action">
-				<p>פעולה</p>
+				<p>{{text.ACTION}}</p>
 				<select ng-model = "desiredAction" required>
-					<option value="" selected style="display:none">בחר פעולה</option>
-					<option>קניה</option>
-					<option>מכירה</option>
+					<option value="" selected style="display:none">{{text.CHOOSE_ACTION}} </option>
+					<option value="0">{{text.BUY}}</option>
+					<option value="1">{{text.SELL}}</option>
 				</select>
 			</div>
 		</div>
@@ -106,6 +108,7 @@
 				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
 			</div>
 		</div>
+	</div>
 	</form>
 </div>
 
@@ -115,35 +118,35 @@
         <tr>
 		    <th></th>
             <th></th>
-            <th>מחיר ביצוע</th>
-            <th>כמות ביצוע</th>
-            <th>סטטוס</th>
-            <th>יעד</th>
-            <th>אסטרטגיה</th>
-            <th>לימיט</th>
-            <th>כמות</th>
-            <th>פעולה</th>
-            <th>מניה</th>
+            <th>{{text.PRICE_CHECK}} </th>
+            <th>{{text.CARRYING_AMOUNT}} </th>
+            <th>{{text.STATUS}}</th>
+            <th>{{text.TARGET}}</th>
+            <th>{{text.STRATEGY}}</th>
+            <th>{{text.LIMIT}}</th>
+            <th>{{text.QUANTITY}}</th>
+            <th>{{text.ACTION}}</th>
+            <th>{{text.STOCK}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="transaction in transactions">
+        <tr ng-repeat="transaction in userProfile.transactions">
             <td>
                 <button class="btn btn-md btn-default"
                         ng-click="abort($index)">
-                    ביטול
+                    {{text.ABORT}}
                 </button>
             </td>
             <td>
                 <button class="btn btn-md btn-default"
                         ng-click="update($index)" ng-hide="editingData[$index]">
-                    עדכון
+                    {{text.UPDATE}}
                 </button>
 				<a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png"></a>
 				<a ng-show="editingData[$index]" ng-click="AbortUpdate($index)"><img src="images/AbortBtn.png"></a>
             </td>
-            <td>{{transaction.delivered_price}}</td>
-            <td>{{transaction.delivered_quantity}}</td>
+            <td>{{transaction.price_check}}</td>
+            <td>{{transaction.carrying_amount}}</td>
             <td>{{transaction.status}}</td>
             <td>
                 <div ng-hide="editingData[$index]">{{transaction.target}}</div>
@@ -161,8 +164,8 @@
                 <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
                 <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.quantity" /></div>
             </td>
-			<td>{{transaction.action}}</td>
-			<td>{{transaction.name}}</td>
+			<td>{{transaction.sell_action}}</td>
+			<td>{{transaction.stock_name}}</td>
         </tr>
         </tbody>
     </table>

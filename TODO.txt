@@ -1,0 +1,14 @@
+SERVER ISSUES:
+
+*Remove the dots (.) from your errors please.
+*Command to updateStock transaction
+*Command to delete Stock transaction
+*Add a status for a stock 
+*Support hebrew please!
+
+Client Issues:
+*try use rtl , ltr 
+* fix unauth problem after refresh
+* fix transaction not matching logged user 
+* DELETE 
+* UPDATE

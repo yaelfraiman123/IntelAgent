@@ -12,13 +12,9 @@
                 templateUrl: "partials/Login.html",
                 controller: "LoginController"
             })
-            .when("/action", {
-                templateUrl: "partials/action_HE.html",
-                controller: "ActionController_HE"
-            })
-			.when("/action/en", {
-                templateUrl: "partials/action_EN.html",
-                controller: "ActionController_EN"
+            .when("/action/:lang?", {
+                templateUrl: "partials/action.html",
+                controller: "ActionController"
             })
             .when("/register", {
                 templateUrl: "partials/register.html",
