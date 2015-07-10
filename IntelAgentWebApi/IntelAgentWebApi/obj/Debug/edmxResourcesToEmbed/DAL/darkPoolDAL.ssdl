@@ -63,9 +63,8 @@
   </EntityType>
   <EntityType Name="StockDataManager">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="user_id" Type="varchar(max)" />
     <Property Name="date_time" Type="datetime" />
     <Property Name="stock_name" Type="varchar(max)" />
@@ -77,6 +76,8 @@
     <Property Name="target" Type="varchar(max)" />
     <Property Name="carrying_amount" Type="int" />
     <Property Name="price_check" Type="int" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">

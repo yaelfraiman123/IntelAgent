@@ -35,9 +35,34 @@ namespace IntelAgentWebApi.Controllers
          
             value.user_id = User.Identity.GetUserId();
             value.date_time = DateTime.Now;
+            value.id = Guid.NewGuid().ToString();
             _stocksMatchManager.Insert2Db(value);
         }
 
+        public void Put([FromBody]StockDataManager value)
+        {
+            try
+            {
+                 _stocksMatchManager.UpdateDb(value);
+            }
+            catch (Exception ex)
+            {
+                
+                throw new HttpException(400, "update stock in db faild");
+            }
+        }
+
+        public void Delete([FromBody]string id)
+        {
+            try
+            {
+                _stocksMatchManager.DeleteFromDb(id);
+            }
+            catch (Exception ex)
+            {
+                throw new HttpException(400, ex.Message);
+            }
+        }
      
     }
 }
