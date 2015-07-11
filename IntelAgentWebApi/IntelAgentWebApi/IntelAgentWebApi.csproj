@@ -258,7 +258,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>darkPoolDAL.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\StockDataManager.cs">
+    <Compile Include="DAL\stocks_action.cs">
       <DependentUpon>darkPoolDAL.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

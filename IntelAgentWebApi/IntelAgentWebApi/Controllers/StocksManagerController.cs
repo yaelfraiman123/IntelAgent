@@ -21,7 +21,7 @@ namespace IntelAgentWebApi.Controllers
         private readonly StocksHandler _stocksMatchManager = StocksHandler.GetInstance();
 
         // GET: api/StocksManager/5
-        public List<StockDataManager> Get()
+        public List<stocks_action> Get()
         {
 
 
@@ -30,7 +30,7 @@ namespace IntelAgentWebApi.Controllers
         }
 
         // POST: api/StocksManager
-        public void Post([FromBody]StockDataManager value)
+        public void Post([FromBody]stocks_action value)
         {
          
             value.user_id = User.Identity.GetUserId();
@@ -39,7 +39,7 @@ namespace IntelAgentWebApi.Controllers
             _stocksMatchManager.Insert2Db(value);
         }
 
-        public void Put([FromBody]StockDataManager value)
+        public void Put([FromBody]stocks_action value)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace IntelAgentWebApi.Controllers
             catch (Exception ex)
             {
                 
-                throw new HttpException(400, "update stock in db faild");
+                throw new HttpException(400, string.Format("update stock in db faild error:{0}",ex.Message));
             }
         }
 

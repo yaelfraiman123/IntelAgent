@@ -21,9 +21,7 @@ namespace IntelAgentWebApi.Models
         /// <returns></returns>
         internal List<DarkPoolStockModel> Retrieve()
         {
-            return XmlStocksSerializer.GetInstance().xmlDarkPoolStockModel;
-
-
+            return XmlStocksSerializer.GetInstance().XmlDarkPoolStockModel;
         }
 
    

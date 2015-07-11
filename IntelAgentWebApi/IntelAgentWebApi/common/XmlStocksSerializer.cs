@@ -16,10 +16,10 @@ namespace IntelAgentWebApi.common
         private const string _xmlPah = "~/App_Data/DarkPoolStockMarket.xml";
         private  readonly ILog _logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);        
         private static XmlStocksSerializer _instance = new XmlStocksSerializer();
-        public List<DarkPoolStockModel> xmlDarkPoolStockModel { get; set; }
+        public List<DarkPoolStockModel> XmlDarkPoolStockModel { get; set; }
         private XmlStocksSerializer()
         {
-            xmlDarkPoolStockModel = SerializedXml();
+            XmlDarkPoolStockModel = SerializedXml();
             
         }
 
@@ -28,7 +28,10 @@ namespace IntelAgentWebApi.common
             _logger.Info("get all the stocks from xml");
             var filePath = HostingEnvironment.MapPath(_xmlPah);
             XmlDocument doc = new XmlDocument();
-            doc.Load(filePath);
+            if (filePath != null)
+            {
+                doc.Load(filePath);
+            }
             string jsonText = JsonConvert.SerializeXmlNode(doc);
 
             var first = jsonText.IndexOf("[{\"Symbol");
