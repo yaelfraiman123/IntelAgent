@@ -68,19 +68,19 @@
         </EntityType>
         <EntityType Name="stocks_action">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="date_time" Type="datetime" Nullable="false" />
-          <Property Name="stock_name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="sell_action" Type="smallint" Nullable="false" />
+          <Property Name="stock_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sell_action" Type="tinyint" Nullable="false" />
           <Property Name="limit" Type="float" />
-          <Property Name="market_limit" Type="smallint" Nullable="false" />
+          <Property Name="market_limit" Type="tinyint" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
-          <Property Name="strategy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="target" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="strategy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="target" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="amount_done" Type="int" />
           <Property Name="price_done" Type="float" />
         </EntityType>
@@ -285,21 +285,21 @@
         </ComplexType>
         <EntityType Name="stocks_action">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="stock_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="sell_action" Type="Int16" Nullable="false" />
-          <Property Name="market_limit" Type="Int16" Nullable="false" />
-          <Property Name="strategy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="target" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stock_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sell_action" Type="Byte" Nullable="false" />
+          <Property Name="limit" Type="Double" />
+          <Property Name="market_limit" Type="Byte" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="strategy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="target" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="amount_done" Type="Int32" />
           <Property Name="price_done" Type="Double" />
-          <Property Name="quantity" Type="Int32" Nullable="false" />
-          <Property Name="limit" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -373,19 +373,19 @@
           <EntitySetMapping Name="stocks_action">
             <EntityTypeMapping TypeName="Model.stocks_action">
               <MappingFragment StoreEntitySet="stocks_action">
-                <ScalarProperty Name="limit" ColumnName="limit" />
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="price_done" ColumnName="price_done" />
                 <ScalarProperty Name="amount_done" ColumnName="amount_done" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="target" ColumnName="target" />
                 <ScalarProperty Name="strategy" ColumnName="strategy" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="market_limit" ColumnName="market_limit" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
                 <ScalarProperty Name="sell_action" ColumnName="sell_action" />
                 <ScalarProperty Name="stock_name" ColumnName="stock_name" />
                 <ScalarProperty Name="date_time" ColumnName="date_time" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

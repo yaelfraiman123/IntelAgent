@@ -14,15 +14,15 @@ namespace IntelAgentWebApi.Models
         [DataMember]
         public string LastPrice { get; set; }
         [DataMember]
-        public double PctChg { get; set; }
+        public float PctChg { get; set; }
         [DataMember]
-        public double Ask { get; set; }
+        public float Ask { get; set; }
         [DataMember]
-        public double Bid { get; set; }
+        public float Bid { get; set; }
         [DataMember]
-        public double AskQty { get; set; }
+        public float AskQty { get; set; }
         [DataMember]
-        public double BidQty { get; set; }
+        public float BidQty { get; set; }
 
     }
      [DataContract]
