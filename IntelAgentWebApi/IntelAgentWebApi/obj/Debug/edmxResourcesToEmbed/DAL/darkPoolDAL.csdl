@@ -109,26 +109,27 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
-    <EntitySet Name="StockDataManagers" EntityType="Model.StockDataManager" />
+    <EntitySet Name="stocks_action" EntityType="Model.stocks_action" />
   </EntityContainer>
-  <EntityType Name="StockDataManager">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="user_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="date_time" Type="DateTime" Precision="3" />
-    <Property Name="stock_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="sell_action" Type="Int32" />
-    <Property Name="limit" Type="Int32" />
-    <Property Name="market_limit" Type="Int32" />
-    <Property Name="strategy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="target" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="carrying_amount" Type="Int32" />
-    <Property Name="price_check" Type="Int32" />
-    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <ComplexType Name="ComplexType1">
     <Property Type="Int32" Name="quantity" />
   </ComplexType>
+  <EntityType Name="stocks_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="stock_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sell_action" Type="Int16" Nullable="false" />
+    <Property Name="market_limit" Type="Int16" Nullable="false" />
+    <Property Name="strategy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="target" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="amount_done" Type="Int32" />
+    <Property Name="price_done" Type="Double" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="limit" Type="Double" />
+  </EntityType>
 </Schema>

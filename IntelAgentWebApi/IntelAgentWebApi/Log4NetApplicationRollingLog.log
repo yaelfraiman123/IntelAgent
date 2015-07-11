@@ -54,3 +54,11 @@
 2015-07-10 09:48:39,875 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-10 09:55:36,928 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-10 10:09:00,627 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-10 11:10:22,193 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-10 11:10:42,341 [8] INFO IntelAgentWebApi.common.XmlStocksSerializer - get all the stocks from xml
+2015-07-10 11:10:42,364 [5] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-11 11:26:23,765 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-11 11:27:18,105 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-11 12:15:12,544 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-11 17:16:22,187 [12] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-11 17:17:09,743 [12] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8

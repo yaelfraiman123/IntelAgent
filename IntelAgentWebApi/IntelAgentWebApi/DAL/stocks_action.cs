@@ -12,19 +12,20 @@ namespace IntelAgentWebApi.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class StockDataManager
+    public partial class stocks_action
     {
+        public string id { get; set; }
         public string user_id { get; set; }
-        public Nullable<System.DateTime> date_time { get; set; }
+        public System.DateTime date_time { get; set; }
         public string stock_name { get; set; }
-        public Nullable<int> sell_action { get; set; }
-        public Nullable<int> limit { get; set; }
-        public Nullable<int> market_limit { get; set; }
+        public short sell_action { get; set; }
+        public short market_limit { get; set; }
         public string strategy { get; set; }
         public string target { get; set; }
-        public Nullable<int> carrying_amount { get; set; }
-        public Nullable<int> price_check { get; set; }
         public string status { get; set; }
-        public string id { get; set; }
+        public Nullable<int> amount_done { get; set; }
+        public Nullable<double> price_done { get; set; }
+        public int quantity { get; set; }
+        public Nullable<double> limit { get; set; }
     }
 }

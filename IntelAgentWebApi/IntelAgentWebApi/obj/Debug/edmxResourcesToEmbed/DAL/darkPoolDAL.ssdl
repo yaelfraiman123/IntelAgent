@@ -61,23 +61,23 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
-  <EntityType Name="StockDataManager">
+  <EntityType Name="stocks_action">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="user_id" Type="varchar(max)" />
-    <Property Name="date_time" Type="datetime" />
-    <Property Name="stock_name" Type="varchar(max)" />
-    <Property Name="sell_action" Type="int" />
-    <Property Name="quantity" Type="int" />
-    <Property Name="limit" Type="int" />
-    <Property Name="market_limit" Type="int" />
-    <Property Name="strategy" Type="varchar(max)" />
-    <Property Name="target" Type="varchar(max)" />
-    <Property Name="carrying_amount" Type="int" />
-    <Property Name="price_check" Type="int" />
-    <Property Name="status" Type="varchar" MaxLength="50" />
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_time" Type="datetime" Nullable="false" />
+    <Property Name="stock_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sell_action" Type="smallint" Nullable="false" />
+    <Property Name="limit" Type="float" />
+    <Property Name="market_limit" Type="smallint" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="strategy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="target" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="amount_done" Type="int" />
+    <Property Name="price_done" Type="float" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -142,7 +142,7 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="StockDataManager" EntityType="Self.StockDataManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stocks_action" EntityType="Self.stocks_action" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />

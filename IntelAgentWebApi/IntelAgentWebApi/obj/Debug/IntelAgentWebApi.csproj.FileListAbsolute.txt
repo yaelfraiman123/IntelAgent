@@ -1,4 +1,3 @@
-C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.csprojResolveAssemblyReference.cache
 C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.dll.config
 C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\IntelAgentWebApi.pdb
@@ -101,3 +100,4 @@ C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.Spatial.resources
 C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.Spatial.resources.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.pdb
+C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.csprojResolveAssemblyReference.cache
