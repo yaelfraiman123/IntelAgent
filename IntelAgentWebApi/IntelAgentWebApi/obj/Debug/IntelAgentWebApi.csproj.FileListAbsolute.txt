@@ -100,4 +100,5 @@ C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hans\Microsoft.Spatial.resources
 C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\zh-Hant\Microsoft.Spatial.resources.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.pdb
+C:\git\IntelAgentWebApi\IntelAgentWebApi\bin\MySql.Data.Entity.EF6.dll
 C:\git\IntelAgentWebApi\IntelAgentWebApi\obj\Debug\IntelAgentWebApi.csprojResolveAssemblyReference.cache

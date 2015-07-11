@@ -63,19 +63,19 @@
   </EntityType>
   <EntityType Name="stocks_action">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date_time" Type="datetime" Nullable="false" />
-    <Property Name="stock_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="sell_action" Type="smallint" Nullable="false" />
+    <Property Name="stock_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sell_action" Type="tinyint" Nullable="false" />
     <Property Name="limit" Type="float" />
-    <Property Name="market_limit" Type="smallint" Nullable="false" />
+    <Property Name="market_limit" Type="tinyint" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
-    <Property Name="strategy" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="target" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="strategy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="target" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="amount_done" Type="int" />
     <Property Name="price_done" Type="float" />
   </EntityType>

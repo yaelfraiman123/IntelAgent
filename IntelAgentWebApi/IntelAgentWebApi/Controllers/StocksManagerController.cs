@@ -35,7 +35,7 @@ namespace IntelAgentWebApi.Controllers
          
             value.user_id = User.Identity.GetUserId();
             value.date_time = DateTime.Now;
-            value.id = Guid.NewGuid().ToString();
+            value.Id = Guid.NewGuid().ToString();
             _stocksMatchManager.Insert2Db(value);
         }
 
