@@ -171,11 +171,11 @@
 			<td>
                 <div ng-hide="editingData[$index] || transaction.market_limit">{{transaction.limit}}</div>
                 <div ng-show="editingData[$index]">
-								<select ng-change="updateLimitSelect()" ng-model="desiredLimitObj"
+								<select ng-change="otherLogic(transaction,limitObj)" ng-model="limitObj"
 									ng-options="option as option.label for option in optionArray" required>
 									<option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
 								</select>
-								<input type="number" min="0" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
+								<input type="number" min="0" class="OtherTextLimit" ng-show="!transaction.market_limit && editingData[$index]" ng-model="transaction.limit">
 				</div>
 				<div ng-show ="transaction.market_limit && !editingData[$index]">MKT</div>
             </td>

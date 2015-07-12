@@ -152,3 +152,16 @@
 2015-07-12 20:23:23,905 [7] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 69d11263-a634-41a6-ac5d-0bcb37141ce8
 2015-07-12 21:28:37,056 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-12 21:57:40,093 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-12 22:26:02,794 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-12 23:23:33,424 [13] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:23:52,335 [13] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:23:56,912 [11] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:24:30,725 [11] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:25:17,422 [8] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:25:37,713 [13] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:27:03,212 [16] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:27:28,938 [16] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 23:28:18,133 [23] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-12 23:28:43,393 [13] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-12 23:28:43,666 [28] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-12 23:29:02,508 [26] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264

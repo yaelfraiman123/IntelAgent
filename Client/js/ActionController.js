@@ -5,9 +5,11 @@
     var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, stockService,transactionService,currentUser){
 		
 		$scope.userProfile = {};
-
 		
-		if($scope.userProfile.isLoggedIn == false)
+		var foo = localStorage["bar"];
+		localStorage["bar"] = foo;
+		
+		if(currentUser.getProfile().isLoggedIn == false)
 		{
 			$location.path("/login");
 		}
@@ -42,8 +44,14 @@
 				angular.copy(data,$scope.original);
 				angular.copy(currentUser.getProfile(), $scope.userProfile);
 				$scope.userProfile = currentUser.getProfile();
+				
 				for (var i = 0, length = $scope.userProfile.transactions.length; i < length; i++) {
 					$scope.editingData[i] = false;
+					
+					if($scope.userProfile.transactions[i].sell_action == 0)
+						$scope.userProfile.transactions[i].sell_action = "קניה";
+					else
+						$scope.userProfile.transactions[i].sell_action = "מכירה";
 				}
 			},
 			function(response){//on Failure
@@ -58,7 +66,7 @@
 
         //Logic of the "Other" visibility
 		$scope.updateLimitSelect = function(){
-			$log.debug($scope.desiredLimitObj);
+
 			if ($scope.desiredLimitObj.value == 0){//if "other" selected
 				$scope.other = "true";
 			}
@@ -91,7 +99,9 @@
 			market_limit: $scope.desiredLimitObj.value,//1 if MKT
 			quantity: $scope.desiredQty,
 			strategy: $scope.desiredStrat,
-			target: $scope.desiredTrgt
+			target: $scope.desiredTrgt,
+			amount_done: 0,
+			price_done: 0
 			}
 			
 			$log.debug($scope.desiredTransaction);
@@ -122,25 +132,28 @@
 			
 		$scope.AcceptUpdate = function(index)
 		{
+			if($scope.userProfile.transactions[index].sell_action == "מכירה")
+				$scope.userProfile.transactions[index].sell_action = 1;
+			else
+				$scope.userProfile.transactions[index].sell_action = 0;
 			//PUT UPDATE
 			transactionService.put($scope.userProfile.transactions[index],
 					function(data){//on Success
 							$log.debug("put success");
+							$route.reload();
 						},
 						function(response){//on Failure
 							$log.debug("put failed");
 						}
 			);				
 			 $scope.editingData[index] = false;
+			 
 		};		
 				
 		$scope.AbortUpdate = function(index)
 		{
 			//restore transaction
-			 
-			$scope.userProfile.transactions[index] = $scope.original[index];
-			 console.log($scope.original);
-			$scope.editingData[index] = false;
+			$route.reload();
 		};		
 			
 		$scope.abort = function(index)
@@ -151,7 +164,7 @@
 				var ID = $scope.userProfile.transactions[index].Id;
 				$log.debug(ID);
 				//TODO send post delete request for the transaction[index]
-				transactionService.delete(ID,
+				transactionService.delete2(ID,
 					function(data){//on Success
 							$log.debug("delete success");
 						},
@@ -163,6 +176,14 @@
 			}
 						
 		};
+		
+		
+		
+		$scope.otherLogic = function(transaction,limitObj)
+		{
+			transaction.market_limit = limitObj.value;
+		}
+		
 		
 		 function getLang()
 		{

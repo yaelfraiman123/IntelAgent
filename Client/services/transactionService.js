@@ -17,7 +17,7 @@
 				method: 'PUT',
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
 			},			
-			'delete': {
+			'delete2': {
 				method: 'DELETE',
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
 			},
