@@ -172,14 +172,14 @@ namespace IntelAgentWebApi.Controllers
                 && ticket.Properties.ExpiresUtc.HasValue
                 && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow))
             {
-                return BadRequest("External login failure.");
+                return BadRequest("External login failure");
             }
 
             ExternalLoginData externalData = ExternalLoginData.FromIdentity(ticket.Identity);
 
             if (externalData == null)
             {
-                return BadRequest("The external login is already associated with an account.");
+                return BadRequest("The external login is already associated with an account");
             }
 
             IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),

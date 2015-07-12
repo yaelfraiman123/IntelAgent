@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Reflection;
     using System.Collections.Concurrent;
+    using System.ComponentModel;
     using System.Text;
     using System.Threading;
     using IntelAgentWebApi.DAL;
@@ -12,12 +13,7 @@
     using log4net;
     using log4net.Config;
 
-    public enum eStatus
-     {
-         InProgress,
-         Deleted,
-         Done
-     }
+    
       
     public  class StocksHandler
     {
@@ -27,7 +23,7 @@
         private ConcurrentDictionary<string, List<stocks_action>> _buy;
         private XmlStocksSerializer _xmlStockSerializer = XmlStocksSerializer.GetInstance(); 
         private EventWaitHandle _WaitEvent = new EventWaitHandle(false,EventResetMode.AutoReset);
-
+        private StockStatusGetter _stockStatusGetter = new StockStatusGetter();
 
         
         private StocksHandler()
@@ -48,7 +44,7 @@
             Log.Error("start the thread of finding stock that match");
             Entities _context = new Entities();
 
-            var stockslst = _context.stocks_action.Where(x=>x.status !=eStatus.Done.ToString() && x.status!=eStatus.Deleted.ToString()).ToList();
+            var stockslst = _context.stocks_action.AsEnumerable().Where(x => x.status != _stockStatusGetter.GetDescription(eStatus.Done) && x.status != _stockStatusGetter.GetDescription(eStatus.Deleted)).ToList();
             var sellLst = stockslst.Where(x => x.sell_action==1);
             var buyLst = stockslst.Where(x => x.sell_action==0);
             var grpSell = sellLst.GroupBy(x => x.stock_name);
@@ -99,13 +95,13 @@
                     if (_buy.ContainsKey(stockGroup.Key))
                     {
                         var buyMatches = _buy[stockGroup.Key].Where(x => x.user_id != sell.user_id 
-                            && x.limit <= buyPrice && x.limit >= sellPrice 
-                            && x.status==eStatus.InProgress.ToString()).ToList();
+                            && x.limit <= buyPrice && x.limit >= sellPrice
+                            && x.status == _stockStatusGetter.GetDescription(eStatus.InProgress)).ToList();
                         if (isMarket)
                         {
                             buyMatches.AddRange(_buy[stockGroup.Key]
                                 .Where(x => x.user_id != sell.user_id && x.market_limit ==1
-                                    && x.status==eStatus.InProgress.ToString())
+                                    && x.status == _stockStatusGetter.GetDescription(eStatus.InProgress))
                                 .ToList());
                         }
                         buyMatches = buyMatches.OrderBy(x => x.date_time).ToList();
@@ -115,17 +111,17 @@
                             float buyerPrice = buyMatch.market_limit == 1 ? (float)(marketStockStatus.Bid) : (float)buyMatch.limit;
                             float average = (float)(buyerPrice + sellPrice)/2;
                             createStockMatch(sell, buyMatch,average);
-                            if (sell.status == eStatus.Done.ToString())
+                            if (sell.status == _stockStatusGetter.GetDescription(eStatus.Done))
                             {
                                 break;
                             }
                         }
                     }
                 }
-                _sell[stockGroup.Key].RemoveAll(x => x.status == eStatus.Deleted.ToString() || x.status == eStatus.Done.ToString());
+                _sell[stockGroup.Key].RemoveAll(x => x.status == _stockStatusGetter.GetDescription(eStatus.Deleted) || x.status == _stockStatusGetter.GetDescription(eStatus.Done));
                 if (_buy.ContainsKey(stockGroup.Key))
                 {
-                    _buy[stockGroup.Key].RemoveAll(x => x.status == eStatus.Deleted.ToString() || x.status == eStatus.Done.ToString());                    
+                    _buy[stockGroup.Key].RemoveAll(x => x.status == _stockStatusGetter.GetDescription(eStatus.Deleted) || x.status == _stockStatusGetter.GetDescription(eStatus.Done));                    
                 }
             }
             
@@ -142,10 +138,10 @@
                 updatePrice(sell, sell.quantity, i_Average);
                 buy.quantity -= sell.quantity;
                 sell.quantity = 0;
-                sell.status = eStatus.Done.ToString();
+                sell.status = _stockStatusGetter.GetDescription(eStatus.Done);
                 if (buy.quantity==0)
                 {
-                    buy.status = eStatus.Done.ToString();
+                    buy.status = _stockStatusGetter.GetDescription(eStatus.Done);
                 }
                 
             }
@@ -155,7 +151,7 @@
                 updatePrice(sell, buy.quantity, i_Average);
                 sell.quantity -= buy.quantity;
                 buy.quantity = 0;
-                buy.status = eStatus.Done.ToString();
+                buy.status = _stockStatusGetter.GetDescription(eStatus.Done);
                 
             }
             UpdateDb(sell);
@@ -200,7 +196,7 @@
             try
             {
                 Entities _context = new Entities();
-                stocksDataManager.status = eStatus.InProgress.ToString();
+                stocksDataManager.status = _stockStatusGetter.GetDescription(eStatus.InProgress);
                 _context.stocks_action.Add(stocksDataManager);
                 _context.SaveChanges();
             }
@@ -250,7 +246,7 @@
         {
             Entities _context = new Entities();
 
-            var stockToUpdate = _context.stocks_action.First(x => x.Id ==stock.Id);
+            var stockToUpdate = _context.stocks_action.FirstOrDefault(x => x.Id ==stock.Id);
             if (stockToUpdate!=null)
             {
                 UpdateStock(stock, stockToUpdate);
@@ -285,14 +281,14 @@
             {
                 if (_sell.ContainsKey(i_Stcok.stock_name))
                 {
-                    stockTpUpdate = _sell[i_Stcok.stock_name].First(x => x.Id == i_Stcok.Id);
+                    stockTpUpdate = _sell[i_Stcok.stock_name].FirstOrDefault(x => x.Id == i_Stcok.Id);
                 }
             }
             else
             {
                 if (_buy.ContainsKey(i_Stcok.stock_name))
                 {
-                    stockTpUpdate = _buy[i_Stcok.stock_name].First(x => x.Id == i_Stcok.Id);
+                    stockTpUpdate = _buy[i_Stcok.stock_name].FirstOrDefault(x => x.Id == i_Stcok.Id);
                 }
             }
             UpdateStock(i_Stcok, stockTpUpdate);
@@ -305,8 +301,8 @@
             {
                 Entities _context = new Entities();
 
-                var stockToDelete = _context.stocks_action.First(x => x.Id == id);
-                stockToDelete.status = eStatus.Deleted.ToString();
+                var stockToDelete = _context.stocks_action.FirstOrDefault(x => x.Id == id);
+                stockToDelete.status = _stockStatusGetter.GetDescription(eStatus.Deleted);
                 _context.SaveChanges();
                 deleteStockFromDictionray(stockToDelete);
             }
@@ -324,16 +320,16 @@
             {
                 if (_sell.ContainsKey(i_StockToDelete.stock_name))
                 {
-                    var stock = _sell[i_StockToDelete.stock_name].First(x => x.Id == i_StockToDelete.Id);
-                    stock.status = eStatus.Deleted.ToString();
+                    var stock = _sell[i_StockToDelete.stock_name].FirstOrDefault(x => x.Id == i_StockToDelete.Id);
+                    stock.status = _stockStatusGetter.GetDescription(eStatus.Deleted);
                 }
             }
             else
             {
                 if (_buy.ContainsKey(i_StockToDelete.stock_name))
                 {
-                    var stock = _buy[i_StockToDelete.stock_name].First(x => x.Id == i_StockToDelete.Id);
-                    stock.status = eStatus.Deleted.ToString();
+                    var stock = _buy[i_StockToDelete.stock_name].FirstOrDefault(x => x.Id == i_StockToDelete.Id);
+                    stock.status = _stockStatusGetter.GetDescription(eStatus.Deleted);
                 }
             }
         }

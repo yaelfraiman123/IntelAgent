@@ -145,3 +145,8 @@
 2015-07-12 00:04:26,795 [8] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 69d11263-a634-41a6-ac5d-0bcb37141ce8
 2015-07-12 00:13:11,587 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-12 00:13:43,468 [6] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 69d11263-a634-41a6-ac5d-0bcb37141ce8
+2015-07-12 20:18:06,634 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-12 20:19:03,464 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-12 20:21:19,288 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-12 20:22:50,896 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-12 20:23:23,905 [7] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 69d11263-a634-41a6-ac5d-0bcb37141ce8
