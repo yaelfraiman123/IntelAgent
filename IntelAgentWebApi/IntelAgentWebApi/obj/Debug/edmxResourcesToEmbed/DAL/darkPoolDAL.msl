@@ -83,5 +83,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="action_log">
+      <EntityTypeMapping TypeName="Model.action_log">
+        <MappingFragment StoreEntitySet="action_log">
+          <ScalarProperty Name="price_" ColumnName="price " />
+          <ScalarProperty Name="quantity_" ColumnName="quantity " />
+          <ScalarProperty Name="date_time" ColumnName="date_time" />
+          <ScalarProperty Name="stock_name_" ColumnName="stock_name " />
+          <ScalarProperty Name="buy_user_id" ColumnName="buy_user_id" />
+          <ScalarProperty Name="sell_user_id" ColumnName="sell_user_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

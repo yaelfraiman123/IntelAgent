@@ -62,6 +62,20 @@
 
 
         }
+        private void UpdateActionLog(stocks_action i_Sell, stocks_action i_Buy, int i_Quantity, float i_Average)
+        {
+            Entities context = new Entities();
+            context.action_log.Add(new action_log()
+            {
+                sell_user_id = i_Sell.user_id,
+                buy_user_id = i_Buy.user_id,
+                quantity_ = i_Quantity,
+                price_ = i_Average,
+                stock_name_ = i_Sell.stock_name,
+                date_time = DateTime.Now,
+                Id = Guid.NewGuid().ToString()
+            });
+        }
 
         private void addToDictionary(ConcurrentDictionary<string, List<stocks_action>> dic,string key, List<stocks_action> stocksToAdd)
         {
@@ -134,6 +148,7 @@
         {
             if (buy.quantity >=sell.quantity)
             {
+                UpdateActionLog(sell, buy, sell.quantity, i_Average);
                 updatePrice(buy, sell.quantity, i_Average);
                 updatePrice(sell, sell.quantity, i_Average);
                 buy.quantity -= sell.quantity;
@@ -147,6 +162,7 @@
             }
             else
             {
+                UpdateActionLog(sell, buy, buy.quantity, i_Average);
                 updatePrice(buy, buy.quantity, i_Average);
                 updatePrice(sell, buy.quantity, i_Average);
                 sell.quantity -= buy.quantity;

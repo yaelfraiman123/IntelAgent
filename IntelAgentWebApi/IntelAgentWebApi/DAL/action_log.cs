@@ -15,16 +15,22 @@ namespace IntelAgentWebApi.DAL
 using System;
     using System.Collections.Generic;
     
-public partial class C__MigrationHistory
+public partial class action_log
 {
 
-    public string MigrationId { get; set; }
+    public string Id { get; set; }
 
-    public string ContextKey { get; set; }
+    public string sell_user_id { get; set; }
 
-    public byte[] Model { get; set; }
+    public string buy_user_id { get; set; }
 
-    public string ProductVersion { get; set; }
+    public string stock_name_ { get; set; }
+
+    public System.DateTime date_time { get; set; }
+
+    public int quantity_ { get; set; }
+
+    public double price_ { get; set; }
 
 }
 
