@@ -11,12 +11,16 @@
 			},
 			'post':{
 			    method: 'POST',
-				headers: {'Authorization': 'Bearer ' + currentUser.getProfile().token}
-			}/*,
-			'update': {
-				method: 'PUT'
+				headers: {'Authorization': 'Bearer ' + currentUser.getProfile().token }
+			},
+			'put': {
+				method: 'PUT',
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
-			}*/
+			},			
+			'delete': {
+				method: 'DELETE',
+				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
+			},
 		});
 			
 	}
