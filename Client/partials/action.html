@@ -150,15 +150,33 @@
             <td>{{transaction.status}}</td>
             <td>
                 <div ng-hide="editingData[$index]">{{transaction.target}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.target" /></div>
+                <div ng-show="editingData[$index]">
+					<select ng-model = "transaction.target" required>
+						<option value="" selected style="display:none">{{text.CHOOSE_TARGET}}</option>
+						<option>{{text.CROSS}}</option>
+						<option>{{text.DARK_POOL}} </option>
+					</select>
+				</div>
             </td>
 			<td>
                 <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.strategy" /></div>
+                <div ng-show="editingData[$index]">
+					<select ng-model = "transaction.strategy" required>
+						<option value="" selected style="display:none">{{text.CHOOSE_STRATEGY}} </option>
+						<option>{{text.AGGRESIVE}}</option>
+						<option>{{text.PASSIVE}}</option>
+					</select>
+				</div>
             </td>
 			<td>
                 <div ng-hide="editingData[$index] || transaction.market_limit">{{transaction.limit}}</div>
-                <div ng-show="editingData[$index]"><input type="number" min="0" ng-model="transaction.limit" /></div>
+                <div ng-show="editingData[$index]">
+								<select ng-change="updateLimitSelect()" ng-model="desiredLimitObj"
+									ng-options="option as option.label for option in optionArray" required>
+									<option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
+								</select>
+								<input type="number" min="0" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
+				</div>
 				<div ng-show ="transaction.market_limit && !editingData[$index]">MKT</div>
             </td>
 			<td>

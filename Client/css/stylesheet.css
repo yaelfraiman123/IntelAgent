@@ -15,6 +15,7 @@ body {
   line-height: 10px;
   position: absolute;
   left: 570px;
+  top: -3px;
 }
 	  
 .action{
@@ -46,12 +47,13 @@ body {
 	cursor: pointer;
 }
 
-.tableBoot input[type="text"]{
+.tableBoot input[type="number"], .tableBoot select{
 	border-radius: 4px;
 	background-color: white;
-	width: 83px;
+	width: 110px;
 	font-family: sans-serif;
 	text-align:center;
+	line-height: 15px;
 }
 
 .containerAction{
@@ -334,11 +336,16 @@ footer {
 	}
 	
 	.LanguageImages img {
-		left: 250px;
+		left: 0px;
+		top: 30px;
+	}
+	
+	.LanguageHeb img{
+		left: 30px;
 	}
 	
 	.LogoutImages button{
-		left: 170px;
+		left: 0px;
 	}
 	
 	.mapOfUs{
