@@ -122,7 +122,15 @@
 			
 		$scope.AcceptUpdate = function(index)
 		{
-			//POST UPDATE
+			//PUT UPDATE
+			transactionService.put($scope.userProfile.transactions[index],
+					function(data){//on Success
+							$log.debug("put success");
+						},
+						function(response){//on Failure
+							$log.debug("put failed");
+						}
+			);				
 			 $scope.editingData[index] = false;
 		};		
 				
@@ -140,9 +148,17 @@
 			var isConfirmed = window.confirm($scope.text.CHECK_DELETE);
 			if(isConfirmed)
 			{
-				var transToDelete = $scope.userProfile.transactions[index];
-				$log.debug(transToDelete);
+				var ID = $scope.userProfile.transactions[index].Id;
+				$log.debug(ID);
 				//TODO send post delete request for the transaction[index]
+				transactionService.delete(ID,
+					function(data){//on Success
+							$log.debug("delete success");
+						},
+						function(response){//on Failure
+							$log.debug("delete failed");
+						}
+				);	
 				$route.reload();
 			}
 						
