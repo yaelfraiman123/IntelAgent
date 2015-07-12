@@ -4,7 +4,8 @@
     
     var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, stockService,transactionService,currentUser){
 		
-		$scope.userProfile = currentUser.getProfile();
+		$scope.userProfile = {};
+
 		
 		if($scope.userProfile.isLoggedIn == false)
 		{
@@ -37,6 +38,10 @@
         transactionService.get(null,
 		function(data){//on Success
 				currentUser.setTransactions(data);
+				$scope.original =[];
+				angular.copy(data,$scope.original);
+				angular.copy(currentUser.getProfile(), $scope.userProfile);
+				$scope.userProfile = currentUser.getProfile();
 				for (var i = 0, length = $scope.userProfile.transactions.length; i < length; i++) {
 					$scope.editingData[i] = false;
 				}
@@ -46,17 +51,15 @@
 				}
 			);
 		
-
-
         $scope.optionArray = [
 			{ label: 'MKT', value: 1 },
-			{ label: 'Other', value: 2 }
+			{ label: 'Other', value: 0 }
 		];
 
         //Logic of the "Other" visibility
 		$scope.updateLimitSelect = function(){
 			$log.debug($scope.desiredLimitObj);
-			if ($scope.desiredLimitObj.value == 2){//if "other" selected
+			if ($scope.desiredLimitObj.value == 0){//if "other" selected
 				$scope.other = "true";
 			}
 			else{
@@ -76,27 +79,19 @@
 		$scope.submitNewTansaction = function()
 		{					
 			$scope.selectFirst = false;
-			//VALUE 1 == "MKT" label
-			$log.debug($scope.desiredLimitObj);
-			if($scope.desiredLimitObj.value == 1)
-				$scope.desiredLimit = "MKT";
-			else
-				$scope.desiredLimit = $scope.desiredOtherLimit;
 	
 			var dateTime = Date;
 			
 			$scope.desiredTransaction = {
-			Id: $scope.userProfile.transactions.length+1,
 			user_id: $scope.userProfile.username,
 			date_time: dateTime.now(),
 			stock_name: $scope.selectedStock.Symbol,
 			sell_action: $scope.desiredAction,
+			limit: $scope.desiredOtherLimit,
+			market_limit: $scope.desiredLimitObj.value,//1 if MKT
 			quantity: $scope.desiredQty,
-			market_limit: $scope.desiredLimit,
 			strategy: $scope.desiredStrat,
-			target: $scope.desiredTrgt,
-			carrying_amount: 0,
-			price_check: 0
+			target: $scope.desiredTrgt
 			}
 			
 			$log.debug($scope.desiredTransaction);
@@ -118,24 +113,9 @@
 							}
 						});				
 		};
-
-		$scope.currUpdatedTransaction = 
-		{
-            // this is a demo of a transaction,
-			name: "LUMI",
-			action: "קניה",
-			quantity: 100,
-			limit: 99.5,
-			strategy: "פסיבי",
-			target: "קרוס",
-			status: "ממתין",
-			delivered_quantity: 0,
-			delivered_price: 0
-		};
 		
 		$scope.update = function(index)
 		{
-			angular.copy($scope.transactions[index], $scope.currUpdatedTransaction);
 			$log.debug("Updating row index:"+index);
             $scope.editingData[index] = true;
 		};
@@ -148,8 +128,11 @@
 				
 		$scope.AbortUpdate = function(index)
 		{
-			 angular.copy($scope.currUpdatedTransaction, $scope.userProfile.transactions[index]);
-			 $scope.editingData[index] = false;
+			//restore transaction
+			 
+			$scope.userProfile.transactions[index] = $scope.original[index];
+			 console.log($scope.original);
+			$scope.editingData[index] = false;
 		};		
 			
 		$scope.abort = function(index)
@@ -189,21 +172,6 @@
 			
 		}
 		
-		document.onkeydown = function(){
-  switch (event.keyCode){
-        case 116 : //F5 button
-            event.returnValue = false;
-			$route.reload();
-            return false;
-        case 82 : //R button
-            if (event.ctrlKey){ 
-                event.returnValue = false;
-				$route.reload();
-                return false;
-            }
-    }
-}
-
 		$scope.$parent.showLangOps = true;//enables the Lang option in the header
 		
     };

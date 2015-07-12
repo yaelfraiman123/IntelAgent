@@ -84,13 +84,13 @@
 				ng-options="option as option.label for option in optionArray" required>
 					<option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
 				</select>
-				<input type="text" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
+				<input type="number" min="0" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
 			</div>
 		</div>
 		<div>
 			<div class= "col-sm-2 col-xs-6 Quantity">
 				<p>{{text.QUANTITY}}</p>
-				<input type="text" ng-model="desiredQty" required>
+				<input type="number" min="0" ng-model="desiredQty" required>
 			</div>
 		</div>
 		<div>
@@ -145,8 +145,8 @@
 				<a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png"></a>
 				<a ng-show="editingData[$index]" ng-click="AbortUpdate($index)"><img src="images/AbortBtn.png"></a>
             </td>
-            <td>{{transaction.price_check}}</td>
-            <td>{{transaction.carrying_amount}}</td>
+            <td>{{transaction.price_done}}</td>
+            <td>{{transaction.amount_done}}</td>
             <td>{{transaction.status}}</td>
             <td>
                 <div ng-hide="editingData[$index]">{{transaction.target}}</div>
@@ -157,12 +157,13 @@
                 <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.strategy" /></div>
             </td>
 			<td>
-                <div ng-hide="editingData[$index]">{{transaction.limit}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.limit" /></div>
+                <div ng-hide="editingData[$index] || transaction.market_limit">{{transaction.limit}}</div>
+                <div ng-show="editingData[$index]"><input type="number" min="0" ng-model="transaction.limit" /></div>
+				<div ng-show ="transaction.market_limit && !editingData[$index]">MKT</div>
             </td>
 			<td>
                 <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
-                <div ng-show="editingData[$index]"><input type="text" ng-model="transaction.quantity" /></div>
+                <div ng-show="editingData[$index]"><input type="number" min="0" ng-model="transaction.quantity" /></div>
             </td>
 			<td>{{transaction.sell_action}}</td>
 			<td>{{transaction.stock_name}}</td>

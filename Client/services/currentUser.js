@@ -21,27 +21,13 @@
 				profile.isLoggedIn = isLoggedIn;
 		};
 		
-		var logout = function()
+		var clearUser = function()
 		{	
-			if(profile.isLoggedIn)
-			{	
-				console.log("logging out " + profile.username);
-				logoutFunc().post(profile.token,
-					function(data){//on Success
-						console.log("logout post success");
-						setProfile("","",false);
-						profile.transactions = [];
-						
-						},
-						function(response){//on Failure
-							console.log("post success");
-				});
-						
-
-			}
+			setProfile("","",false);
+			profile.transactions = [];
 		}
 				
-		var logoutFunc = function()
+		var logout = function()
 		{
 			return $resource(appSettings.serverURL + "/api/Account/Logout?access_token=:access_token", {access_token: profile.token},
 			{
@@ -75,7 +61,8 @@
 			getProfile: getProfile,
 			setTransactions: setTransactions,
 			logout: logout,
-			getUserInfo: getUserInfo
+			getUserInfo: getUserInfo,
+			clearUser: clearUser
 		};
 		
 	}

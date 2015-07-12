@@ -9,6 +9,13 @@ body {
 	position:absolute;
 	left:650px;
 }
+
+.LogoutImages button{
+  width: 60px;
+  line-height: 10px;
+  position: absolute;
+  left: 570px;
+}
 	  
 .action{
   margin-bottom: 20px;
@@ -185,7 +192,7 @@ body {
 	margin-left: 24px;
 }
 
-.inputFromUserForm .Quantity input[type="text"]{
+.inputFromUserForm .Quantity input[type="number"]{
 	margin-left: 18px;
 }
 
@@ -204,7 +211,7 @@ body {
   margin-top: 20px;
 }
 
-.inputFromUserForm select, .inputFromUserForm input[type="text"]{
+.inputFromUserForm select, .inputFromUserForm input[type="text"], .inputFromUserForm input[type="number"]{
   width: 130px;
   background-color: #D6D6D6;
   font-family: sans-serif;
@@ -213,7 +220,7 @@ body {
   margin-top: 11px;
 }
 
-.inputFromUserForm input[type="text"]{
+.inputFromUserForm input[type="text"], .inputFromUserForm input[type="number"]{
 	line-height:17px;
 	margin-left: 22px;
 	margin-bottom: 60px;
@@ -327,8 +334,12 @@ footer {
 	}
 	
 	.LanguageImages img {
-	  left: 250px;
-	  }
+		left: 250px;
+	}
+	
+	.LogoutImages button{
+		left: 170px;
+	}
 	
 	.mapOfUs{
 		height: 250px;
@@ -364,7 +375,7 @@ footer {
 		margin-left: 0px;
 	}
 
-	.inputFromUserForm .Quantity input[type="text"]{
+	.inputFromUserForm .Quantity input[type="number"]{
 		margin-left: 0px;
 	}
 
@@ -386,7 +397,7 @@ footer {
 		left: 16px;
 	}
 	
-	.inputFromUserForm select, .inputFromUserForm input[type="text"]{
+	.inputFromUserForm select, .inputFromUserForm input[type="text"], .inputFromUserForm input[type="number"]{
 		  width:100%;
 		  margin-bottom: 20px;
 		  margin-right: -6px;
