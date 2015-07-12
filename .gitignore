@@ -1,8 +1,8 @@
 IntelAgentWebApi/IntelAgentWebApi.v12.suo
 
 *.ldf
-
-
+IntelAgentWebApi/IntelAgentWebApi/bin/IntelAgentWebApi.pdb
+IntelAgentWebApi/packages/*.*
 IntelAgentWebApi/IntelAgentWebApi.sln.DotSettings.user
 
 *.cache
