@@ -2,9 +2,7 @@
 
   var app = angular.module("intelAgent");
 
-  var LoginController = function($scope,$location,userAccount,currentUser) {
-		
-		//alert('success', 'יש עדכון!','אחד או יותר מהעברות שלך עודכנו' , 5000);
+  var LoginController = function($scope,$location,userAccount,currentUser,alert) {
 		
 		$scope.profile = currentUser.getProfile();
 		
@@ -15,10 +13,9 @@
 				function(data){//on Success
 					$scope.message = "";
 					$scope.password = "";
-					currentUser.setProfile($scope.userData.username,data.access_token,true);//init current user profile
+					currentUser.login($scope.userData.username,data.access_token,true);
 					$scope.$parent.showLogout = true;//enables the logout button at the header
-					localStorage["intelToken"] = data.access_token;
-					localStorage["intelUser"] = $scope.userData.username;
+					alert('success', 'שלום!','טוב שחזרת ' + $scope.userData.username ,false, 5000);
 					$location.path("/action");
 				},
 				function(response){//on Failure
@@ -47,6 +44,6 @@
 	};
 
 
-  app.controller("LoginController", ["$scope","$location",'userAccount','currentUser',LoginController]);
+  app.controller("LoginController", ["$scope","$location",'userAccount','currentUser','alert',LoginController]);
 
 }()); 

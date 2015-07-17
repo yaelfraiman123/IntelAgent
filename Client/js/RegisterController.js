@@ -33,20 +33,27 @@
 			};
 			
 		$scope.login = function(){
-			$scope.userData.grant_type = "password";
 			
-			userAccount.login.loginUser($scope.userData,
+		var userInfo ={
+			grant_type: "password",
+			password: $scope.userData.password,
+			username: $scope.userData.email
+			};
+			
+			//Delete info if another registration will take place soon.
+			$scope.message = "";
+			$scope.userData.email ="";
+			$scope.userData.confirmPassword = "";
+			$scope.userData.password = "";
+			
+			userAccount.login.loginUser(userInfo,
 				function(data){//on Success
-					currentUser.setProfile($scope.userData.username,data.access_token,true);//init current user profile
+					currentUser.login(userInfo.username,data.access_token);//init current user profile
 					$scope.$parent.showLogout = true;//enables the logout button at the header
-					localStorage["intelToken"] = data.access_token;
-					localStorage["intelUser"] = $scope.userData.username;
+					alert('success', 'שלום!','טוב שחזרת ' + userInfo.username ,false, 5000);
 					$location.path("/action");
 				},
 				function(response){//on Failure
-					$scope.message = "";
-					$scope.password = "";
-					$scope.userData.password ="";
 					$scope.error = response.data.error_description + " ";
 
 				});

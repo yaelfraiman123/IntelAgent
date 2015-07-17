@@ -7,16 +7,7 @@
 		$scope.showLogout = false;
 		
 		$scope.logout = function()
-		{
-			
-			var info = currentUser.getUserInfo().get(null,
-				function(data){//on Success
-					console.log("current username " + data.Email);
-					},
-					function(response){//on Failure
-						console.log("get info fail ");
-			});
-			
+		{	
 			currentUser.logout().post(currentUser.getProfile.token,
 			function(data){//on Success
 				console.log("logout post success");

@@ -1,4 +1,4 @@
-<form ng-submit="submitNewTansaction()" >
+<form  ng-submit="submitNewTansaction()" >
 <div class="selectStock">
 	<select ng-change="changeStock()"
 			class="col-md-offset-10 col-xs-offset-10 action"
@@ -112,25 +112,90 @@
 	</form>
 </div>
 
+  <form dir = "{{langDirection}}">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+        <input type="text" class="form-control" placeholder="{{text.SEARCH_TRANSACTION}}" ng-model="searchTrans">
+
+      </div>      
+    </div>
+  </form>
+  
 <div class="table-responsive">
     <table class="table tableBoot" ng-table="">
         <thead>
         <tr>
-		    <th></th>
+		    <th></th>			
             <th></th>
-            <th>{{text.PRICE_CHECK}} </th>
-            <th>{{text.CARRYING_AMOUNT}} </th>
-            <th>{{text.STATUS}}</th>
-            <th>{{text.TARGET}}</th>
-            <th>{{text.STRATEGY}}</th>
-            <th>{{text.LIMIT}}</th>
-            <th>{{text.QUANTITY}}</th>
-            <th>{{text.ACTION}}</th>
-            <th>{{text.STOCK}}</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'price_done';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'price_done' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'price_done' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.PRICE_DONE}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'amount_done';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'amount_done' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'amount_done' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.AMOUNT_DONE}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'status';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.STATUS}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'target';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'target' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'target' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.TARGET}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'strategy';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'strategy' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'strategy' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.STRATEGY}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'limit';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'limit' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'limit' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.LIMIT}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'quantity';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'quantity' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'quantity' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.QUANTITY}}
+				</a>
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'sell_action';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'sell_action' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'sell_action' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.ACTION}}
+				</a>			
+			</th>
+            <th>
+				<a href="#/action" ng-click="sortType = 'stock_name';  sortReverse = !sortReverse">
+				<span ng-show="sortType == 'stock_name' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'stock_name' && sortReverse" class="fa fa-caret-up"></span>
+				{{text.STOCK}}
+				</a>
+			</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="transaction in userProfile.transactions">
+        <tr ng-repeat="transaction in userProfile.transactions | orderBy:sortType:sortReverse | filter:searchTrans">
             <td>
                 <button class="btn btn-md btn-default"
                         ng-click="abort($index)"
