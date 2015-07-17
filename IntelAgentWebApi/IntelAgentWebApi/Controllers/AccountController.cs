@@ -17,6 +17,8 @@ using IntelAgentWebApi.Models;
 using IntelAgentWebApi.Providers;
 using IntelAgentWebApi.Results;
 using System.Web.Http.Cors;
+using WebMatrix.WebData;
+using System.Net;
 
 namespace IntelAgentWebApi.Controllers
 {

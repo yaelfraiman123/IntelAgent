@@ -95,6 +95,7 @@
           <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="amount_done" Type="int" />
           <Property Name="price_done" Type="float" />
+          <Property Name="is_updatable" Type="tinyint" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -314,6 +315,7 @@
           <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="amount_done" Type="Int32" />
           <Property Name="price_done" Type="Double" />
+          <Property Name="is_updatable" Type="Byte" />
         </EntityType>
         <EntityType Name="action_log">
           <Key>
@@ -399,6 +401,7 @@
           <EntitySetMapping Name="stocks_action">
             <EntityTypeMapping TypeName="Model.stocks_action">
               <MappingFragment StoreEntitySet="stocks_action">
+                <ScalarProperty Name="is_updatable" ColumnName="is_updatable" />
                 <ScalarProperty Name="price_done" ColumnName="price_done" />
                 <ScalarProperty Name="amount_done" ColumnName="amount_done" />
                 <ScalarProperty Name="status" ColumnName="status" />

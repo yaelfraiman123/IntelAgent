@@ -24,7 +24,8 @@
         private XmlStocksSerializer _xmlStockSerializer = XmlStocksSerializer.GetInstance(); 
         private EventWaitHandle _WaitEvent = new EventWaitHandle(false,EventResetMode.AutoReset);
         private StockStatusGetter _stockStatusGetter = new StockStatusGetter();
-
+        private const int _intervalTime = 1000 * 60;
+        private System.Threading.Timer _timer;
         
         private StocksHandler()
         {
@@ -57,7 +58,7 @@
             {
                 addToDictionary(_buy, grp.Key, grp.OrderBy(x => x.date_time).ToList());
             }
-            Timer timer = new Timer(checkStocksThread, null, 0, 10000*6);
+            _timer = new System.Threading.Timer(new TimerCallback(checkStocksThread), null, 0, _intervalTime);
             
 
 
@@ -75,6 +76,7 @@
                 date_time = DateTime.Now,
                 Id = Guid.NewGuid().ToString()
             });
+            context.SaveChanges();
         }
 
         private void addToDictionary(ConcurrentDictionary<string, List<stocks_action>> dic,string key, List<stocks_action> stocksToAdd)
@@ -87,56 +89,64 @@
 
         private  void checkStocksThread(Object stateInfo)
         {
-
-            var marketStocksStatus = _xmlStockSerializer.XmlDarkPoolStockModel;
-            foreach (var stockGroup in _sell)
+            try
             {
-                var marketStockStatus = marketStocksStatus.FirstOrDefault(x => x.Symbol == stockGroup.Key);
-                if (marketStockStatus ==null)
-                {
-                    continue;
-                }
 
-                foreach (var sell in stockGroup.Value)
+                var marketStocksStatus = _xmlStockSerializer.XmlDarkPoolStockModel;
+                foreach (var stockGroup in _sell)
                 {
-                    double sellPrice;
-                    bool isMarket = false;
-                    double buyPrice = getBuyNumberMatch(marketStockStatus, sell, out sellPrice);
-                    if (buyPrice >= marketStockStatus.Bid && marketStockStatus.Bid >= sellPrice)
+                    var marketStockStatus = marketStocksStatus.FirstOrDefault(x => x.Symbol == stockGroup.Key);
+                    if (marketStockStatus ==null)
                     {
-                        isMarket = true;
+                        continue;
                     }
-                    if (_buy.ContainsKey(stockGroup.Key))
-                    {
-                        var buyMatches = _buy[stockGroup.Key].Where(x => x.user_id != sell.user_id 
-                            && x.limit <= buyPrice && x.limit >= sellPrice
-                            && x.status == _stockStatusGetter.GetDescription(eStatus.InProgress)).ToList();
-                        if (isMarket)
-                        {
-                            buyMatches.AddRange(_buy[stockGroup.Key]
-                                .Where(x => x.user_id != sell.user_id && x.market_limit ==1
-                                    && x.status == _stockStatusGetter.GetDescription(eStatus.InProgress))
-                                .ToList());
-                        }
-                        buyMatches = buyMatches.OrderBy(x => x.date_time).ToList();
-                        foreach (var buyMatch in buyMatches)
-                        {
 
-                            float buyerPrice = buyMatch.market_limit == 1 ? (float)(marketStockStatus.Bid) : (float)buyMatch.limit;
-                            float average = (float)(buyerPrice + sellPrice)/2;
-                            createStockMatch(sell, buyMatch,average);
-                            if (sell.status == _stockStatusGetter.GetDescription(eStatus.Done))
+                    foreach (var sell in stockGroup.Value)
+                    {
+                        double sellPrice;
+                        bool isMarket = false;
+                        double buyPrice = getBuyNumberMatch(marketStockStatus, sell, out sellPrice);
+                        if (buyPrice >= marketStockStatus.Bid && marketStockStatus.Bid >= sellPrice)
+                        {
+                            isMarket = true;
+                        }
+                        if (_buy.ContainsKey(stockGroup.Key))
+                        {
+                            var buyMatches = _buy[stockGroup.Key].Where(x => x.user_id != sell.user_id 
+                                && x.limit <= buyPrice && x.limit >= sellPrice
+                                && x.status == _stockStatusGetter.GetDescription(eStatus.InProgress)).ToList();
+                            if (isMarket)
                             {
-                                break;
+                                buyMatches.AddRange(_buy[stockGroup.Key]
+                                    .Where(x => x.user_id != sell.user_id && x.market_limit ==1
+                                        && x.status == _stockStatusGetter.GetDescription(eStatus.InProgress))
+                                    .ToList());
+                            }
+                            buyMatches = buyMatches.OrderBy(x => x.date_time).ToList();
+                            foreach (var buyMatch in buyMatches)
+                            {
+
+                                float buyerPrice = buyMatch.market_limit == 1 ? (float)(marketStockStatus.Bid) : (float)buyMatch.limit;
+                                float average = (float)(buyerPrice + sellPrice)/2;
+                                createStockMatch(sell, buyMatch,average);
+                                if (sell.status == _stockStatusGetter.GetDescription(eStatus.Done))
+                                {
+                                    break;
+                                }
                             }
                         }
                     }
+                    _sell[stockGroup.Key].RemoveAll(x => x.status == _stockStatusGetter.GetDescription(eStatus.Deleted) || x.status == _stockStatusGetter.GetDescription(eStatus.Done));
+                    if (_buy.ContainsKey(stockGroup.Key))
+                    {
+                        _buy[stockGroup.Key].RemoveAll(x => x.status == _stockStatusGetter.GetDescription(eStatus.Deleted) || x.status == _stockStatusGetter.GetDescription(eStatus.Done));                    
+                    }
                 }
-                _sell[stockGroup.Key].RemoveAll(x => x.status == _stockStatusGetter.GetDescription(eStatus.Deleted) || x.status == _stockStatusGetter.GetDescription(eStatus.Done));
-                if (_buy.ContainsKey(stockGroup.Key))
-                {
-                    _buy[stockGroup.Key].RemoveAll(x => x.status == _stockStatusGetter.GetDescription(eStatus.Deleted) || x.status == _stockStatusGetter.GetDescription(eStatus.Done));                    
-                }
+            }
+            catch (Exception ex)
+            {
+
+                Log.ErrorFormat("Error : {0}", ex.Message);
             }
             
 
@@ -146,6 +156,7 @@
 
         private void createStockMatch(stocks_action sell, stocks_action buy, float i_Average)
         {
+
             if (buy.quantity >=sell.quantity)
             {
                 UpdateActionLog(sell, buy, sell.quantity, i_Average);
@@ -154,9 +165,11 @@
                 buy.quantity -= sell.quantity;
                 sell.quantity = 0;
                 sell.status = _stockStatusGetter.GetDescription(eStatus.Done);
+                sell.is_updatable = 0;
                 if (buy.quantity==0)
                 {
                     buy.status = _stockStatusGetter.GetDescription(eStatus.Done);
+                    buy.is_updatable = 0;
                 }
                 
             }
@@ -168,6 +181,7 @@
                 sell.quantity -= buy.quantity;
                 buy.quantity = 0;
                 buy.status = _stockStatusGetter.GetDescription(eStatus.Done);
+                buy.is_updatable = 0;
                 
             }
             UpdateDb(sell);
@@ -265,6 +279,7 @@
             var stockToUpdate = _context.stocks_action.FirstOrDefault(x => x.Id ==stock.Id);
             if (stockToUpdate!=null)
             {
+               
                 UpdateStock(stock, stockToUpdate);
                 _context.SaveChanges();
                 updateDictionary(stockToUpdate);
@@ -288,6 +303,8 @@
             stockToUpdate.status = stock.status;
             stockToUpdate.strategy = stock.strategy;
             stockToUpdate.target = stock.target;
+            stockToUpdate.is_updatable = stock.is_updatable;
+
         }
 
         private void updateDictionary(stocks_action i_Stcok)
@@ -318,7 +335,12 @@
                 Entities _context = new Entities();
 
                 var stockToDelete = _context.stocks_action.FirstOrDefault(x => x.Id == id);
+                if (stockToDelete==null)
+                {
+                    throw new Exception("Stock Action not found");
+                }
                 stockToDelete.status = _stockStatusGetter.GetDescription(eStatus.Deleted);
+                stockToDelete.is_updatable = 0;
                 _context.SaveChanges();
                 deleteStockFromDictionray(stockToDelete);
             }

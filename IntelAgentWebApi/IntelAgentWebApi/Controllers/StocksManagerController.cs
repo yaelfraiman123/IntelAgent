@@ -36,6 +36,7 @@ namespace IntelAgentWebApi.Controllers
             value.user_id = User.Identity.GetUserId();
             value.date_time = DateTime.Now;
             value.Id = Guid.NewGuid().ToString();
+            value.is_updatable = 1;
             _stocksMatchManager.Insert2Db(value);
         }
 
@@ -52,7 +53,7 @@ namespace IntelAgentWebApi.Controllers
             }
         }
 
-        public void Delete([FromBody]string id)
+        public void Delete(string id)
         {
             try
             {

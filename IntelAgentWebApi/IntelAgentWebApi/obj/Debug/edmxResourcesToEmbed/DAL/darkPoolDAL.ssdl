@@ -90,6 +90,7 @@
     <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="amount_done" Type="int" />
     <Property Name="price_done" Type="float" />
+    <Property Name="is_updatable" Type="tinyint" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
