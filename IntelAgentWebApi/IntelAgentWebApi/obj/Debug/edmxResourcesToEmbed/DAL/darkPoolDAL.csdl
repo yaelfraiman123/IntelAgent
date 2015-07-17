@@ -132,6 +132,7 @@
     <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="amount_done" Type="Int32" />
     <Property Name="price_done" Type="Double" />
+    <Property Name="is_updatable" Type="Byte" />
   </EntityType>
   <EntityType Name="action_log">
     <Key>

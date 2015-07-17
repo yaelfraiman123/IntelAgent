@@ -44,6 +44,8 @@ public partial class stocks_action
 
     public Nullable<double> price_done { get; set; }
 
+    public Nullable<byte> is_updatable { get; set; }
+
 }
 
 }
