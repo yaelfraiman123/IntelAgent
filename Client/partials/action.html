@@ -13,25 +13,25 @@
 	<div class="inputFromSrcHeadLine">
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>{{text.BID_QTY}}</p>
+				<p>{{text.ASK_QTY}}</p>
 				<input name = "AskQty" type="text" readonly ng-model="selectedStock.AskQty" id = "AskQty">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>{{text.ASK}}</p>
+				<p>{{text.BID_QTY}}</p>
 				<input name = "BidQty" type="text" readonly ng-model="selectedStock.BidQty" id = "BidQty">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>{{text.BID}}</p>
+				<p>{{text.ASK}}</p>
 				<input name = "Ask" type = "text" readonly ng-model="selectedStock.Ask" id = "Ask">
 			</div>
 		</div>
 		<div>
 			<div class="col-sm-2 col-xs-6">
-				<p>{{text.ASK_QTY}}</p>
+				<p>{{text.BID}}</p>
 				<input name = "Bid" type = "text" readonly ng-model="selectedStock.Bid" id = "Bid">
 			</div>
 		</div>
@@ -133,13 +133,16 @@
         <tr ng-repeat="transaction in userProfile.transactions">
             <td>
                 <button class="btn btn-md btn-default"
-                        ng-click="abort($index)">
+                        ng-click="abort($index)"
+						ng-disabled="!transaction.is_updatable">
                     {{text.ABORT}}
                 </button>
             </td>
             <td>
                 <button class="btn btn-md btn-default"
-                        ng-click="update($index)" ng-hide="editingData[$index]">
+                        ng-click="update($index)" 
+						ng-hide="editingData[$index]"
+						ng-disabled="!transaction.is_updatable">
                     {{text.UPDATE}}
                 </button>
 				<a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png"></a>

@@ -2,9 +2,10 @@
 
   var app = angular.module("intelAgent");
 
-  var LangController = function($scope,$location,currentUser) {
+  var HeadController = function($scope,$location,$route,currentUser) {
 		$scope.showLangOps = $location.path() === '/action';
 		$scope.showLogout = false;
+		
 		$scope.logout = function()
 		{
 			
@@ -25,11 +26,16 @@
 				},
 				function(response){//on Failure
 					console.log("logout failed");
-		});
-		}
+			});
+		};
+		
+		$scope.refresh = function()
+		{
+			$route.reload();
+		};
   };
   
 	
 
-  app.controller("LangController", ["$scope","$location",'currentUser',LangController]);
+  app.controller("HeadController", ["$scope","$location",'$route','currentUser',HeadController]);
 }());

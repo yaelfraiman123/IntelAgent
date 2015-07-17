@@ -25,6 +25,7 @@
 		{	
 			setProfile("","",false);
 			profile.transactions = [];
+			localStorage["intelToken"] = "";
 		}
 				
 		var logout = function()
@@ -60,7 +61,7 @@
 			setProfile: setProfile,
 			getProfile: getProfile,
 			setTransactions: setTransactions,
-			logout: logout,
+			logout: logout,			
 			getUserInfo: getUserInfo,
 			clearUser: clearUser
 		};

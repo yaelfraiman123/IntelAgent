@@ -4,6 +4,8 @@
 
   var LoginController = function($scope,$location,userAccount,currentUser) {
 		
+		//alert('success', 'יש עדכון!','אחד או יותר מהעברות שלך עודכנו' , 5000);
+		
 		$scope.profile = currentUser.getProfile();
 		
 		$scope.login = function(){
@@ -15,6 +17,8 @@
 					$scope.password = "";
 					currentUser.setProfile($scope.userData.username,data.access_token,true);//init current user profile
 					$scope.$parent.showLogout = true;//enables the logout button at the header
+					localStorage["intelToken"] = data.access_token;
+					localStorage["intelUser"] = $scope.userData.username;
 					$location.path("/action");
 				},
 				function(response){//on Failure
@@ -27,14 +31,6 @@
 		
 		$scope.logout = function()
 		{
-			
-			var info = currentUser.getUserInfo().get(null,
-				function(data){//on Success
-					console.log("current username " + data.Email);
-					},
-					function(response){//on Failure
-						console.log("get info fail ");
-			});
 			
 			currentUser.logout().post(currentUser.getProfile.token,
 			function(data){//on Success

@@ -573,3 +573,5 @@
 2015-07-17 20:56:05,402 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-17 21:08:15,974 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-17 21:10:45,800 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-17 22:44:31,534 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-17 23:10:27,510 [23] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 995de511-262e-4820-936a-9fa21c74e5b3
