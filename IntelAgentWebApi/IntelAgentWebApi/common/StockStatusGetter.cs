@@ -26,9 +26,9 @@ namespace IntelAgentWebApi.common
         }
 
     }
-    public class StockStatusGetter
+    public static class StockStatusGetter
     {
-        public string GetDescription(Enum en)
+        public static string GetDescription(Enum en)
         {
 
             Type type = en.GetType();

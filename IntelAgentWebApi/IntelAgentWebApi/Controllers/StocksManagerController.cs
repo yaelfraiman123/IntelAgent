@@ -37,14 +37,14 @@ namespace IntelAgentWebApi.Controllers
             value.date_time = DateTime.Now;
             value.Id = Guid.NewGuid().ToString();
             value.is_updatable = 1;
-            _stocksMatchManager.Insert2Db(value);
+            _stocksMatchManager.AddNewStcokAction(value);
         }
 
         public void Put([FromBody]stocks_action value)
         {
             try
             {
-                 _stocksMatchManager.UpdateDb(value);
+                 _stocksMatchManager.UpdateStockAction(value);
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace IntelAgentWebApi.Controllers
         {
             try
             {
-                _stocksMatchManager.DeleteFromDb(id);
+                _stocksMatchManager.DeleteStockAction(id);
             }
             catch (Exception ex)
             {

@@ -573,3 +573,46 @@
 2015-07-17 20:56:05,402 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-17 21:08:15,974 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
 2015-07-17 21:10:45,800 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-17 21:23:40,775 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 14:03:12,662 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 16:12:01,999 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 16:12:08,057 [7] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:05:17,371 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 19:05:32,350 [6] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:05:52,983 [6] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:05:53,064 [6] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:06:25,544 [12] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-18 19:07:19,818 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 19:07:21,707 [11] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-18 19:07:21,816 [11] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-18 19:07:37,617 [6] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-18 19:07:44,197 [11] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 2a340f41-0bf9-40ac-a5fb-204bbaa53264
+2015-07-18 19:14:58,019 [16] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:15:08,547 [17] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:15:46,393 [14] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 66ee12e0-3516-4b75-9d7b-5bd21e5789d1
+2015-07-18 19:16:57,515 [18] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:17:16,602 [16] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:17:16,680 [19] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:17:54,754 [18] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:18:23,108 [18] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:18:23,191 [19] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:18:37,398 [18] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:18:40,522 [18] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:19:48,066 [21] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:20:21,934 [21] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:21:42,797 [18] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:22:04,103 [21] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:22:06,981 [19] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:22:51,624 [25] INFO IntelAgentWebApi.common.StocksHandler - retrive all stock for user 5863f030-b944-46e1-8d18-a65a79508cc4
+2015-07-18 19:24:57,825 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 19:27:28,746 [18] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 6459293e-573a-4e8a-b316-09e2f69f33a5
+2015-07-18 19:28:45,174 [15] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:29:28,537 [14] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:30:07,816 [12] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:45:10,923 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 19:45:27,179 [5] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 13beb2e2-ab76-479c-856d-399a1eb9db34
+2015-07-18 19:46:15,014 [7] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 6459293e-573a-4e8a-b316-09e2f69f33a5
+2015-07-18 19:49:48,140 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 19:50:13,603 [1] ERROR IntelAgentWebApi.common.StocksHandler - start the thread of finding stock that match
+2015-07-18 19:50:31,946 [6] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 6459293e-573a-4e8a-b316-09e2f69f33a5
+2015-07-18 19:50:37,443 [9] INFO IntelAgentWebApi.common.StocksHandler - insert new stock for user id : 13beb2e2-ab76-479c-856d-399a1eb9db34
