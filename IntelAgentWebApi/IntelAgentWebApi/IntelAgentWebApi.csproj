@@ -258,8 +258,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="common\DBHandler.cs" />
     <Compile Include="common\StockStatusGetter.cs" />
     <Compile Include="common\XmlStocksSerializer.cs" />
+    <Compile Include="Controllers\RefreshController.cs" />
     <Compile Include="Controllers\StocksManagerController.cs" />
     <Compile Include="DAL\action_log.cs">
       <DependentUpon>darkPoolDAL.tt</DependentUpon>
