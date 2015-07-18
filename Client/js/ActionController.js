@@ -5,9 +5,8 @@
     var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, 
 									stockService,transactionService,currentUser,appSettings,alert)
 	{
+	
 				/*FUNCTIONS */
-
-		
 		//Logic of the "Other" visibility
 		$scope.updateLimitSelect = function(){
 	
@@ -134,19 +133,43 @@
 			}
 						
 		};
-				
+		
+		function updateAlert(scope)
+		{
+			console.log(scope);
+			alert('warning',$scope.text.ALERT_UPDATE_STRONG,$scope.text.ALERT_UPDATE,true,5000);
+		}
 		$scope.otherLogic = function(transaction,limitObj)
 		{
 			transaction.market_limit = limitObj.value;
 		};
 		
-		console.log(getLang);
 		getLang();// We will need it anyway for alerts.
 		
 		var iteration = function()
 		{
 			if(currentUser.getProfile().isLoggedIn)
-			{		
+			{	
+			
+			 function launchCheckWebWorker() {
+					var worker = new Worker('services/checkTrans.js');
+							
+					worker.onmessage = function(e) {
+						
+						if(e.data.isChanged)
+							updateAlert($scope);
+					};
+					worker.onerror = function(e) {
+						//alert('Error: Line ' + e.lineno + ' in ' + e.filename + ': ' + e.message);
+						console.log(e);
+					};
+					
+					//start the worker
+					worker.postMessage({IP: appSettings.serverURL});
+				}
+
+			launchCheckWebWorker();
+				
 				$scope.userProfile = {};	
 				
 				
@@ -220,7 +243,8 @@
     };
     
     app.controller('ActionController',
-	["$scope","$log","$route","$location","$routeParams" ,"$resource","stockService","transactionService","currentUser","appSettings",'alert', ActionController]);
+	["$scope","$log","$route","$location","$routeParams" ,"$resource","stockService","transactionService","currentUser","appSettings",'alert'
+	,ActionController]);
 
 }());
 

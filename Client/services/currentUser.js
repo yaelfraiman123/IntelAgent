@@ -25,7 +25,6 @@
 		{	
 			setProfile("","",false);
 			profile.transactions = [];
-			//asdasd?
 			localStorage["intelToken"] = "";
 			localStorage["intelUser"] = "";
 			
