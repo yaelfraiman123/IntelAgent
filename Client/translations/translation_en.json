@@ -19,8 +19,8 @@
 	"CHOOSE_ACTION" : "Choose Action",
 	"BUY" : "Buy",
 	"SELL" : "Sell",
-	"PRICE_CHECK" : "Price Done",
-	"CARRYING_AMOUNT" : "Amount Done",
+	"PRICE_DONE" : "Price Done",
+	"AMOUNT_DONE" : "Amount Done",
 	"STATUS" : "Status",
 	"TARGET" : "Target",
 	"LIMIT" : "Limit",
@@ -28,6 +28,10 @@
 	"STOCK" : "Stock",
 	"ABORT" : "Abort",
 	"UPDATE" : "Update",
-	"CHECK_DELETE" : "Are you sure, Delete transaction?"
-
+	"CHECK_DELETE" : "Are you sure, Delete transaction?",
+	"SEARCH_TRANSACTION": "Transaction Search Filer",
+	"ALERT_UPDATE_STRONG": "Hey!",
+	"ALERT_UPDATE": "There are updates on one or more of your transactions",
+	"ALERT_NOTLOGGED_STRONG": "Oh No!",
+	"ALERT_NOTLOGGED": "You forgot to Login"
 }

@@ -2,7 +2,7 @@
 	"use strict";
 	
     var moduleRef = angular.module("services");					
-	var currentUser = function(appSettings,$resource,$http){
+	var currentUser = function(appSettings,$resource,$http,alert){
 		var profile = {
 				isLoggedIn: false,
 				username: "",
@@ -14,17 +14,20 @@
 		{
 			profile.transactions = transactions;
 		}
-		var setProfile = function(username,token,isLoggedIn)
+		var setProfile = function(username1,token1,isLoggedIn1)
 		{
-				profile.username = username;
-				profile.token = token;
-				profile.isLoggedIn = isLoggedIn;
+				profile.username = username1;
+				profile.token = token1;
+				profile.isLoggedIn = isLoggedIn1;
 		};
 		
 		var clearUser = function()
 		{	
 			setProfile("","",false);
 			profile.transactions = [];
+			localStorage["intelToken"] = "";
+			localStorage["intelUser"] = "";
+			
 		}
 				
 		var logout = function()
@@ -38,6 +41,13 @@
 				}
 			});
 		};
+		
+		var login = function(username,token)
+		{
+			setProfile(username,token,true);
+			localStorage["intelToken"] = token;
+			localStorage["intelUser"] = username;
+		}
 		
 		var getProfile = function()
 		{
@@ -60,12 +70,13 @@
 			setProfile: setProfile,
 			getProfile: getProfile,
 			setTransactions: setTransactions,
-			logout: logout,
+			logout: logout,		
+			login: login,			
 			getUserInfo: getUserInfo,
 			clearUser: clearUser
 		};
 		
 	}
 	
-	moduleRef.factory("currentUser", ["appSettings","$resource","$http",currentUser]);//use this dependencies
+	moduleRef.factory("currentUser", ["appSettings","$resource","$http",'alert',currentUser]);//use this dependencies
 }()); 
