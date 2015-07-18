@@ -9,7 +9,7 @@
       $location.path("/login");
     };
 
-	$scope.goToRegisterPage = function goToRegisterPage(){
+	$scope.goToRegisterPage = function(){
 		$log.debug("Going to the Register Page via Login");
         $location.path("/register");
 	};
