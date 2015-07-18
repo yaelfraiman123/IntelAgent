@@ -2,71 +2,14 @@
    "use strict"
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, stockService,transactionService,currentUser){
-		
-		$scope.userProfile = {};
-		
-		var foo = localStorage["bar"];
-		localStorage["bar"] = foo;
-		
-		if(currentUser.getProfile().isLoggedIn == false)
-		{
-			$location.path("/login");
-		}
-		
-		getLang();
- 
-		$scope.color = {
-			isRed: "",
-			isGreen: ""
-		};
-
-        $scope.editingData = [];//boolean  array to check if inputs has to be shown to modify the table.
-
-        //Get all stocks to show to user.
-		stockService.getStocks()
-			.then(function(data){ 
-			//on success
-			$scope.stockArray = data;
-			},
-			function(errorReason){
-			//on failure
-				$scope.error = errorReason;
-			});
-
-			
-		
-		//Get all the User's transactions
-        transactionService.get(null,
-		function(data){//on Success
-				currentUser.setTransactions(data);
-				$scope.original =[];
-				angular.copy(data,$scope.original);
-				angular.copy(currentUser.getProfile(), $scope.userProfile);
-				$scope.userProfile = currentUser.getProfile();
-				
-				for (var i = 0, length = $scope.userProfile.transactions.length; i < length; i++) {
-					$scope.editingData[i] = false;
-					
-					if($scope.userProfile.transactions[i].sell_action == 0)
-						$scope.userProfile.transactions[i].sell_action = "קניה";
-					else
-						$scope.userProfile.transactions[i].sell_action = "מכירה";
-				}
-			},
-			function(response){//on Failure
-					$log.debug("Could not fetch transactions " + response)
-				}
-			);
-		
-        $scope.optionArray = [
-			{ label: 'MKT', value: 1 },
-			{ label: 'Other', value: 0 }
-		];
-
-        //Logic of the "Other" visibility
+    var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, 
+									stockService,transactionService,currentUser,appSettings,alert)
+	{
+	
+				/*FUNCTIONS */
+		//Logic of the "Other" visibility
 		$scope.updateLimitSelect = function(){
-
+	
 			if ($scope.desiredLimitObj.value == 0){//if "other" selected
 				$scope.other = "true";
 			}
@@ -75,59 +18,76 @@
 			}
 			
 		};
-
-        //Logic of the BG-Color of the "change in %" Field
+	
+		//Logic of the BG-Color of the "change in %" Field
 		$scope.changeStock = function changeStock()
 		{
 			$scope.color.isGreen = $scope.selectedStock.PctChg > 0;
 			$scope.color.isRed = $scope.selectedStock.PctChg < 0;
 		};
-
-        //Creates a JSON and sends to API.
+	
+		//Creates a JSON and sends to API.
 		$scope.submitNewTansaction = function()
 		{					
-			$scope.selectFirst = false;
-	
-			var dateTime = Date;
+				$scope.selectFirst = false;
+		
+				var dateTime = Date;
+				
+				$scope.desiredTransaction = {
+				user_id: $scope.userProfile.username,
+				date_time: dateTime.now(),
+				stock_name: $scope.selectedStock.Symbol,
+				sell_action: $scope.desiredAction,
+				limit: $scope.desiredOtherLimit,
+				market_limit: $scope.desiredLimitObj.value,//1 if MKT
+				quantity: $scope.desiredQty,
+				strategy: $scope.desiredStrat,
+				target: $scope.desiredTrgt,
+				amount_done: 0,
+				price_done: 0
+				};
+				
+				$log.debug($scope.desiredTransaction);
+							
+				transactionService.post($scope.desiredTransaction,
+						function(data){//on Success
+							$log.debug("post success");
+							$route.reload();
+							});				
+			};
 			
-			$scope.desiredTransaction = {
-			user_id: $scope.userProfile.username,
-			date_time: dateTime.now(),
-			stock_name: $scope.selectedStock.Symbol,
-			sell_action: $scope.desiredAction,
-			limit: $scope.desiredOtherLimit,
-			market_limit: $scope.desiredLimitObj.value,//1 if MKT
-			quantity: $scope.desiredQty,
-			strategy: $scope.desiredStrat,
-			target: $scope.desiredTrgt,
-			amount_done: 0,
-			price_done: 0
+		var getLang = function()
+		{
+			var language = "he";//default lang
+			$scope.langDirection = "rtl";
+			if($routeParams.lang)
+			{
+				//check if we support the lang wanted
+				switch($routeParams.lang)
+				{
+					case "en":
+						language = "en";
+						$scope.langDirection = "ltr";
+						break;
+					default:
+						language = "he";
+						$scope.langDirection = "rtl";
+						break;
+				}
 			}
 			
-			$log.debug($scope.desiredTransaction);
-						
-			transactionService.post($scope.desiredTransaction,
-					function(data){//on Success
-						$log.debug("post success");
-						$route.reload();
-						},
-						function(response){//on Failure
-							$scope.message = response.statusText + "/r/n";
-							if(response.data.exceptionMessage )
-								$scope.message += response.data.exceptionMessage;
-							
-							if(response.data.modelState){
-								for(var key in response.data.modelState){
-									$scope.message += response.data.modelState[key] + "/r/n";
-								}
-							}
-						});				
+			var languageFilePath = '\\translations\\translation_'+ language + '.json';
+			$resource(languageFilePath).get(function (data) {
+					$scope.text = data;
+					iteration();
+			});	
+			
 		};
-		
+	
 		$scope.update = function(index)
 		{
 			$log.debug("Updating row index:"+index);
-            $scope.editingData[index] = true;
+			$scope.editingData[index] = true;
 		};
 			
 		$scope.AcceptUpdate = function(index)
@@ -146,8 +106,8 @@
 							$log.debug("put failed");
 						}
 			);				
-			 $scope.editingData[index] = false;
-			 
+			$scope.editingData[index] = false;
+			
 		};		
 				
 		$scope.AbortUpdate = function(index)
@@ -163,58 +123,128 @@
 			{
 				var ID = $scope.userProfile.transactions[index].Id;
 				$log.debug(ID);
-				//TODO send post delete request for the transaction[index]
-				transactionService.delete2(ID,
-					function(data){//on Success
-							$log.debug("delete success");
-						},
-						function(response){//on Failure
-							$log.debug("delete failed");
-						}
-				);	
-				$route.reload();
+				//Delete the transaction at index.Post to API
+				var User = $resource(appSettings.serverURL + "/api/StocksManager?id=:userId", { userId:'@id'},
+				{del: {method:'DELETE', headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }}});
+				User.del({ userId:ID}, function(user) {
+					console.log("del success");
+					$route.reload();
+				});	
 			}
 						
 		};
 		
-		
-		
+		function updateAlert(scope)
+		{
+			console.log(scope);
+			alert('warning',$scope.text.ALERT_UPDATE_STRONG,$scope.text.ALERT_UPDATE,true,5000);
+		}
 		$scope.otherLogic = function(transaction,limitObj)
 		{
 			transaction.market_limit = limitObj.value;
-		}
+		};
 		
+		getLang();// We will need it anyway for alerts.
 		
-		 function getLang()
+		var iteration = function()
 		{
-			var language = "he";//default lang
-			if($routeParams.lang)
+			if(currentUser.getProfile().isLoggedIn)
+			{	
+			
+			 function launchCheckWebWorker() {
+					var worker = new Worker('services/checkTrans.js');
+							
+					worker.onmessage = function(e) {
+						
+						if(e.data.isChanged)
+							updateAlert($scope);
+					};
+					worker.onerror = function(e) {
+						//alert('Error: Line ' + e.lineno + ' in ' + e.filename + ': ' + e.message);
+						console.log(e);
+					};
+					
+					//start the worker
+					worker.postMessage({IP: appSettings.serverURL});
+				}
+
+			launchCheckWebWorker();
+				
+				$scope.userProfile = {};	
+				
+				
+				$scope.color = {
+					isRed: "",
+					isGreen: ""
+				};
+		
+				$scope.editingData = [];//boolean  array to check if inputs has to be shown to modify the table.
+		
+				//Get all stocks to show to user.
+				stockService.getStocks()
+					.then(function(data){ 
+					//on success
+					$scope.stockArray = data;
+					},
+					function(errorReason){
+					//on failure
+						$scope.error = errorReason;
+					});
+		
+					
+				//Get all the User's transactions						
+				var userTransactions = $resource(appSettings.serverURL + "/api/StocksManager", null,
+				{get: {method:'GET', isArray:true ,headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }}});
+				userTransactions.get(null, function(data) {
+						currentUser.setTransactions(data);
+						$scope.original =[];
+						angular.copy(data,$scope.original);
+						angular.copy(currentUser.getProfile(), $scope.userProfile);
+						$scope.userProfile = currentUser.getProfile();
+						
+						for (var i = 0, length = $scope.userProfile.transactions.length; i < length; i++) {
+							$scope.editingData[i] = false;
+							
+							if($scope.userProfile.transactions[i].sell_action == 0)
+								$scope.userProfile.transactions[i].sell_action = "קניה";
+							else
+								$scope.userProfile.transactions[i].sell_action = "מכירה";
+							
+						}
+				});		
+					
+				$scope.optionArray = [
+					{ label: 'MKT', value: 1 },
+					{ label: 'Other', value: 0 }
+				];
+		
+						
+				$scope.$parent.showLangOps = true;//enables the Lang option in the header
+			}
+			else//User not logged in/refreshed
 			{
-				//check if we support the lang wanted
-				switch($routeParams.lang)
+				var token = localStorage["intelToken"];
+				var user = localStorage["intelUser"];
+				if( token != "" && token )
 				{
-					case "en":
-						language = "en";
-						break;
-					case "he":
-						language = "he";
-						break;
+					var LoggedIn = true;
+					currentUser.setProfile(user,token,LoggedIn);
+					$scope.$parent.showLogout = true;//enables the logout button at the header
+					$route.reload();
+				}
+				else
+				{
+					var showRefresh = true;
+					alert('danger', $scope.text.ALERT_NOTLOGGED_STRONG,$scope.text.ALERT_NOTLOGGED ,!showRefresh, 5000);
+					$location.path("/login");
 				}
 			}
-			
-			var languageFilePath = '\\translations\\translation_'+ language + '.json';
-			$resource(languageFilePath).get(function (data) {
-					$scope.text = data;
-			});	
-			
-		}
-		
-		$scope.$parent.showLangOps = true;//enables the Lang option in the header
-		
+		};
     };
     
     app.controller('ActionController',
-	["$scope","$log","$route","$location","$routeParams" ,"$resource","stockService","transactionService","currentUser", ActionController]);
+	["$scope","$log","$route","$location","$routeParams" ,"$resource","stockService","transactionService","currentUser","appSettings",'alert'
+	,ActionController]);
 
 }());
 

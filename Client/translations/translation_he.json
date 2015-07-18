@@ -1,9 +1,9 @@
 {  
     "CHOOSE_STOCK" : "בחר מניה",
-    "BID_QTY" : "כמות היצע",
-    "ASK_QTY" : "כמות ביקוש",
-	"BID" : "מחיר היצע ",
-	"ASK" : "מחיר ביקוש ",
+    "BID_QTY" : " כמות ביקוש",
+    "ASK_QTY" : "כמות היצע",
+	"BID" : "מחיר ביקוש ",
+	"ASK" : "מחיר היצע ",
 	"PCT_CHG" : "%-שינוי ב ",
 	"LAST_PRICE" : "מחיר אחרון ",
 	"SUBMIT" : "בצע",
@@ -19,8 +19,8 @@
 	"CHOOSE_ACTION" : "בחר פעולה",
 	"BUY" : "קניה",
 	"SELL" : "מכירה",
-	"PRICE_CHECK" : "מחיר ביצוע",
-	"CARRYING_AMOUNT" : "כמות ביצוע",
+	"PRICE_DONE" : "מחיר ביצוע",
+	"AMOUNT_DONE" : "כמות ביצוע",
 	"STATUS" : "סטטוס",
 	"TARGET" : "יעד",
 	"LIMIT" : "לימיט",
@@ -28,5 +28,10 @@
 	"STOCK" : "מניה",
 	"ABORT" : "ביטול",
 	"UPDATE" : "עדכון",
-	"CHECK_DELETE" : "אתה מאשר שאתה רוצה למחוק?"
+	"CHECK_DELETE" : "אתה מאשר שאתה רוצה למחוק?",
+	"SEARCH_TRANSACTION": "פילטר לחיפוש",
+	"ALERT_UPDATE_STRONG": "יו!",
+	"ALERT_UPDATE": "יש מניה אחת או יותר שלך עם עדכונים",
+	"ALERT_NOTLOGGED_STRONG": "אוי לא!",
+	"ALERT_NOTLOGGED": "כנראה ששכחת להתחבר"
 }

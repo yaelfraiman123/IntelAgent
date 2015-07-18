@@ -2,7 +2,7 @@
   var moduleRef = angular.module("services");
   var transactionService = function(appSettings,$resource,currentUser) {
 
-		return $resource(appSettings.serverURL + "/api/StocksManager?access_token=:access_token", {access_token: currentUser.getProfile().token},
+		return $resource(appSettings.serverURL + "/api/StocksManager", null,
 		{
 			'get': {	
 				method: 'GET',
@@ -17,7 +17,7 @@
 				method: 'PUT',
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
 			},			
-			'delete2': {
+			'delete': {
 				method: 'DELETE',
 				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
 			},

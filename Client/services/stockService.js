@@ -23,6 +23,6 @@
 			getStockBySymbol: getStockBySymbol
 			
 		};
-	}
+	};
   moduleRef.factory("stockService", ["appSettings","$http",stockService]);//use this dependencies
 }()); 
