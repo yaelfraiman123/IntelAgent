@@ -47,7 +47,7 @@ body {
 	cursor: pointer;
 }
 
-.tableBoot input[type="number"], .tableBoot select{
+.tableBoot input, .tableBoot select{
 	border-radius: 4px;
 	background-color: white;
 	width: 110px;
@@ -194,10 +194,6 @@ body {
 	margin-left: 24px;
 }
 
-.inputFromUserForm .Quantity input[type="number"]{
-	margin-left: 18px;
-}
-
 .inputFromUserForm .Action select{
 	margin-left: 20px;
 }
@@ -213,7 +209,7 @@ body {
   margin-top: 20px;
 }
 
-.inputFromUserForm select, .inputFromUserForm input[type="text"], .inputFromUserForm input[type="number"]{
+.inputFromUserForm select, .inputFromUserForm input[type="text"], .inputFromUserForm .Limit input, .inputFromUserForm .Quantity input{
   width: 130px;
   background-color: #D6D6D6;
   font-family: sans-serif;
@@ -222,7 +218,7 @@ body {
   margin-top: 11px;
 }
 
-.inputFromUserForm input[type="text"], .inputFromUserForm input[type="number"]{
+.inputFromUserForm input[type="text"], .inputFromUserForm .Limit input, .inputFromUserForm .Quantity input{
 	line-height:17px;
 	margin-left: 22px;
 	margin-bottom: 60px;
@@ -237,6 +233,7 @@ body {
 .inputFromUserForm input[type="submit"]{
   width: 131px;
   line-height: 40px;
+  background-color: orange;
 }
 
 .contactUsInfo h2{
@@ -382,7 +379,7 @@ footer {
 		margin-left: 0px;
 	}
 
-	.inputFromUserForm .Quantity input[type="number"]{
+	.inputFromUserForm .Quantity input{
 		margin-left: 0px;
 	}
 
@@ -404,7 +401,7 @@ footer {
 		left: 16px;
 	}
 	
-	.inputFromUserForm select, .inputFromUserForm input[type="text"], .inputFromUserForm input[type="number"]{
+	.inputFromUserForm select, .inputFromUserForm input[type="text"], .inputFromUserForm .Limit input, .inputFromUserForm .Quantity input{
 		  width:100%;
 		  margin-bottom: 20px;
 		  margin-right: -6px;

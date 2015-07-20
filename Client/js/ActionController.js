@@ -2,15 +2,15 @@
    "use strict"
     var app = angular.module('intelAgent');
     
-    var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, 
-									stockService,transactionService,currentUser,appSettings,alert)
+    var ActionController = function($scope,$log,$route,$location,$routeParams ,$resource, $http,
+									stockService,transactionService,currentUser,appSettings,alert,$interval)
 	{
 	
 				/*FUNCTIONS */
 		//Logic of the "Other" visibility
 		$scope.updateLimitSelect = function(){
 	
-			if ($scope.desiredLimitObj.value == 0){//if "other" selected
+			if ($scope.desiredLimitNumber == 0){//if "other" selected
 				$scope.other = "true";
 			}
 			else{
@@ -38,8 +38,8 @@
 				date_time: dateTime.now(),
 				stock_name: $scope.selectedStock.Symbol,
 				sell_action: $scope.desiredAction,
-				limit: $scope.desiredOtherLimit,
-				market_limit: $scope.desiredLimitObj.value,//1 if MKT
+				limit: $scope.desiredOtherLimit,// Might be nothing if MKT is selected.
+				market_limit: $scope.desiredLimitNumber,//1 is MKT
 				quantity: $scope.desiredQty,
 				strategy: $scope.desiredStrat,
 				target: $scope.desiredTrgt,
@@ -47,13 +47,13 @@
 				price_done: 0
 				};
 				
-				$log.debug($scope.desiredTransaction);
-							
-				transactionService.post($scope.desiredTransaction,
-						function(data){//on Success
-							$log.debug("post success");
-							$route.reload();
-							});				
+				
+				var userTransactions = $resource(appSettings.serverURL + "/api/StocksManager", null,
+				{post: {method:'POST' ,headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }}});
+				userTransactions.post($scope.desiredTransaction, function(data) {
+					$log.debug("post success");
+					$route.reload();
+				});									
 			};
 			
 		var getLang = function()
@@ -83,7 +83,27 @@
 			});	
 			
 		};
-	
+		
+		var checkTrans = function()
+		{
+			var req = 
+			{
+				method: 'GET',
+				url: appSettings.serverURL + "/api/Refresh",
+				headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token}
+			};
+
+			$http(req).success(function(isChanged)
+			{
+				if(isChanged)
+					updateAlert();
+			}).error(function(e)
+			{
+				console.log("fail" + e);
+			});
+			
+		}
+		
 		$scope.update = function(index)
 		{
 			$log.debug("Updating row index:"+index);
@@ -92,21 +112,48 @@
 			
 		$scope.AcceptUpdate = function(index)
 		{
-			if($scope.userProfile.transactions[index].sell_action == "מכירה")
-				$scope.userProfile.transactions[index].sell_action = 1;
-			else
-				$scope.userProfile.transactions[index].sell_action = 0;
-			//PUT UPDATE
-			transactionService.put($scope.userProfile.transactions[index],
-					function(data){//on Success
-							$log.debug("put success");
-							$route.reload();
-						},
-						function(response){//on Failure
-							$log.debug("put failed");
-						}
-			);				
-			$scope.editingData[index] = false;
+			document.getElementById("submitLimit").click();
+			document.getElementById("submitQty").click();
+			
+			if(!this.formLimit.$invalid && !this.formQty.$invalid)
+			{
+				if($scope.userProfile.transactions[index].sell_action == $scope.text.SELL)
+					$scope.userProfile.transactions[index].sell_action = 1;
+				else
+					$scope.userProfile.transactions[index].sell_action = 0;
+				//PUT UPDATE TODO
+				
+				var req = 
+				{
+					method: 'PUT',
+					url: appSettings.serverURL + "/api/StocksManager",
+					data: $scope.userProfile.transactions[index],
+					headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token},
+					
+				};
+	
+				$http(req).success(function(data)
+				{
+					$route.reload();
+                
+				}).error(function(e)
+				{
+					console.log("fail" + e);
+				});
+				
+				var userUpdate = $resource(appSettings.serverURL + "/api/StocksManager", null,
+					{put: {method:'PUT' ,headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }}});
+				console.log($scope.userProfile.transactions[index]);
+				
+				var resource = userUpdate.put(null,$scope.userProfile.transactions[index]);
+				
+				resource.$promise.then(function(data)
+				{
+					console.log(data);
+					$route.reload();
+				});
+				$scope.editingData[index] = false;
+			}
 			
 		};		
 				
@@ -114,8 +161,8 @@
 		{
 			//restore transaction
 			$route.reload();
-		};		
-			
+		};					
+		
 		$scope.abort = function(index)
 		{
 			var isConfirmed = window.confirm($scope.text.CHECK_DELETE);
@@ -124,9 +171,10 @@
 				var ID = $scope.userProfile.transactions[index].Id;
 				$log.debug(ID);
 				//Delete the transaction at index.Post to API
-				var User = $resource(appSettings.serverURL + "/api/StocksManager?id=:userId", { userId:'@id'},
+				var transDelete = $resource(appSettings.serverURL + "/api/StocksManager?id=:userId", { userId:'@id'},
 				{del: {method:'DELETE', headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }}});
-				User.del({ userId:ID}, function(user) {
+				
+				transDelete.del({ userId:ID}, function(data) {
 					console.log("del success");
 					$route.reload();
 				});	
@@ -134,15 +182,10 @@
 						
 		};
 		
-		function updateAlert(scope)
+		function updateAlert()
 		{
-			console.log(scope);
 			alert('warning',$scope.text.ALERT_UPDATE_STRONG,$scope.text.ALERT_UPDATE,true,5000);
 		}
-		$scope.otherLogic = function(transaction,limitObj)
-		{
-			transaction.market_limit = limitObj.value;
-		};
 		
 		getLang();// We will need it anyway for alerts.
 		
@@ -150,26 +193,6 @@
 		{
 			if(currentUser.getProfile().isLoggedIn)
 			{	
-			
-			 function launchCheckWebWorker() {
-					var worker = new Worker('services/checkTrans.js');
-							
-					worker.onmessage = function(e) {
-						
-						if(e.data.isChanged)
-							updateAlert($scope);
-					};
-					worker.onerror = function(e) {
-						//alert('Error: Line ' + e.lineno + ' in ' + e.filename + ': ' + e.message);
-						console.log(e);
-					};
-					
-					//start the worker
-					worker.postMessage({IP: appSettings.serverURL});
-				}
-
-			launchCheckWebWorker();
-				
 				$scope.userProfile = {};	
 				
 				
@@ -195,6 +218,7 @@
 				//Get all the User's transactions						
 				var userTransactions = $resource(appSettings.serverURL + "/api/StocksManager", null,
 				{get: {method:'GET', isArray:true ,headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }}});
+				
 				userTransactions.get(null, function(data) {
 						currentUser.setTransactions(data);
 						$scope.original =[];
@@ -206,9 +230,9 @@
 							$scope.editingData[i] = false;
 							
 							if($scope.userProfile.transactions[i].sell_action == 0)
-								$scope.userProfile.transactions[i].sell_action = "קניה";
+								$scope.userProfile.transactions[i].sell_action = $scope.text.BUY;
 							else
-								$scope.userProfile.transactions[i].sell_action = "מכירה";
+								$scope.userProfile.transactions[i].sell_action = $scope.text.SELL;
 							
 						}
 				});		
@@ -217,7 +241,12 @@
 					{ label: 'MKT', value: 1 },
 					{ label: 'Other', value: 0 }
 				];
-		
+				
+				var intervalDefine = typeof $scope.$parent.intervalStop;
+				//Start the refresh service, Only if not started
+				if (intervalDefine === 'undefined') {
+					$scope.$parent.intervalStop = $interval(checkTrans, appSettings.checkIfChangeTimer); 
+				}
 						
 				$scope.$parent.showLangOps = true;//enables the Lang option in the header
 			}
@@ -230,6 +259,7 @@
 					var LoggedIn = true;
 					currentUser.setProfile(user,token,LoggedIn);
 					$scope.$parent.showLogout = true;//enables the logout button at the header
+					alert('success', $scope.text.ALERT_LOGGED_STRONG ,$scope.text.ALERT_LOGGED + user ,false, 5000);
 					$route.reload();
 				}
 				else
@@ -243,8 +273,8 @@
     };
     
     app.controller('ActionController',
-	["$scope","$log","$route","$location","$routeParams" ,"$resource","stockService","transactionService","currentUser","appSettings",'alert'
-	,ActionController]);
+	["$scope","$log","$route","$location","$routeParams" ,"$resource","$http","stockService","transactionService","currentUser","appSettings",'alert'
+	,'$interval',ActionController]);
 
 }());
 

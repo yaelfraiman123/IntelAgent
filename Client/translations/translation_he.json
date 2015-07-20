@@ -33,5 +33,9 @@
 	"ALERT_UPDATE_STRONG": "יו!",
 	"ALERT_UPDATE": "יש מניה אחת או יותר שלך עם עדכונים",
 	"ALERT_NOTLOGGED_STRONG": "אוי לא!",
-	"ALERT_NOTLOGGED": "כנראה ששכחת להתחבר"
+	"ALERT_NOTLOGGED": "כנראה ששכחת להתחבר",
+	"ALERT_LOGGED_STRONG": "שלום! ",
+	"ALERT_LOGGED": "טוב שחזרת ",
+	"POSITIVE_INT_PATTERN": "מספר שלם חיובי",
+	"POSITIVE_DECIMAL_PATTERN": "מספר חיובי"
 }

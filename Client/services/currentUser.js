@@ -6,7 +6,7 @@
 		var profile = {
 				isLoggedIn: false,
 				username: "",
-				token: "",
+				token: "as",
 				transactions: []
 		};
 		

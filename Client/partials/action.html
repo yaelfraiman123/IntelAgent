@@ -1,259 +1,255 @@
-<form  ng-submit="submitNewTansaction()" >
-<div class="selectStock">
-	<select ng-change="changeStock()"
-			class="col-md-offset-10 col-xs-offset-10 action"
-			ng-model="selectedStock"
-			required
-			ng-options="stock as stock.Symbol for stock in stockArray">
-		<option value="" selected style="display:none;">{{text.CHOOSE_STOCK}}</option>
-	</select>
-</div>
-
-<div class="container conatinerAction">
-	<div class="inputFromSrcHeadLine">
-		<div>
-			<div class="col-sm-2 col-xs-6">
-				<p>{{text.ASK_QTY}}</p>
-				<input name = "AskQty" type="text" readonly ng-model="selectedStock.AskQty" id = "AskQty">
-			</div>
-		</div>
-		<div>
-			<div class="col-sm-2 col-xs-6">
-				<p>{{text.BID_QTY}}</p>
-				<input name = "BidQty" type="text" readonly ng-model="selectedStock.BidQty" id = "BidQty">
-			</div>
-		</div>
-		<div>
-			<div class="col-sm-2 col-xs-6">
-				<p>{{text.ASK}}</p>
-				<input name = "Ask" type = "text" readonly ng-model="selectedStock.Ask" id = "Ask">
-			</div>
-		</div>
-		<div>
-			<div class="col-sm-2 col-xs-6">
-				<p>{{text.BID}}</p>
-				<input name = "Bid" type = "text" readonly ng-model="selectedStock.Bid" id = "Bid">
-			</div>
-		</div>
-		<div>
-			<div class="col-sm-2 col-xs-6">
-				<p style="margin-right:5px">{{text.PCT_CHG}}</p>
-				<input name = "change" type = "text" readonly ng-model="selectedStock.PctChg" id = "change"
-					         ng-class="{redBG: color.isRed, greenBG: color.isGreen}">
-			</div>
-		</div>
-		<div>
-			<div class="col-sm-2 col-xs-6">
-				<p style="margin-right:5px">{{text.LAST_PRICE}}</p>
-				<input name = "last_price" type = "text" readonly ng-model="selectedStock.LastPrice" id = "last_price">
-			</div>
-		</div>
-	</div>
-
-	<div class="inputFromUserForm" >
-		<div>
-			<div class= "col-sm-2 col-xs-6 hidden-xs">
-				<input type="submit" value="{{text.SUBMIT}}" class="btn btn-lg btn-warning">
-			</div>
-		</div>
-		<div>
-			<div class= "col-sm-2 col-xs-6 Target">
-				<p>{{text.TARGET}}</p>
-				<select ng-model = "desiredTrgt" required>
-					<option value="" selected style="display:none">{{text.CHOOSE_TARGET}}</option>
-					<option>{{text.CROSS}}</option>
-					<option>{{text.DARK_POOL}} </option>
-				</select>
-			</div>
-		</div>
-		<div>
-			<div class= "col-sm-2 col-xs-6 Strategy">
-				<p>{{text.STRATEGY}}</p>
-				<select ng-model = "desiredStrat"required>
-					<option value="" selected style="display:none">{{text.CHOOSE_STRATEGY}} </option>
-					<option>{{text.AGGRESIVE}}</option>
-					<option>{{text.PASSIVE}}</option>
-				</select>
-			</div>
-		</div>
-		<div>
-			<div class= "col-sm-2 col-xs-6 Limit">
-				<p>{{text.LIMIT}}</p>
-				<select ng-change="updateLimitSelect()"
-				ng-model="desiredLimitObj"
-				ng-options="option as option.label for option in optionArray" required>
-					<option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
-				</select>
-				<input type="number" min="0" class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
-			</div>
-		</div>
-		<div>
-			<div class= "col-sm-2 col-xs-6 Quantity">
-				<p>{{text.QUANTITY}}</p>
-				<input type="number" min="0" ng-model="desiredQty" required>
-			</div>
-		</div>
-		<div>
-			<div class= "col-sm-2 col-xs-6 Action">
-				<p>{{text.ACTION}}</p>
-				<select ng-model = "desiredAction" required>
-					<option value="" selected style="display:none">{{text.CHOOSE_ACTION}} </option>
-					<option value="0">{{text.BUY}}</option>
-					<option value="1">{{text.SELL}}</option>
-				</select>
-			</div>
-		</div>
-		<div>
-			<div class= "col-sm-2 col-xs-6 hidden-sm hidden-md hidden-lg">
-				<input type="submit" value="בצע" class="btn btn-lg btn-warning">
-			</div>
-		</div>
-	</div>
-	</form>
-</div>
-
-  <form dir = "{{langDirection}}">
-    <div class="form-group">
-      <div class="input-group col-md-3">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-
-        <input type="text" class="form-control" placeholder="{{text.SEARCH_TRANSACTION}}" ng-model="searchTrans">
-
-      </div>      
+<form ng-submit="submitNewTansaction()">
+    <div class="selectStock">
+        <select ng-change="changeStock()" class="col-md-offset-10 col-xs-offset-10 action" ng-model="selectedStock" required ng-options="stock as stock.Symbol for stock in stockArray">
+            <option value="" selected style="display:none;">{{text.CHOOSE_STOCK}}</option>
+        </select>
     </div>
-  </form>
-  
+
+    <div class="container conatinerAction">
+        <div class="inputFromSrcHeadLine">
+            <div>
+                <div class="col-sm-2 col-xs-6">
+                    <p>{{text.ASK_QTY}}</p>
+                    <input name="AskQty" type="text" readonly ng-model="selectedStock.AskQty" id="AskQty">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6">
+                    <p>{{text.BID_QTY}}</p>
+                    <input name="BidQty" type="text" readonly ng-model="selectedStock.BidQty" id="BidQty">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6">
+                    <p>{{text.ASK}}</p>
+                    <input name="Ask" type="text" readonly ng-model="selectedStock.Ask" id="Ask">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6">
+                    <p>{{text.BID}}</p>
+                    <input name="Bid" type="text" readonly ng-model="selectedStock.Bid" id="Bid">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6">
+                    <p style="margin-right:5px">{{text.PCT_CHG}}</p>
+                    <input name="change" type="text" readonly ng-model="selectedStock.PctChg" id="change" ng-class="{redBG: color.isRed, greenBG: color.isGreen}">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6">
+                    <p style="margin-right:5px">{{text.LAST_PRICE}}</p>
+                    <input name="last_price" type="text" readonly ng-model="selectedStock.LastPrice" id="last_price">
+                </div>
+            </div>
+        </div>
+
+        <div class="inputFromUserForm">
+            <div>
+                <div class="col-sm-2 col-xs-6 hidden-xs">
+                    <input type="submit" value="{{text.SUBMIT}}" class="btn btn-lg btn-warning">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6 Target">
+                    <p>{{text.TARGET}}</p>
+                    <select ng-model="desiredTrgt" required>
+                        <option value="" selected style="display:none">{{text.CHOOSE_TARGET}}</option>
+                        <option>{{text.CROSS}}</option>
+                        <option>{{text.DARK_POOL}} </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6 Strategy">
+                    <p>{{text.STRATEGY}}</p>
+                    <select ng-model="desiredStrat" required>
+                        <option value="" selected style="display:none">{{text.CHOOSE_STRATEGY}} </option>
+                        <option>{{text.AGGRESIVE}}</option>
+                        <option>{{text.PASSIVE}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6 Limit">
+                    <p>{{text.LIMIT}}</p>
+                    <select ng-change="updateLimitSelect()" ng-model="desiredLimitNumber" ng-options="option.value as option.label for option in optionArray" required>
+                        <option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
+                    </select>
+
+                    <input ng-required="desiredLimitNumber == '0'" pattern="[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[eE][+-][0-9]+)?" title={{text.POSITIVE_DECIMAL_PATTERN}} class="OtherTextLimit" ng-show="other" ng-model="desiredOtherLimit">
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6 Quantity">
+                    <p>{{text.QUANTITY}}</p>
+                    <input pattern="0*[1-9]{1}[0-9]*" ng-model="desiredQty" required title={{text.POSITIVE_INT_PATTERN}}>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6 Action">
+                    <p>{{text.ACTION}}</p>
+                    <select ng-model="desiredAction" required>
+                        <option value="" selected style="display:none">{{text.CHOOSE_ACTION}} </option>
+                        <option value="0">{{text.BUY}}</option>
+                        <option value="1">{{text.SELL}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2 col-xs-6 hidden-sm hidden-md hidden-lg">
+                    <input type="submit" value="בצע" class="btn btn-lg btn-warning">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form dir="{{langDirection}}">
+    <div class="form-group">
+        <div class="input-group col-md-3">
+            <div class="input-group-addon"><i class="fa fa-search"></i>
+            </div>
+
+            <input type="text" class="form-control" placeholder="{{text.SEARCH_TRANSACTION}}" ng-model="searchTrans">
+
+        </div>
+    </div>
+</form>
+
 <div class="table-responsive">
     <table class="table tableBoot" ng-table="">
         <thead>
-        <tr>
-		    <th></th>			
-            <th></th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'price_done';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'price_done' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'price_done' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.PRICE_DONE}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'amount_done';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'amount_done' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'amount_done' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.AMOUNT_DONE}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'status';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.STATUS}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'target';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'target' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'target' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.TARGET}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'strategy';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'strategy' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'strategy' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.STRATEGY}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'limit';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'limit' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'limit' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.LIMIT}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'quantity';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'quantity' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'quantity' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.QUANTITY}}
-				</a>
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'sell_action';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'sell_action' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'sell_action' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.ACTION}}
-				</a>			
-			</th>
-            <th>
-				<a href="#/action" ng-click="sortType = 'stock_name';  sortReverse = !sortReverse">
-				<span ng-show="sortType == 'stock_name' && !sortReverse" class="fa fa-caret-down"></span>
-				<span ng-show="sortType == 'stock_name' && sortReverse" class="fa fa-caret-up"></span>
-				{{text.STOCK}}
-				</a>
-			</th>
-        </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'price_done';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'price_done' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'price_done' && sortReverse" class="fa fa-caret-up"></span> {{text.PRICE_DONE}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'amount_done';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'amount_done' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'amount_done' && sortReverse" class="fa fa-caret-up"></span> {{text.AMOUNT_DONE}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'status';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-up"></span> {{text.STATUS}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'target';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'target' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'target' && sortReverse" class="fa fa-caret-up"></span> {{text.TARGET}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'strategy';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'strategy' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'strategy' && sortReverse" class="fa fa-caret-up"></span> {{text.STRATEGY}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'limit';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'limit' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'limit' && sortReverse" class="fa fa-caret-up"></span> {{text.LIMIT}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'quantity';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'quantity' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'quantity' && sortReverse" class="fa fa-caret-up"></span> {{text.QUANTITY}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'sell_action';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'sell_action' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'sell_action' && sortReverse" class="fa fa-caret-up"></span> {{text.ACTION}}
+                    </a>
+                </th>
+                <th>
+                    <a href="#/action" ng-click="sortType = 'stock_name';  sortReverse = !sortReverse">
+                        <span ng-show="sortType == 'stock_name' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stock_name' && sortReverse" class="fa fa-caret-up"></span> {{text.STOCK}}
+                    </a>
+                </th>
+            </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="transaction in userProfile.transactions | orderBy:sortType:sortReverse | filter:searchTrans">
-            <td>
-                <button class="btn btn-md btn-default"
-                        ng-click="abort($index)"
-						ng-disabled="!transaction.is_updatable">
-                    {{text.ABORT}}
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-md btn-default"
-                        ng-click="update($index)" 
-						ng-hide="editingData[$index]"
-						ng-disabled="!transaction.is_updatable">
-                    {{text.UPDATE}}
-                </button>
-				<a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png"></a>
-				<a ng-show="editingData[$index]" ng-click="AbortUpdate($index)"><img src="images/AbortBtn.png"></a>
-            </td>
-            <td>{{transaction.price_done}}</td>
-            <td>{{transaction.amount_done}}</td>
-            <td>{{transaction.status}}</td>
-            <td>
-                <div ng-hide="editingData[$index]">{{transaction.target}}</div>
-                <div ng-show="editingData[$index]">
-					<select ng-model = "transaction.target" required>
-						<option value="" selected style="display:none">{{text.CHOOSE_TARGET}}</option>
-						<option>{{text.CROSS}}</option>
-						<option>{{text.DARK_POOL}} </option>
-					</select>
-				</div>
-            </td>
-			<td>
-                <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
-                <div ng-show="editingData[$index]">
-					<select ng-model = "transaction.strategy" required>
-						<option value="" selected style="display:none">{{text.CHOOSE_STRATEGY}} </option>
-						<option>{{text.AGGRESIVE}}</option>
-						<option>{{text.PASSIVE}}</option>
-					</select>
-				</div>
-            </td>
-			<td>
-                <div ng-hide="editingData[$index] || transaction.market_limit">{{transaction.limit}}</div>
-                <div ng-show="editingData[$index]">
-								<select ng-change="otherLogic(transaction,limitObj)" ng-model="limitObj"
-									ng-options="option as option.label for option in optionArray" required>
-									<option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
-								</select>
-								<input type="number" min="0" class="OtherTextLimit" ng-show="!transaction.market_limit && editingData[$index]" ng-model="transaction.limit">
-				</div>
-				<div ng-show ="transaction.market_limit && !editingData[$index]">MKT</div>
-            </td>
-			<td>
-                <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
-                <div ng-show="editingData[$index]"><input type="number" min="0" ng-model="transaction.quantity" /></div>
-            </td>
-			<td>{{transaction.sell_action}}</td>
-			<td>{{transaction.stock_name}}</td>
-        </tr>
+            <tr ng-repeat="transaction in userProfile.transactions | orderBy:sortType:sortReverse | filter:searchTrans">
+
+                <td>
+
+                    <button class="btn btn-md btn-default" ng-click="abort($index)" ng-disabled="!transaction.is_updatable">
+                        {{text.ABORT}}
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-md btn-default" ng-click="update($index)" ng-hide="editingData[$index]" ng-disabled="!transaction.is_updatable">
+                        {{text.UPDATE}}
+                    </button>
+                    <!-- Update-->
+                    <a ng-show="editingData[$index]" ng-click="AcceptUpdate($index)"><img src="images/AcceptBtn.png">
+                    </a>
+                    <a ng-show="editingData[$index]" ng-click="AbortUpdate($index)"><img src="images/AbortBtn.png">
+                    </a>
+                </td>
+
+                <td>{{transaction.price_done}}</td>
+                <td>{{transaction.amount_done}}</td>
+                <td>{{transaction.status}}</td>
+                <td>
+                    <div ng-hide="editingData[$index]">{{transaction.target}}</div>
+                    <div ng-show="editingData[$index]">
+                        <select ng-model="transaction.target" required>
+                            <option value="" selected style="display:none">{{text.CHOOSE_TARGET}}</option>
+                            <option>{{text.CROSS}}</option>
+                            <option>{{text.DARK_POOL}} </option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div ng-hide="editingData[$index]">{{transaction.strategy}}</div>
+                    <div ng-show="editingData[$index]">
+                        <select ng-model="transaction.strategy" required>
+                            <option value="" selected style="display:none">{{text.CHOOSE_STRATEGY}} </option>
+                            <option>{{text.AGGRESIVE}}</option>
+                            <option>{{text.PASSIVE}}</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <form name="formLimit">
+                        <div ng-hide="editingData[$index] || transaction.market_limit">{{transaction.limit}}</div>
+                        <div ng-show="editingData[$index]">
+                            <select ng-model="transaction.market_limit" ng-options="option.value as option.label for option in optionArray" required>
+                                <option value="" selected style="display:none">{{text.CHOOSE_LIMIT}} </option>
+                            </select>
+                            <input ng-required="!transaction.market_limit && editingData[$index]" type="number" min="0" class="OtherTextLimit" ng-show="!transaction.market_limit && editingData[$index]" ng-model="transaction.limit">
+                        </div>
+
+                        <div ng-show="transaction.market_limit && !editingData[$index]">MKT</div>
+                        <input ng-show="false" type="Submit" id="submitLimit" />
+                    </form>
+                </td>
+                <td>
+                    <form name="formQty">
+                        <div ng-hide="editingData[$index]">{{transaction.quantity}}</div>
+                        <div ng-show="editingData[$index]">
+                            <input ng-required="editingData[$index]" pattern="0*[1-9]{1}[0-9]*" title={{text.POSITIVE_INT_PATTERN}} ng-model="transaction.quantity" />
+                        </div>
+                        <input ng-show="false" type="Submit" id="submitQty" />
+                    </form>
+                </td>
+
+                <td>{{transaction.sell_action}}</td>
+                <td>{{transaction.stock_name}}</td>
+            </tr>
         </tbody>
     </table>
 </div>

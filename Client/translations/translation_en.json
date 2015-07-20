@@ -33,5 +33,10 @@
 	"ALERT_UPDATE_STRONG": "Hey!",
 	"ALERT_UPDATE": "There are updates on one or more of your transactions",
 	"ALERT_NOTLOGGED_STRONG": "Oh No!",
-	"ALERT_NOTLOGGED": "You forgot to Login"
+	"ALERT_NOTLOGGED": "You forgot to Login",
+	"ALERT_LOGGED_STRONG": "Hi! ",
+	"ALERT_LOGGED": "Good to have you back ",
+	"POSITIVE_INT_PATTERN": "Positive integer required",
+	"POSITIVE_DECIMAL_PATTERN": "Positive number required"
+
 }

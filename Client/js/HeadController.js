@@ -2,12 +2,16 @@
 
   var app = angular.module("intelAgent");
 
-  var HeadController = function($scope,$location,$route,currentUser) {
+  var HeadController = function($scope,$location,$route,$interval,currentUser) {
 		$scope.showLangOps = $location.path() === '/action';
 		$scope.showLogout = false;
 		
 		$scope.logout = function()
 		{	
+			if (angular.isDefined($scope.intervalStop)) {
+				$interval.cancel($scope.intervalStop);
+				$scope.intervalStop = undefined;
+			}
 			currentUser.logout().post(currentUser.getProfile.token,
 			function(data){//on Success
 				console.log("logout post success");
@@ -28,5 +32,5 @@
   
 	
 
-  app.controller("HeadController", ["$scope","$location",'$route','currentUser',HeadController]);
+  app.controller("HeadController", ["$scope","$location",'$route','$interval','currentUser',HeadController]);
 }());

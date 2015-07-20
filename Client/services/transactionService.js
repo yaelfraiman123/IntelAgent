@@ -11,7 +11,7 @@
 			},
 			'post':{
 			    method: 'POST',
-				headers: {'Authorization': 'Bearer ' + currentUser.getProfile().token }
+				headers: {'Authorization': 'Bearer ' + localStorage['intelToken'] }
 			},
 			'put': {
 				method: 'PUT',
