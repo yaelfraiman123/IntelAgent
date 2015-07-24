@@ -66,18 +66,34 @@ namespace IntelAgentWebApi.common
                 var stockToUpdate = _context.stocks_action.FirstOrDefault(x => x.Id == i_Stock.Id);
                 if (stockToUpdate != null)
                 {
-                    i_Stock.Id = stockToUpdate.Id;
-                    i_Stock.date_time = stockToUpdate.date_time;
-                    i_Stock.user_id = stockToUpdate.user_id;
-                    stockToUpdate = i_Stock;
+
+                    UpdateStock(i_Stock, stockToUpdate);
                     _context.SaveChanges();
                 }
                 else
                 {
                     throw new Exception("the stock not found in the db");
                 }
+
                 return stockToUpdate;
             }
+        }
+
+  
+        private static void UpdateStock(stocks_action stock, stocks_action stockToUpdate)
+        {
+            stockToUpdate.stock_name = stock.stock_name;
+            stockToUpdate.limit = stock.limit;
+            stockToUpdate.market_limit = stock.market_limit;
+            stockToUpdate.price_done = stock.price_done;
+            stockToUpdate.amount_done = stock.amount_done;
+            stockToUpdate.quantity = stock.quantity;
+            stockToUpdate.sell_action = stock.sell_action;
+            stockToUpdate.status = stock.status;
+            stockToUpdate.strategy = stock.strategy;
+            stockToUpdate.target = stock.target;
+            stockToUpdate.is_updatable = stock.is_updatable;
+
         }
 
         public stocks_action DeleteStockAction(string i_Id)

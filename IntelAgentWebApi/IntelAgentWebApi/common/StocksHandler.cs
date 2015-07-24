@@ -49,8 +49,7 @@
             Entities _context = new Entities();
 
             var stockslst = _context.stocks_action.AsEnumerable()
-                .Where(x => x.status != StockStatusGetter.GetDescription(eStatus.Done) 
-                    && x.status != StockStatusGetter.GetDescription(eStatus.Deleted)).ToList();
+                .Where(x => x.status == StockStatusGetter.GetDescription(eStatus.InProgress)).ToList();
             var sellLst = stockslst.Where(x => x.sell_action==1);
             var buyLst = stockslst.Where(x => x.sell_action==0);
             var grpSell = sellLst.GroupBy(x => x.stock_name);
@@ -124,11 +123,7 @@
                             }
                         }
                     }
-                    _sell[stockGroup.Key].RemoveAll(x => x.status == StockStatusGetter.GetDescription(eStatus.Deleted) || x.status == StockStatusGetter.GetDescription(eStatus.Done));
-                    if (_buy.ContainsKey(stockGroup.Key))
-                    {
-                        _buy[stockGroup.Key].RemoveAll(x => x.status == StockStatusGetter.GetDescription(eStatus.Deleted) || x.status == StockStatusGetter.GetDescription(eStatus.Done));                    
-                    }
+                  
                 }
             }
             catch (Exception ex)
@@ -136,8 +131,19 @@
 
                 Log.ErrorFormat("Error : {0}", ex.Message);
             }
-            
+            RemoveNotReleventStocks(_sell);
+            RemoveNotReleventStocks(_buy);
+        }
 
+        private void RemoveNotReleventStocks(ConcurrentDictionary<string, List<stocks_action>> remove)
+        {
+            foreach (var item in remove)
+            {
+                remove[item.Key].RemoveAll(
+                    y =>
+                    y.status == StockStatusGetter.GetDescription(eStatus.Deleted)
+                    || y.status == StockStatusGetter.GetDescription(eStatus.Done));
+            }
         }
 
         private float GetAvragePrice(float i_SellPrice, stocks_action i_BuyMatch, float i_MarketAverage, DarkPoolStockModel i_MarketStockStatus)
@@ -189,8 +195,21 @@
                 buy.is_updatable = 0;
                 
             }
-            UpdateStockAction(sell);
-            UpdateStockAction(buy);
+            UpdateStockAsMatch(sell);
+            UpdateStockAsMatch(buy);
+        }
+
+        private void UpdateStockAsMatch(stocks_action stockAction)
+        {
+            if (IsUserStocksChanged.ContainsKey(stockAction.user_id))
+            {
+                IsUserStocksChanged[stockAction.user_id] = true;
+            }
+            else
+            {
+                IsUserStocksChanged.Add(stockAction.user_id, true);
+            }
+            UpdateStockAction(stockAction);
         }
 
         private void updatePrice(stocks_action i_StockAction, int i_Quantity,float i_MatchPrice)
@@ -272,14 +291,7 @@
 
         public void UpdateStockAction(stocks_action stock)
         {
-            if (IsUserStocksChanged.ContainsKey(stock.user_id))
-            {
-                IsUserStocksChanged[stock.user_id] = true;
-            }
-            else
-            {
-                IsUserStocksChanged.Add(stock.user_id, true);
-            }
+           
             stocks_action stockToUpdate = _dbHandler.UpdateActionStock(stock);
             updateDictionary(stockToUpdate);
         }
